@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATELIER DENTAIRE Эстетическая стоматология — SPV ASINA</title>
+<meta name="description" content="Портфолио SPV ASINA: разработка цифровых продуктов, web, backend, AI / ML, автоматизация и интеграции.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+<style id="spv-standalone-shell">html,body{margin:0;padding:0}body{min-width:0}</style>
+</head>
+<body>
+
+<style data-spv-site-case>
+:root{
+  --spv-bg:#f7f3f8;--spv-surface:#fffcff;--spv-soft:#eee5f2;--spv-ink:#241a29;
+  --spv-muted:#655a6b;--spv-line:#d7c7de;--spv-accent:#6f3d8f;--spv-dark:#27182e;
+  --spv-on:#fff9ff;--spv-container:1240px;--spv-shadow:0 24px 70px rgba(68,42,78,.15);
+}
+.spv-site-case,.spv-site-case *{box-sizing:border-box;min-width:0}
+.spv-site-case{isolation:isolate;width:100%;overflow-x:clip;background:var(--spv-bg);color:var(--spv-ink);font-family:'Comfortaa',sans-serif}
+.spv-site-case :is(h1,h2,h3,p,a,span,strong,small,button){font-family:'Comfortaa',sans-serif;hyphens:none;word-break:normal}
+.spv-site-case a:not(.site-case-btn){color:inherit;text-decoration:none}.spv-site-case .site-case-btn{text-decoration:none}.spv-site-case p{margin:0;text-wrap:pretty}
+.spv-site-case h1,.spv-site-case h2,.spv-site-case h3{margin:0;text-wrap:balance;overflow-wrap:normal}
+.site-case-container{width:min(var(--spv-container),calc(100% - 44px));margin:0 auto}
+.site-case-header{position:sticky;top:0;z-index:80;background:rgba(247,243,248,.92);border-bottom:1px solid rgba(215,199,222,.9);backdrop-filter:blur(20px)}
+.site-case-header__inner{height:76px;display:flex;align-items:center;gap:22px}
+.site-case-brand{font-size:20px;font-weight:800;letter-spacing:-.045em;white-space:nowrap}
+.site-case-brand:before{content:"";display:inline-block;width:10px;height:10px;margin-right:9px;border-radius:50%;background:linear-gradient(135deg,#7b3f99,#b184c2);box-shadow:0 0 0 5px rgba(169,127,192,.2)}
+.site-case-brand span{color:#7b3f99}.site-case-nav{display:flex;align-items:center;gap:22px;margin-left:auto}
+.site-case-nav a{position:relative;color:#493b50;font-size:13px;font-weight:700}
+.site-case-nav a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,#6f3d8f,#a875bd);transform:scaleX(0);transform-origin:100%;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.site-case-nav a:hover:after{transform:scaleX(1);transform-origin:0}
+.site-case-menu{display:none;margin-left:auto;min-height:44px;padding:9px 14px;border:1px solid #c1a2cd;border-radius:999px;color:#4d245e;background:#fff;font-weight:800}
+.site-case-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border:1px solid #4d245e;border-radius:999px;color:var(--spv-on);background:linear-gradient(135deg,#4d245e,#7b3f99);font-size:13px;font-weight:800;text-align:center;box-shadow:0 12px 28px rgba(77,36,94,.25);transition:transform .42s cubic-bezier(.16,1,.3,1),box-shadow .42s cubic-bezier(.16,1,.3,1),background .35s}
+.site-case-btn--light{color:#4d245e;background:#fff;border-color:#bea4c9;box-shadow:none}
+.site-case-btn:focus-visible{outline:3px solid rgba(152,100,178,.38);outline-offset:4px}
+.site-case-hero{position:relative;padding:76px 0 64px;overflow:hidden;background:radial-gradient(circle at 84% 14%,rgba(152,100,178,.2),transparent 30%),linear-gradient(145deg,#fbf8fc,#f0e7f4);border-bottom:1px solid var(--spv-line)}
+.site-case-hero:after{content:"";position:absolute;right:-100px;bottom:-210px;width:480px;height:480px;border-radius:50%;border:1px solid rgba(111,61,143,.16);box-shadow:0 0 0 54px rgba(111,61,143,.035),0 0 0 108px rgba(111,61,143,.025)}
+.site-case-hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,.58fr);align-items:end;gap:58px}
+.site-case-eyebrow{display:inline-flex;align-items:center;gap:10px;color:#562565;font-size:11.5px;font-weight:800;letter-spacing:.075em;text-transform:uppercase}
+.site-case-eyebrow:before{content:"";width:22px;height:3px;border-radius:9px;background:linear-gradient(90deg,#7b3f99,#b184c2)}
+.site-case-hero h1{max-width:860px;margin-top:18px;font-size:clamp(44px,6.5vw,88px);line-height:.99;letter-spacing:-.045em}
+.site-case-hero__sector{display:block;margin-top:10px;color:#7b3f99;font-size:.46em;line-height:1.15;letter-spacing:-.025em}
+.site-case-lead{max-width:790px;margin-top:26px!important;color:var(--spv-muted);font-size:17px;line-height:1.68}
+.site-case-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.site-case-status{position:relative;padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:26px;color:var(--spv-on);background:linear-gradient(150deg,#27182e,#4a2855);box-shadow:0 24px 58px rgba(60,28,71,.24)}
+.site-case-status:before{content:"";position:absolute;right:25px;top:25px;width:10px;height:10px;border-radius:50%;background:#c99cda;box-shadow:0 0 0 7px rgba(201,156,218,.13)}
+.site-case-status small{display:block;color:#d8c5df;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.site-case-status strong{display:block;margin-top:17px;font-size:23px;line-height:1.25}
+.site-case-status p{margin-top:14px!important;color:#e1d5e5;font-size:12.5px;line-height:1.65}
+.site-case-strategy{padding:30px 0 66px}.site-case-strategy__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.site-case-fact{padding:23px;border:1px solid var(--spv-line);border-radius:21px;background:var(--spv-surface);box-shadow:0 10px 28px rgba(86,65,94,.08);transition:transform .42s cubic-bezier(.16,1,.3,1),box-shadow .42s,border-color .32s}
+.site-case-fact span{display:block;color:#7b3f99;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.site-case-fact p{margin-top:11px!important;color:#514557;font-size:13px;line-height:1.62}
+.site-demo-section{padding:0 0 82px}.site-demo-head{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:20px}
+.site-demo-head h2{margin-top:10px;font-size:clamp(30px,4vw,50px);line-height:1.08;letter-spacing:-.035em}
+.site-demo-head p{max-width:480px;color:var(--spv-muted);font-size:13px;line-height:1.6}
+.site-demo-shell{position:relative;overflow:hidden;border:1px solid #cbb8d3;border-radius:30px;background:#fff;box-shadow:var(--spv-shadow)}
+.site-demo-chrome{height:52px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 18px;border-bottom:1px solid #ddd0e2;background:linear-gradient(180deg,#fbf8fc,#f1e9f4)}
+.site-demo-dots{display:flex;gap:7px}.site-demo-dots i{width:9px;height:9px;border-radius:50%;background:#c8b2d1}.site-demo-dots i:nth-child(2){background:#aa7fbc}.site-demo-dots i:nth-child(3){background:#73428a}
+.site-demo-address{padding:7px 18px;border:1px solid #d8c7df;border-radius:999px;color:#655a6b;background:#fff;font-size:10px;font-weight:700;letter-spacing:.02em}
+.site-demo-mode{justify-self:end;color:#7b3f99;font-size:10px;font-weight:800;text-transform:uppercase}
+.site-demo-frame{display:block;width:100%;height:1000px;border:0;background:#fff}
+.site-case-cta{padding:72px 0;background:#27182e;color:var(--spv-on)}
+.site-case-cta__inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px}
+.site-case-cta h2{font-size:clamp(32px,4.4vw,58px);line-height:1.08;letter-spacing:-.035em}
+.site-case-cta p{max-width:690px;margin-top:15px!important;color:#dfd2e3;font-size:14px;line-height:1.65}
+.site-case-cta .site-case-btn{color:#351d40;background:#fff;border-color:#fff;box-shadow:0 14px 32px rgba(0,0,0,.22)}
+.site-case-footer{padding:38px 0 26px;border-top:1px solid var(--spv-line);background:#eee2f2}
+.site-case-footer__grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:30px}
+.site-case-footer h3{font-size:13px}.site-case-footer p,.site-case-footer a{color:#5f5365;font-size:12px;line-height:1.65}
+.site-case-footer__links{display:grid;gap:7px}.site-case-footer__bottom{margin-top:26px;padding-top:17px;border-top:1px solid var(--spv-line);color:#6b6071;font-size:11px;line-height:1.55}
+.site-case-reveal{opacity:0;transform:translateY(24px) scale(.99);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.site-case-reveal.is-visible{opacity:1;transform:none}
+@media(hover:hover) and (pointer:fine){
+  .site-case-btn:hover{transform:translateY(-4px) scale(1.012);box-shadow:0 18px 38px rgba(77,36,94,.3)}
+  .site-case-btn--light:hover{box-shadow:0 14px 30px rgba(77,36,94,.15)}
+  .site-case-fact:hover{z-index:2;transform:translateY(-6px);border-color:#b994c7;box-shadow:0 22px 50px rgba(77,36,94,.14)}
+}
+@media(max-width:980px){
+  .site-case-hero__grid{grid-template-columns:1fr;gap:32px}.site-case-status{max-width:650px}
+  .site-case-strategy__grid{grid-template-columns:1fr}.site-demo-head{display:block}.site-demo-head p{margin-top:14px}
+}
+@media(max-width:760px){
+  .site-case-container{width:min(var(--spv-container),calc(100% - 28px))}
+  .site-case-header__inner{height:68px}.site-case-nav{position:absolute;top:68px;left:14px;right:14px;display:flex;flex-direction:column;align-items:stretch;gap:0;max-height:0;padding:0 18px;overflow:hidden;opacity:0;visibility:hidden;background:#fffcff;border:0 solid var(--spv-line);border-radius:18px;box-shadow:var(--spv-shadow);transition:max-height .4s cubic-bezier(.2,.75,.25,1),padding .3s,opacity .25s}
+  .site-case-nav.open{max-height:260px;padding:12px 18px;opacity:1;visibility:visible;border-width:1px}
+  .site-case-nav a{padding:12px 0}.site-case-menu{display:block}
+  .site-case-hero{padding:48px 0 46px}.site-case-hero h1{font-size:clamp(38px,11.4vw,54px);line-height:1.04}
+  .site-case-lead{font-size:15px}.site-case-actions{display:grid}.site-case-btn{width:100%}
+  .site-case-status{padding:23px}.site-case-strategy{padding-bottom:50px}.site-case-fact{padding:20px}
+  .site-demo-section{padding-bottom:58px}.site-demo-shell{border-radius:20px}.site-demo-chrome{height:44px;padding:0 12px;grid-template-columns:auto 1fr}.site-demo-address{justify-self:end;max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:6px 12px}.site-demo-mode{display:none}
+  .site-case-cta{padding:56px 0}.site-case-cta__inner{grid-template-columns:1fr}.site-case-footer__grid{grid-template-columns:1fr}
+}
+@media(max-width:380px){.site-demo-address{max-width:175px}.site-case-brand{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.site-case-reveal,.site-case-reveal.is-visible{opacity:1;transform:none;transition:none}.site-case-btn,.site-case-fact,.site-case-nav{transition:none}}
+</style>
+
+<div class="spv-site-case" data-spv-page="case-site-atelier">
+  <header class="site-case-header">
+    <div class="site-case-container site-case-header__inner">
+      <a class="site-case-brand" href="./index.html">spv<span>_asina</span></a>
+      <nav class="site-case-nav" data-site-case-nav>
+        <a href="./cases.html?category=sites">Сайты</a>
+        <a href="./cases.html">Все кейсы</a>
+        <a href="./services.html">Экспертиза</a>
+        <a href="./contacts.html?type=Нужен сайт">Обсудить проект</a>
+      </nav>
+      <button class="site-case-menu" data-site-case-menu type="button" aria-expanded="false">Меню</button>
+    </div>
+  </header>
+  <main>
+    <section class="site-case-hero">
+      <div class="site-case-container site-case-hero__grid">
+        <div class="site-case-reveal">
+          <div class="site-case-eyebrow">Демонстрационный web-кейс</div>
+          <h1>ATELIER DENTAIRE<span class="site-case-hero__sector">Эстетическая стоматология</span></h1>
+          <p class="site-case-lead">Редакционный сайт частной практики, где эстетика объясняется через материал, диагностику и долговечность результата.</p>
+          <div class="site-case-actions">
+            <a class="site-case-btn" href="#site-demo">Смотреть сайт</a>
+            <a class="site-case-btn site-case-btn--light" href="./contacts.html?type=Нужен сайт">Обсудить похожую задачу</a>
+          </div>
+        </div>
+        <aside class="site-case-status site-case-reveal" aria-label="Статус проекта">
+          <small>Статус публикации</small>
+          <strong>Демонстрационный концепт</strong>
+          <p>Проект создан для портфолио. Название бренда, команда, адреса, проекты и показатели внутри макета вымышлены и показывают работу интерфейса.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="site-case-strategy">
+      <div class="site-case-container site-case-strategy__grid">
+        <article class="site-case-fact site-case-reveal"><span>Задача</span><p>Уйти от визуальных клише стоматологии и подчеркнуть точность ручной работы.</p></article>
+        <article class="site-case-fact site-case-reveal"><span>Решение</span><p>Журнальная сетка, предметная клиническая графика, истории задач и спокойная консультация.</p></article>
+        <article class="site-case-fact site-case-reveal"><span>Фокус</span><p>Editorial · медицина · премиум</p></article>
+      </div>
+    </section>
+    <section class="site-demo-section" id="site-demo">
+      <div class="site-case-container">
+        <div class="site-demo-head site-case-reveal">
+          <div><div class="site-case-eyebrow">Интерактивная демонстрация</div><h2>Сайт в рабочем виде</h2></div>
+          <p>Навигация, кнопки, формы, адаптивные блоки и микроанимации работают внутри демонстрации. Формы ничего не отправляют.</p>
+        </div>
+        <div class="site-demo-shell site-case-reveal">
+          <div class="site-demo-chrome" aria-hidden="true">
+            <span class="site-demo-dots"><i></i><i></i><i></i></span>
+            <span class="site-demo-address">atelier.demo</span>
+            <span class="site-demo-mode">live concept</span>
+          </div>
+          <iframe class="site-demo-frame" data-site-demo-frame title="ATELIER DENTAIRE: демонстрация сайта" loading="eager" sandbox="allow-scripts allow-forms allow-same-origin allow-modals" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+  &lt;meta name=&quot;theme-color&quot; content=&quot;#f1ece4&quot;&gt;
+  &lt;title&gt;ATELIER DENTAIRE — эстетическая стоматология&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Демонстрационный концепт сайта эстетической стоматологии: диагностика, восстановление функции и естественная эстетика.&quot;&gt;
+  &lt;style&gt;
+    :root{
+      --paper:#f1ece4;--surface:#faf7f1;--surface-2:#e5d9cc;--ink:#211d1a;--muted:#6d6259;
+      --bronze:#9b6c50;--bronze-dark:#724831;--line:#cfc4b8;--dark:#26211e;--on-dark:#f8f3eb;
+      --container:1240px;--radius:24px;--shadow:0 22px 60px rgba(57,43,34,.12);
+      --serif:Georgia,&#x27;Times New Roman&#x27;,serif;--sans:Arial,Helvetica,sans-serif;
+    }
+    *{box-sizing:border-box;min-width:0}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+    body:before{content:&quot;&quot;;position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.12;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; width=&#x27;160&#x27; height=&#x27;160&#x27;%3E%3Cfilter id=&#x27;n&#x27;%3E%3CfeTurbulence baseFrequency=&#x27;.82&#x27; numOctaves=&#x27;3&#x27; stitchTiles=&#x27;stitch&#x27;/%3E%3C/filter%3E%3Crect width=&#x27;100%25&#x27; height=&#x27;100%25&#x27; filter=&#x27;url(%23n)&#x27; opacity=&#x27;.16&#x27;/%3E%3C/svg%3E&quot;)}
+    a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit;color:inherit}
+    button{cursor:pointer}.container{width:min(var(--container),calc(100% - 44px));margin:auto}
+    h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance}
+    p{text-wrap:pretty}.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-dark)}
+    .eyebrow:before{content:&quot;&quot;;width:26px;height:1px;background:currentColor}
+    .header{position:sticky;top:0;z-index:100;background:rgba(241,236,228,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(132,109,93,.24)}
+    .header__inner{height:74px;display:flex;align-items:center;gap:34px}.brand{font:400 23px/1 var(--serif);letter-spacing:.08em}.brand b{font-weight:400;color:var(--bronze)}
+    .nav{display:flex;align-items:center;gap:27px;margin-left:auto;font-size:12px}.nav a{position:relative;padding:10px 0}.nav a:after{content:&quot;&quot;;position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--bronze);transform:scaleX(0);transform-origin:100%;transition:.38s}
+    .nav a:hover:after{transform:scaleX(1);transform-origin:0}.menu{display:none;margin-left:auto;border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:10px 14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 21px;border:1px solid var(--dark);border-radius:999px;background:var(--dark);color:var(--on-dark);font-size:12px;font-weight:700;letter-spacing:.02em;transition:transform .42s cubic-bezier(.16,1,.3,1),box-shadow .42s,background .3s}
+    .btn--light{color:var(--ink);background:var(--surface);border-color:var(--line)}.btn--small{min-height:42px;padding:10px 17px}
+    .hero{position:relative;padding:70px 0 54px;border-bottom:1px solid var(--line);overflow:hidden}
+    .hero:after{content:&quot;&quot;;position:absolute;right:-140px;bottom:-280px;width:620px;height:620px;border:1px solid rgba(155,108,80,.15);border-radius:50%;box-shadow:0 0 0 70px rgba(155,108,80,.035),0 0 0 140px rgba(155,108,80,.025)}
+    .hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(430px,.88fr);align-items:center;gap:58px}
+    .hero h1{max-width:760px;margin-top:22px;font-size:clamp(55px,6.4vw,94px);line-height:.95;letter-spacing:-.045em}
+    .hero h1 em{display:block;color:var(--bronze);font-weight:400}.lead{max-width:650px;margin-top:27px;font-size:17px;line-height:1.68;color:var(--muted)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:31px}.hero__note{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:38px}
+    .hero__note div{padding-top:13px;border-top:1px solid var(--line)}.hero__note b{display:block;font-family:var(--serif);font-size:18px;font-weight:400}.hero__note span{display:block;margin-top:5px;color:var(--muted);font-size:10.5px;line-height:1.45}
+    .scan{position:relative;min-height:600px;border-radius:32px;background:linear-gradient(145deg,#2e2824,#171412);box-shadow:var(--shadow);overflow:hidden;color:var(--on-dark)}
+    .scan:before{content:&quot;&quot;;position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
+    .scan__top{position:relative;z-index:2;display:flex;justify-content:space-between;padding:22px 24px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#c9b9ad}.live{display:flex;align-items:center;gap:7px}.live:before{content:&quot;&quot;;width:7px;height:7px;border-radius:50%;background:#c49374;box-shadow:0 0 0 6px rgba(196,147,116,.12)}
+    .tooth-stage{position:absolute;inset:72px 30px 90px;display:grid;place-items:center}.tooth-stage svg{width:100%;height:100%}.scan-line{animation:scan 4.8s ease-in-out infinite}
+    @keyframes scan{0%,100%{transform:translateY(-145px);opacity:0}18%,82%{opacity:.7}50%{transform:translateY(145px)}}
+    .scan__card{position:absolute;z-index:3;width:165px;padding:14px;border:1px solid rgba(255,255,255,.14);border-radius:15px;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+    .scan__card small{display:block;color:#cdbdaf;font-size:8px;letter-spacing:.12em;text-transform:uppercase}.scan__card b{display:block;margin-top:8px;font:400 16px/1.2 var(--serif)}.scan__card span{display:block;margin-top:5px;color:#b9aaa0;font-size:9px;line-height:1.4}
+    .scan__card--one{left:25px;top:105px}.scan__card--two{right:24px;bottom:102px}.scan__footer{position:absolute;left:25px;right:25px;bottom:24px;display:flex;justify-content:space-between;color:#a99a91;font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+    .trust{padding:24px 0;border-bottom:1px solid var(--line);background:rgba(250,247,241,.6)}.trust__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .trust article{padding:18px 23px;border-right:1px solid var(--line)}.trust article:first-child{padding-left:0}.trust article:last-child{border-right:0}
+    .trust b{display:block;font:400 18px/1.2 var(--serif)}.trust p{margin-top:7px;color:var(--muted);font-size:11px;line-height:1.5}
+    .section{padding:100px 0}.section--surface{background:var(--surface)}.section--dark{background:var(--dark);color:var(--on-dark)}
+    .section-head{display:grid;grid-template-columns:210px minmax(0,1fr);gap:44px;align-items:start;margin-bottom:48px}
+    .section-head h2{max-width:900px;font-size:clamp(42px,5.5vw,76px);line-height:1.02;letter-spacing:-.035em}.section-head p{max-width:560px;margin-top:18px;color:var(--muted);font-size:15px;line-height:1.65}
+    .need-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.need-card{position:relative;min-height:350px;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;transition:.45s cubic-bezier(.16,1,.3,1)}
+    .need-card__num{font-size:10px;letter-spacing:.13em;color:var(--bronze)}.need-card h3{margin-top:54px;font-size:31px;line-height:1.05}.need-card p{margin-top:15px;color:var(--muted);font-size:13px;line-height:1.62}
+    .need-card a{position:absolute;left:28px;bottom:26px;font-size:11px;font-weight:700;border-bottom:1px solid;padding-bottom:5px}.need-card:after{content:&quot;&quot;;position:absolute;right:-70px;bottom:-90px;width:190px;height:190px;border-radius:50%;border:1px solid rgba(155,108,80,.18);box-shadow:0 0 0 28px rgba(155,108,80,.035)}
+    .diagnostic{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}.diagnostic-copy h2{margin-top:20px;font-size:clamp(43px,5.5vw,74px);line-height:1.02}.diagnostic-copy&gt;p{margin-top:22px;color:#d1c5bc;line-height:1.7;max-width:560px}
+    .checklist{display:grid;gap:10px;margin-top:28px}.checklist li{list-style:none;display:grid;grid-template-columns:30px 1fr;gap:11px;align-items:start;color:#d9cec6;font-size:13px;line-height:1.55}.checklist li:before{content:&quot;&quot;;width:25px;height:25px;border:1px solid #8c7768;border-radius:50%;background:radial-gradient(circle,#b98160 0 3px,transparent 4px)}
+    .diagnostic-panel{padding:27px;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:#302a26}.diagnostic-tabs{display:flex;gap:7px;margin-bottom:18px;overflow:auto}.diagnostic-tab{border:1px solid #5e5149;border-radius:999px;padding:9px 12px;white-space:nowrap;background:transparent;color:#cabbb0;font-size:10px}.diagnostic-tab.active{background:#f4eee6;color:#2a2420;border-color:#f4eee6}
+    .diagnostic-view{display:none;min-height:420px;border-radius:20px;background:#1c1917;overflow:hidden}.diagnostic-view.active{display:grid;grid-template-columns:1fr .8fr}
+    .diagnostic-art{position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 44%,rgba(185,129,96,.22),transparent 42%)}.diagnostic-art svg{width:83%;height:83%}
+    .diagnostic-info{padding:26px;border-left:1px solid #403832}.diagnostic-info small{font-size:8px;letter-spacing:.14em;color:#aa9b91;text-transform:uppercase}.diagnostic-info h3{margin-top:16px;font-size:28px}.diagnostic-info p{margin-top:14px;color:#bcb0a8;font-size:12px;line-height:1.6}.diagnostic-info ul{display:grid;gap:10px;margin:24px 0 0;padding:0}.diagnostic-info li{list-style:none;padding-top:10px;border-top:1px solid #403832;color:#d7cbc2;font-size:11px}
+    .services{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service{display:grid;grid-template-columns:58px 1fr auto;gap:18px;align-items:start;min-height:205px;padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+    .service__num{font-size:10px;color:var(--bronze)}.service h3{font-size:27px}.service p{margin-top:12px;color:var(--muted);font-size:12.5px;line-height:1.58}.service__tag{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:9px;white-space:nowrap}
+    .cases{display:grid;gap:18px}.case{display:grid;grid-template-columns:1.05fr .95fr;min-height:570px;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:var(--surface)}
+    .case:nth-child(even) .case__visual{order:2}.case__visual{position:relative;overflow:hidden;background:#d7c7b7}.case__visual svg{width:100%;height:100%}.case__content{display:flex;flex-direction:column;padding:42px}.case__content h3{margin-top:22px;font-size:42px;line-height:1.03}.case__content&gt;p{margin-top:17px;color:var(--muted);font-size:14px;line-height:1.65}
+    .case__facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:auto;padding-top:30px}.case__facts div{padding-top:12px;border-top:1px solid var(--line)}.case__facts b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bronze-dark)}.case__facts span{display:block;margin-top:7px;color:var(--muted);font-size:11px;line-height:1.45}
+    .standards{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}.standards h2{margin-top:20px;font-size:clamp(45px,6vw,82px);line-height:.98}.standards&gt;div&gt;p{margin-top:23px;color:#d0c4bc;font-size:15px;line-height:1.7}
+    .standard-list{border-top:1px solid #51463f}.standard{display:grid;grid-template-columns:55px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid #51463f}.standard span{color:#bc8b6e;font-size:10px}.standard h3{font-size:24px}.standard p{margin-top:8px;color:#bfb3aa;font-size:12px;line-height:1.55}
+    .faq{max-width:980px;margin-left:auto}.faq details{border-top:1px solid var(--line)}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{list-style:none;display:grid;grid-template-columns:50px 1fr 30px;gap:15px;padding:24px 0;font:400 24px/1.3 var(--serif);cursor:pointer}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:&quot;+&quot;;font-family:var(--sans);font-size:20px;transition:.3s}.faq details[open] summary:after{transform:rotate(45deg)}.faq__answer{padding:0 0 25px 65px;max-width:790px;color:var(--muted);font-size:13px;line-height:1.7}
+    .contact{padding:90px 0 34px;background:#b3927d}.contact__grid{display:grid;grid-template-columns:1fr .85fr;gap:70px;align-items:start}.contact h2{margin-top:19px;font-size:clamp(48px,6vw,82px);line-height:1}.contact__copy&gt;p{max-width:560px;margin-top:22px;color:#40342d;font-size:15px;line-height:1.7}
+    .form{display:grid;gap:11px;padding:26px;border-radius:24px;background:var(--surface);box-shadow:var(--shadow)}.field{display:grid;gap:7px}.field span{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:14px;background:#fffdf9;padding:14px 15px;outline:0}.field textarea{min-height:105px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--bronze);box-shadow:0 0 0 4px rgba(155,108,80,.12)}
+    .consent{display:flex;gap:9px;align-items:flex-start;margin:4px 0;font-size:10px;color:var(--muted);line-height:1.45}.consent input{margin-top:2px}.form-status{min-height:18px;color:var(--bronze-dark);font-size:11px}
+    .footer{margin-top:82px;padding-top:26px;border-top:1px solid rgba(52,40,32,.25);display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;font-size:11px;line-height:1.65;color:#463930}.footer div:last-child{text-align:right}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}.reveal.visible{opacity:1;transform:none}
+    @media(hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-4px);box-shadow:0 17px 34px rgba(44,33,27,.2)}.need-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#b79782}}
+    @media(max-width:980px){.hero__grid,.diagnostic,.standards,.contact__grid{grid-template-columns:1fr}.scan{min-height:560px}.trust__grid{grid-template-columns:1fr 1fr}.trust article:nth-child(2){border-right:0}.trust article:nth-child(-n+2){border-bottom:1px solid var(--line)}.section-head{grid-template-columns:1fr;gap:15px}.need-grid{grid-template-columns:1fr}.need-card{min-height:285px}.services{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case:nth-child(even) .case__visual{order:0}.case__visual{min-height:460px}.faq{margin-left:0}}
+    @media(max-width:720px){.container{width:min(var(--container),calc(100% - 28px))}.header__inner{height:66px}.nav{position:absolute;top:66px;left:14px;right:14px;display:flex;flex-direction:column;align-items:stretch;gap:0;max-height:0;padding:0 18px;overflow:hidden;opacity:0;background:var(--surface);border:0 solid var(--line);border-radius:18px;box-shadow:var(--shadow);transition:.38s}.nav.open{max-height:310px;padding:12px 18px;opacity:1;border-width:1px}.nav a{padding:12px 0}.header .btn{display:none}.menu{display:block}.hero{padding:46px 0 38px}.hero h1{font-size:clamp(43px,13vw,62px);line-height:1}.lead{font-size:15px}.actions{display:grid}.actions .btn{width:100%}.hero__note{grid-template-columns:1fr}.hero__note div{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start}.scan{min-height:500px;border-radius:22px}.scan__card{width:142px;padding:11px}.scan__card--one{left:13px;top:76px}.scan__card--two{right:13px;bottom:76px}.tooth-stage{inset:62px 8px 70px}.trust{padding:0}.trust__grid{grid-template-columns:1fr}.trust article,.trust article:first-child{padding:17px 0;border-right:0;border-bottom:1px solid var(--line)}.section{padding:72px 0}.section-head{margin-bottom:31px}.section-head h2{font-size:clamp(38px,11vw,52px)}.need-card{min-height:310px;padding:23px}.need-card h3{margin-top:35px;font-size:28px}.need-card a{left:23px}.diagnostic-copy h2,.standards h2{font-size:clamp(40px,11vw,56px)}.diagnostic-panel{padding:14px;border-radius:20px}.diagnostic-view.active{grid-template-columns:1fr}.diagnostic-art{min-height:300px}.diagnostic-info{border-left:0;border-top:1px solid #403832}.service{grid-template-columns:40px 1fr;padding:22px}.service__tag{grid-column:2}.case{min-height:0}.case__visual{min-height:330px}.case__content{padding:27px 22px}.case__content h3{font-size:34px}.case__facts{grid-template-columns:1fr}.standards{gap:35px}.faq summary{grid-template-columns:36px 1fr 22px;font-size:20px}.faq__answer{padding-left:51px}.contact{padding-top:72px}.contact h2{font-size:clamp(43px,12vw,58px)}.form{padding:20px}.footer{grid-template-columns:1fr}.footer div:last-child{text-align:left}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  &lt;/style&gt;
+&lt;style&gt;.spv-concept-notice{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px clamp(14px,3vw,42px);background:#17131b;color:#fff;font:700 9px/1.35 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase}.spv-concept-notice span:last-child{color:#cfc5d3;text-align:right}@media(max-width:600px){.spv-concept-notice{gap:8px;padding-inline:12px;font-size:7px;letter-spacing:.06em}.spv-concept-notice span:last-child{max-width:220px}}&lt;/style&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;style id=&quot;spv-v40-foundation&quot;&gt;
+html{scroll-padding-top:84px}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-wrap:normal}
+body::selection{background:var(--v40-accent,#754090);color:#fff}
+body,body *{min-width:0}
+img,svg,canvas{max-width:100%}
+section{scroll-margin-top:84px}
+.spv-concept-notice{position:relative;z-index:1200;min-height:38px!important;padding-block:7px!important;background:linear-gradient(110deg,#17131b,#281d2d 56%,#17131b)!important;border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 8px 28px rgba(18,10,22,.12)}
+body h1,body h2,body h3{text-wrap:balance;overflow-wrap:normal;word-break:normal;hyphens:none}
+body p,body li{text-wrap:pretty}
+body :is(a,button)[class*=&quot;-btn&quot;],body .btn{position:relative;isolation:isolate;overflow:hidden;transform:translateZ(0);will-change:transform;transition:transform .42s cubic-bezier(.16,1,.3,1),box-shadow .42s cubic-bezier(.16,1,.3,1),filter .32s ease,background-color .32s ease,color .32s ease,border-color .32s ease!important}
+body :is(a,button)[class*=&quot;-btn&quot;]::after,body .btn::after{content:&quot;&quot;;position:absolute;z-index:-1;top:-90%;left:-45%;width:34%;height:280%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.32),transparent);transform:translateX(-430%) rotate(18deg);transition:transform .68s cubic-bezier(.16,1,.3,1);pointer-events:none}
+body :is(a,button)[class*=&quot;-btn&quot;]:focus-visible,body .btn:focus-visible,body summary:focus-visible,body input:focus-visible,body textarea:focus-visible,body select:focus-visible{outline:3px solid color-mix(in srgb,var(--v40-accent,#754090) 42%,white);outline-offset:4px}
+body summary{transition:color .3s ease,background-color .3s ease,padding-left .35s cubic-bezier(.16,1,.3,1)}
+body details[open]&gt;:not(summary){animation:v40-details .42s cubic-bezier(.16,1,.3,1) both}
+body select{appearance:none;-webkit-appearance:none;padding-right:44px!important;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%!important;background-size:6px 6px,6px 6px!important;background-repeat:no-repeat!important}
+body header{transition:box-shadow .42s ease,background-color .42s ease,border-color .42s ease,backdrop-filter .42s ease}
+body.v40-scrolled header{box-shadow:0 16px 44px rgba(26,17,29,.1)}
+.v40-form-note{margin:10px 0 0;font-size:11px;line-height:1.45;color:inherit;opacity:.72}
+@keyframes v40-details{from{opacity:0;transform:translateY(-8px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@media(hover:hover) and (pointer:fine){
+  body :is(a,button)[class*=&quot;-btn&quot;]:hover,body .btn:hover{transform:translateY(-3px) scale(1.008);filter:saturate(1.06);box-shadow:0 16px 36px color-mix(in srgb,var(--v40-accent,#754090) 20%,transparent),0 5px 14px rgba(15,10,18,.1)!important}
+  body :is(a,button)[class*=&quot;-btn&quot;]:hover::after,body .btn:hover::after{transform:translateX(690%) rotate(18deg)}
+  body summary:hover{padding-left:8px}
+}
+@media(max-width:760px){html{scroll-padding-top:72px}section{scroll-margin-top:72px}.spv-concept-notice{min-height:42px!important;padding-inline:12px!important;font-size:7.5px!important;line-height:1.35!important;overflow:hidden}.spv-concept-notice span:first-child{flex:0 0 auto;white-space:nowrap}.spv-concept-notice span:last-child{max-width:none!important;font-size:0!important;white-space:nowrap}.spv-concept-notice span:last-child::after{content:&quot;КОНЦЕПТ ДЛЯ ПОРТФОЛИО&quot;;font-size:7px;letter-spacing:.05em}body input,body textarea,body select{font-size:16px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}body *,body *::before,body *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+&lt;/style&gt;
+
+&lt;style id=&quot;spv-v40-site&quot;&gt;
+:root{--v40-accent:#a16d50}.section{padding-block:clamp(82px,7vw,104px)!important}.hero h1{max-width:10ch;font-size:clamp(64px,6.8vw,102px)!important;line-height:.91!important}.hero__grid{gap:clamp(42px,5.4vw,84px)}.scan,.diagnostic-panel,.case__visual{border-radius:28px!important;box-shadow:0 30px 84px rgba(68,45,33,.15)!important}.section-head h2{font-size:clamp(46px,5vw,76px)!important;line-height:.98!important}.need-card,.service,.case,.standard{transition:transform .44s cubic-bezier(.16,1,.3,1),box-shadow .44s,border-color .35s}.scan-line{animation-duration:5.8s!important}@media(hover:hover) and (pointer:fine){.need-card:hover,.service:hover,.case:hover,.standard:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(102,70,52,.12)}}@media(max-width:760px){.section{padding-block:68px!important}.hero h1{font-size:clamp(49px,13.4vw,65px)!important}.section-head h2{font-size:clamp(39px,11vw,52px)!important}.scan,.diagnostic-panel,.case__visual{border-radius:21px!important}}
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;&lt;aside class=&quot;spv-concept-notice&quot; aria-label=&quot;Статус проекта&quot;&gt;&lt;span&gt;Демо-сайт&lt;/span&gt;&lt;span&gt;Концепт для портфолио · бренд, команда и показатели вымышлены&lt;/span&gt;&lt;/aside&gt;
+  &lt;header class=&quot;header&quot;&gt;
+&lt;div class=&quot;container header__inner&quot;&gt;
+    &lt;a class=&quot;brand&quot; href=&quot;#top&quot;&gt;ATELIER &lt;b&gt;DENTAIRE&lt;/b&gt;
+&lt;/a&gt;
+    &lt;nav class=&quot;nav&quot; data-nav&gt;
+&lt;a href=&quot;#approach&quot;&gt;Подход&lt;/a&gt;
+&lt;a href=&quot;#services&quot;&gt;Услуги&lt;/a&gt;
+&lt;a href=&quot;#cases&quot;&gt;Сценарии&lt;/a&gt;
+&lt;a href=&quot;#standards&quot;&gt;Стандарты&lt;/a&gt;
+&lt;a href=&quot;#faq&quot;&gt;Вопросы&lt;/a&gt;
+&lt;/nav&gt;
+    &lt;a class=&quot;btn btn--small&quot; href=&quot;#contact&quot;&gt;Записаться&lt;/a&gt;
+&lt;button class=&quot;menu&quot; data-menu aria-expanded=&quot;false&quot;&gt;Меню&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+  &lt;main id=&quot;top&quot;&gt;
+    &lt;section class=&quot;hero&quot;&gt;
+&lt;div class=&quot;container hero__grid&quot;&gt;
+      &lt;div class=&quot;reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Эстетическая и функциональная стоматология&lt;/span&gt;
+        &lt;h1&gt;Естественная улыбка начинается &lt;em&gt;с точного плана.&lt;/em&gt;
+&lt;/h1&gt;
+        &lt;p class=&quot;lead&quot;&gt;Сначала восстанавливаем логику прикуса и здоровье тканей. Затем работаем с формой, цветом и светом — без шаблонной «идеальной улыбки».&lt;/p&gt;
+        &lt;div class=&quot;actions&quot;&gt;
+&lt;a class=&quot;btn&quot; href=&quot;#contact&quot;&gt;Обсудить задачу&lt;/a&gt;
+&lt;a class=&quot;btn btn--light&quot; href=&quot;#diagnostic&quot;&gt;Как проходит диагностика&lt;/a&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;hero__note&quot;&gt;
+&lt;div&gt;
+&lt;b&gt;Сначала причина&lt;/b&gt;
+&lt;span&gt;Не начинаем эстетическую работу без функциональной диагностики.&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;b&gt;План до лечения&lt;/b&gt;
+&lt;span&gt;Показываем этапы, альтернативы и контрольные точки заранее.&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;b&gt;Бережный подход&lt;/b&gt;
+&lt;span&gt;Сохраняем максимум собственных тканей и избегаем лишних вмешательств.&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;scan reveal&quot; aria-label=&quot;Демонстрация цифрового планирования&quot;&gt;
+        &lt;div class=&quot;scan__top&quot;&gt;
+&lt;span&gt;Digital diagnostic model / 01&lt;/span&gt;
+&lt;span class=&quot;live&quot;&gt;модель активна&lt;/span&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;tooth-stage&quot;&gt;
+&lt;svg viewBox=&quot;0 0 600 620&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;defs&gt;
+&lt;radialGradient id=&quot;tooth&quot; cx=&quot;35%&quot; cy=&quot;24%&quot;&gt;
+&lt;stop stop-color=&quot;#fffdf8&quot;/&gt;
+&lt;stop offset=&quot;.52&quot; stop-color=&quot;#eadfd3&quot;/&gt;
+&lt;stop offset=&quot;1&quot; stop-color=&quot;#907766&quot;/&gt;
+&lt;/radialGradient&gt;
+&lt;filter id=&quot;shadow&quot;&gt;
+&lt;feDropShadow dx=&quot;0&quot; dy=&quot;28&quot; stdDeviation=&quot;22&quot; flood-color=&quot;#000&quot; flood-opacity=&quot;.35&quot;/&gt;
+&lt;/filter&gt;
+&lt;/defs&gt;
+          &lt;g opacity=&quot;.28&quot; fill=&quot;none&quot; stroke=&quot;#a98c7a&quot;&gt;
+&lt;circle cx=&quot;300&quot; cy=&quot;310&quot; r=&quot;250&quot;/&gt;
+&lt;circle cx=&quot;300&quot; cy=&quot;310&quot; r=&quot;185&quot;/&gt;
+&lt;path d=&quot;M50 310h500M300 60v500&quot;/&gt;
+&lt;path d=&quot;M123 133l354 354M477 133L123 487&quot;/&gt;
+&lt;/g&gt;
+          &lt;path filter=&quot;url(#shadow)&quot; d=&quot;M170 115c-48 82-26 167 7 244 29 68 20 171 75 194 45 19 60-89 104-89s58 108 104 89c54-23 46-126 75-194 33-77 56-162 7-244-47-79-142-76-186-42-44-34-139-37-186 42Z&quot; fill=&quot;url(#tooth)&quot;/&gt;
+          &lt;path d=&quot;M224 182c48-39 217-39 264 0&quot; fill=&quot;none&quot; stroke=&quot;#fff&quot; stroke-opacity=&quot;.58&quot; stroke-width=&quot;10&quot; stroke-linecap=&quot;round&quot;/&gt;
+          &lt;g fill=&quot;#c59273&quot;&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;359&quot; r=&quot;6&quot;/&gt;
+&lt;circle cx=&quot;535&quot; cy=&quot;359&quot; r=&quot;6&quot;/&gt;
+&lt;circle cx=&quot;356&quot; cy=&quot;464&quot; r=&quot;6&quot;/&gt;
+&lt;/g&gt;
+          &lt;path class=&quot;scan-line&quot; d=&quot;M130 310H500&quot; stroke=&quot;#c79373&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;8 8&quot;/&gt;
+        &lt;/svg&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;scan__card scan__card--one&quot;&gt;
+&lt;small&gt;Контроль функции&lt;/small&gt;
+&lt;b&gt;Прикус и сустав&lt;/b&gt;
+&lt;span&gt;Сначала проверяем нагрузку и движение.&lt;/span&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;scan__card scan__card--two&quot;&gt;
+&lt;small&gt;Эстетический слой&lt;/small&gt;
+&lt;b&gt;Форма и свет&lt;/b&gt;
+&lt;span&gt;Проектируем после стабилизации функции.&lt;/span&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;scan__footer&quot;&gt;
+&lt;span&gt;Function&lt;/span&gt;
+&lt;span&gt;Structure&lt;/span&gt;
+&lt;span&gt;Aesthetics&lt;/span&gt;
+&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+    &lt;section class=&quot;trust&quot;&gt;
+&lt;div class=&quot;container trust__grid&quot;&gt;
+&lt;article&gt;
+&lt;b&gt;Диагностика прежде эстетики&lt;/b&gt;
+&lt;p&gt;Результат не должен создавать новую функциональную проблему.&lt;/p&gt;
+&lt;/article&gt;
+&lt;article&gt;
+&lt;b&gt;Понятные альтернативы&lt;/b&gt;
+&lt;p&gt;Объясняем, что обязательно, что желательно и что можно отложить.&lt;/p&gt;
+&lt;/article&gt;
+&lt;article&gt;
+&lt;b&gt;Примерка результата&lt;/b&gt;
+&lt;p&gt;Будущую форму можно оценить до необратимого этапа.&lt;/p&gt;
+&lt;/article&gt;
+&lt;article&gt;
+&lt;b&gt;Контроль после работы&lt;/b&gt;
+&lt;p&gt;Фиксируем план наблюдения и критерии стабильности.&lt;/p&gt;
+&lt;/article&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section section--surface&quot; id=&quot;approach&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+      &lt;header class=&quot;section-head reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;С какой задачей приходят&lt;/span&gt;
+&lt;div&gt;
+&lt;h2&gt;Не продаём процедуру. Разбираемся, что действительно нужно изменить.&lt;/h2&gt;
+&lt;p&gt;Одинаковый эстетический запрос может требовать совершенно разного маршрута. Поэтому вход в работу — не каталог виниров, а диагностика задачи.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+      &lt;div class=&quot;need-grid&quot;&gt;
+&lt;article class=&quot;need-card reveal&quot;&gt;
+&lt;span class=&quot;need-card__num&quot;&gt;01 / ЭСТЕТИКА&lt;/span&gt;
+&lt;h3&gt;Форма, цвет или положение зубов&lt;/h3&gt;
+&lt;p&gt;Когда хочется более естественной улыбки, но непонятно, нужна реставрация, ортодонтия или достаточно небольшой коррекции.&lt;/p&gt;
+&lt;a href=&quot;#contact&quot;&gt;Подобрать маршрут&lt;/a&gt;
+&lt;/article&gt;
+&lt;article class=&quot;need-card reveal&quot;&gt;
+&lt;span class=&quot;need-card__num&quot;&gt;02 / ФУНКЦИЯ&lt;/span&gt;
+&lt;h3&gt;Стираемость и изменение прикуса&lt;/h3&gt;
+&lt;p&gt;Когда дискомфорт накапливался постепенно: чувствительность, напряжение, сколы или изменение высоты зубов.&lt;/p&gt;
+&lt;a href=&quot;#contact&quot;&gt;Начать с диагностики&lt;/a&gt;
+&lt;/article&gt;
+&lt;article class=&quot;need-card reveal&quot;&gt;
+&lt;span class=&quot;need-card__num&quot;&gt;03 / КОМПЛЕКСНО&lt;/span&gt;
+&lt;h3&gt;Нужно собрать лечение в единый план&lt;/h3&gt;
+&lt;p&gt;Когда участвуют несколько специалистов и важно не потерять последовательность, бюджет и контроль результата.&lt;/p&gt;
+&lt;a href=&quot;#contact&quot;&gt;Обсудить задачу&lt;/a&gt;
+&lt;/article&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section section--dark&quot; id=&quot;diagnostic&quot;&gt;
+&lt;div class=&quot;container diagnostic&quot;&gt;
+      &lt;div class=&quot;diagnostic-copy reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot; style=&quot;color:#c89a7d&quot;&gt;Диагностический этап&lt;/span&gt;
+&lt;h2&gt;Сначала собираем модель. Только потом принимаем решение.&lt;/h2&gt;
+&lt;p&gt;Пациент получает не набор снимков, а понятную карту: что происходит сейчас, какие есть варианты и как каждый повлияет на функцию, эстетику, сроки и объём вмешательства.&lt;/p&gt;
+&lt;ul class=&quot;checklist&quot;&gt;
+&lt;li&gt;Фотопротокол, цифровое сканирование и оценка прикуса.&lt;/li&gt;
+&lt;li&gt;Проверка нагрузки, сустава и состояния тканей.&lt;/li&gt;
+&lt;li&gt;Сравнение сценариев с объяснением компромиссов.&lt;/li&gt;
+&lt;li&gt;План этапов и точек контроля до начала лечения.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+      &lt;div class=&quot;diagnostic-panel reveal&quot;&gt;
+&lt;div class=&quot;diagnostic-tabs&quot;&gt;
+&lt;button class=&quot;diagnostic-tab active&quot; data-tab=&quot;scan&quot;&gt;Сканирование&lt;/button&gt;
+&lt;button class=&quot;diagnostic-tab&quot; data-tab=&quot;bite&quot;&gt;Прикус&lt;/button&gt;
+&lt;button class=&quot;diagnostic-tab&quot; data-tab=&quot;plan&quot;&gt;План&lt;/button&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;diagnostic-view active&quot; data-view=&quot;scan&quot;&gt;
+&lt;div class=&quot;diagnostic-art&quot;&gt;
+&lt;svg viewBox=&quot;0 0 400 360&quot;&gt;
+&lt;g fill=&quot;none&quot; stroke=&quot;#a57a60&quot;&gt;
+&lt;ellipse cx=&quot;200&quot; cy=&quot;180&quot; rx=&quot;140&quot; ry=&quot;105&quot;/&gt;
+&lt;ellipse cx=&quot;200&quot; cy=&quot;180&quot; rx=&quot;108&quot; ry=&quot;78&quot;/&gt;
+&lt;path d=&quot;M65 180h270M200 75v210&quot;/&gt;
+&lt;/g&gt;
+&lt;path d=&quot;M112 172q88-106 176 0-88 70-176 0Z&quot; fill=&quot;#e9ddd0&quot;/&gt;
+&lt;path d=&quot;M135 172q65-65 130 0&quot; fill=&quot;none&quot; stroke=&quot;#8c7565&quot; stroke-width=&quot;7&quot;/&gt;
+&lt;g fill=&quot;#bd8a6c&quot;&gt;
+&lt;circle cx=&quot;112&quot; cy=&quot;172&quot; r=&quot;5&quot;/&gt;
+&lt;circle cx=&quot;288&quot; cy=&quot;172&quot; r=&quot;5&quot;/&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;109&quot; r=&quot;5&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;div class=&quot;diagnostic-info&quot;&gt;
+&lt;small&gt;01 / цифровая модель&lt;/small&gt;
+&lt;h3&gt;Фиксируем исходное состояние&lt;/h3&gt;
+&lt;p&gt;Модель помогает увидеть взаимное положение зубов и обсуждать изменения на одном понятном экране.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Состояние тканей&lt;/li&gt;
+&lt;li&gt;Положение зубов&lt;/li&gt;
+&lt;li&gt;Исходные пропорции&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;diagnostic-view&quot; data-view=&quot;bite&quot;&gt;
+&lt;div class=&quot;diagnostic-art&quot;&gt;
+&lt;svg viewBox=&quot;0 0 400 360&quot;&gt;
+&lt;path d=&quot;M70 115Q200 35 330 115M70 245Q200 325 330 245&quot; fill=&quot;none&quot; stroke=&quot;#e6d8ca&quot; stroke-width=&quot;34&quot; stroke-linecap=&quot;round&quot;/&gt;
+&lt;g stroke=&quot;#bd8a6c&quot; stroke-width=&quot;4&quot;&gt;
+&lt;path d=&quot;M112 96v47M156 77v54M200 69v59M244 77v54M288 96v47M112 217v47M156 229v54M200 232v59M244 229v54M288 217v47&quot;/&gt;
+&lt;/g&gt;
+&lt;path d=&quot;M92 180h216&quot; stroke=&quot;#a57a60&quot; stroke-dasharray=&quot;8 8&quot;/&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;div class=&quot;diagnostic-info&quot;&gt;
+&lt;small&gt;02 / функция&lt;/small&gt;
+&lt;h3&gt;Проверяем распределение нагрузки&lt;/h3&gt;
+&lt;p&gt;Эстетическая работа должна выдерживать реальное жевательное движение, а не только хорошо выглядеть на фотографии.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Контакты зубов&lt;/li&gt;
+&lt;li&gt;Движение челюсти&lt;/li&gt;
+&lt;li&gt;Риск перегрузки&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;diagnostic-view&quot; data-view=&quot;plan&quot;&gt;
+&lt;div class=&quot;diagnostic-art&quot;&gt;
+&lt;svg viewBox=&quot;0 0 400 360&quot;&gt;
+&lt;g fill=&quot;none&quot; stroke=&quot;#6e5b50&quot;&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;180&quot; r=&quot;124&quot;/&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;180&quot; r=&quot;82&quot;/&gt;
+&lt;/g&gt;
+&lt;g fill=&quot;#e7d9cb&quot;&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;56&quot; r=&quot;25&quot;/&gt;
+&lt;circle cx=&quot;324&quot; cy=&quot;180&quot; r=&quot;25&quot;/&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;304&quot; r=&quot;25&quot;/&gt;
+&lt;circle cx=&quot;76&quot; cy=&quot;180&quot; r=&quot;25&quot;/&gt;
+&lt;/g&gt;
+&lt;g fill=&quot;#211d1a&quot; font-family=&quot;Arial&quot; font-size=&quot;11&quot; text-anchor=&quot;middle&quot;&gt;
+&lt;text x=&quot;200&quot; y=&quot;60&quot;&gt;Скан&lt;/text&gt;
+&lt;text x=&quot;324&quot; y=&quot;184&quot;&gt;Макет&lt;/text&gt;
+&lt;text x=&quot;200&quot; y=&quot;308&quot;&gt;Работа&lt;/text&gt;
+&lt;text x=&quot;76&quot; y=&quot;184&quot;&gt;Контроль&lt;/text&gt;
+&lt;/g&gt;
+&lt;path d=&quot;M218 58l88 104M322 200l-104 86M182 302L94 198M78 160l104-86&quot; fill=&quot;none&quot; stroke=&quot;#bd8a6c&quot; stroke-width=&quot;3&quot;/&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;div class=&quot;diagnostic-info&quot;&gt;
+&lt;small&gt;03 / маршрут&lt;/small&gt;
+&lt;h3&gt;Фиксируем последовательность&lt;/h3&gt;
+&lt;p&gt;Каждый специалист подключается в нужный момент, а пациент понимает, какой результат должен быть достигнут перед следующим этапом.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Этапы и зависимости&lt;/li&gt;
+&lt;li&gt;Альтернативы&lt;/li&gt;
+&lt;li&gt;Контрольные встречи&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;services&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;header class=&quot;section-head reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Направления&lt;/span&gt;
+&lt;div&gt;
+&lt;h2&gt;От небольшой коррекции до комплексного восстановления.&lt;/h2&gt;
+&lt;p&gt;Направления объединены одним принципом: функция, ткани и эстетика рассматриваются вместе.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+&lt;div class=&quot;services&quot;&gt;
+      &lt;article class=&quot;service reveal&quot;&gt;
+&lt;span class=&quot;service__num&quot;&gt;01&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Эстетические реставрации&lt;/h3&gt;
+&lt;p&gt;Коррекция формы и цвета с сохранением естественной текстуры, прозрачности и индивидуальных особенностей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;span class=&quot;service__tag&quot;&gt;Форма&lt;/span&gt;
+&lt;/article&gt;
+      &lt;article class=&quot;service reveal&quot;&gt;
+&lt;span class=&quot;service__num&quot;&gt;02&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Восстановление прикуса&lt;/h3&gt;
+&lt;p&gt;Работа со стираемостью, высотой и распределением нагрузки с предварительной функциональной проверкой.&lt;/p&gt;
+&lt;/div&gt;
+&lt;span class=&quot;service__tag&quot;&gt;Функция&lt;/span&gt;
+&lt;/article&gt;
+      &lt;article class=&quot;service reveal&quot;&gt;
+&lt;span class=&quot;service__num&quot;&gt;03&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Ортодонтическая подготовка&lt;/h3&gt;
+&lt;p&gt;Перемещение зубов, когда это позволяет уменьшить объём последующей реставрации и сохранить ткани.&lt;/p&gt;
+&lt;/div&gt;
+&lt;span class=&quot;service__tag&quot;&gt;Положение&lt;/span&gt;
+&lt;/article&gt;
+      &lt;article class=&quot;service reveal&quot;&gt;
+&lt;span class=&quot;service__num&quot;&gt;04&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Комплексный план лечения&lt;/h3&gt;
+&lt;p&gt;Координация нескольких специалистов, единая последовательность этапов и один понятный план для пациента.&lt;/p&gt;
+&lt;/div&gt;
+&lt;span class=&quot;service__tag&quot;&gt;Система&lt;/span&gt;
+&lt;/article&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section section--surface&quot; id=&quot;cases&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;header class=&quot;section-head reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Клинические сценарии&lt;/span&gt;
+&lt;div&gt;
+&lt;h2&gt;Показываем не обещание «до и после», а логику решения.&lt;/h2&gt;
+&lt;p&gt;Сценарии демонстрационные: они объясняют, как строится маршрут при разных исходных задачах.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+&lt;div class=&quot;cases&quot;&gt;
+      &lt;article class=&quot;case reveal&quot;&gt;
+&lt;div class=&quot;case__visual&quot;&gt;
+&lt;svg viewBox=&quot;0 0 700 570&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+&lt;defs&gt;
+&lt;linearGradient id=&quot;case1&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;
+&lt;stop stop-color=&quot;#bd9c85&quot;/&gt;
+&lt;stop offset=&quot;1&quot; stop-color=&quot;#6f5849&quot;/&gt;
+&lt;/linearGradient&gt;
+&lt;/defs&gt;
+&lt;rect width=&quot;700&quot; height=&quot;570&quot; fill=&quot;#ded0c2&quot;/&gt;
+&lt;rect x=&quot;62&quot; y=&quot;55&quot; width=&quot;576&quot; height=&quot;460&quot; rx=&quot;8&quot; fill=&quot;url(#case1)&quot;/&gt;
+&lt;path d=&quot;M120 300Q350 115 580 300Q350 470 120 300Z&quot; fill=&quot;#c7897b&quot;/&gt;
+&lt;path d=&quot;M180 292Q350 188 520 292Q350 382 180 292Z&quot; fill=&quot;#f4eee6&quot;/&gt;
+&lt;path d=&quot;M225 260v72M285 229v125M350 215v148M415 229v125M475 260v72&quot; stroke=&quot;#cab9a9&quot; stroke-width=&quot;5&quot;/&gt;
+&lt;g fill=&quot;none&quot; stroke=&quot;#f4eee6&quot; stroke-opacity=&quot;.35&quot;&gt;
+&lt;circle cx=&quot;350&quot; cy=&quot;300&quot; r=&quot;202&quot;/&gt;
+&lt;circle cx=&quot;350&quot; cy=&quot;300&quot; r=&quot;158&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;div class=&quot;case__content&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Сценарий 01 / стираемость&lt;/span&gt;
+&lt;h3&gt;Вернуть высоту без агрессивной обработки&lt;/h3&gt;
+&lt;p&gt;Эстетический запрос оказался связан с функциональной перегрузкой. Поэтому маршрут начинается со стабилизации прикуса и временной проверки новой высоты.&lt;/p&gt;
+&lt;div class=&quot;case__facts&quot;&gt;
+&lt;div&gt;
+&lt;b&gt;Сначала&lt;/b&gt;
+&lt;span&gt;Диагностика нагрузки и временный макет&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;b&gt;Затем&lt;/b&gt;
+&lt;span&gt;Бережные накладки и контроль адаптации&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+      &lt;article class=&quot;case reveal&quot;&gt;
+&lt;div class=&quot;case__visual&quot;&gt;
+&lt;svg viewBox=&quot;0 0 700 570&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+&lt;rect width=&quot;700&quot; height=&quot;570&quot; fill=&quot;#2a2522&quot;/&gt;
+&lt;g transform=&quot;translate(105 72)&quot;&gt;
+&lt;path d=&quot;M74 82c-31 61-16 120 5 178 20 55 14 130 51 148 31 15 42-65 72-65s41 80 72 65c37-18 31-93 51-148 21-58 36-117 5-178-31-60-92-57-128-30-36-27-97-30-128 30Z&quot; fill=&quot;#ede3d7&quot;/&gt;
+&lt;path d=&quot;M272 82c-31 61-16 120 5 178 20 55 14 130 51 148 31 15 42-65 72-65s41 80 72 65c37-18 31-93 51-148 21-58 36-117 5-178-31-60-92-57-128-30-36-27-97-30-128 30Z&quot; fill=&quot;#b48c73&quot;/&gt;
+&lt;/g&gt;
+&lt;path d=&quot;M78 500h544&quot; stroke=&quot;#67574d&quot;/&gt;
+&lt;text x=&quot;78&quot; y=&quot;525&quot; fill=&quot;#ad9e94&quot; font-family=&quot;Arial&quot; font-size=&quot;12&quot; letter-spacing=&quot;4&quot;&gt;MATERIAL / LIGHT COMPARISON&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;div class=&quot;case__content&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Сценарий 02 / форма и цвет&lt;/span&gt;
+&lt;h3&gt;Скорректировать улыбку, сохранив её характер&lt;/h3&gt;
+&lt;p&gt;Вместо одинаково белых и ровных зубов проектируется индивидуальная форма: учитываются лицо, движение губ и природная прозрачность эмали.&lt;/p&gt;
+&lt;div class=&quot;case__facts&quot;&gt;
+&lt;div&gt;
+&lt;b&gt;Сначала&lt;/b&gt;
+&lt;span&gt;Фотопротокол и цифровая примерка формы&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;b&gt;Затем&lt;/b&gt;
+&lt;span&gt;Минимально необходимая коррекция и подбор материала&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section section--dark&quot; id=&quot;standards&quot;&gt;
+&lt;div class=&quot;container standards&quot;&gt;
+&lt;div class=&quot;reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot; style=&quot;color:#c89a7d&quot;&gt;Стандарты работы&lt;/span&gt;
+&lt;h2&gt;Предсказуемость важнее эффектной презентации.&lt;/h2&gt;
+&lt;p&gt;Сильный результат — тот, который можно объяснить, проверить и поддерживать после завершения лечения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;standard-list reveal&quot;&gt;
+&lt;article class=&quot;standard&quot;&gt;
+&lt;span&gt;01&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Один ведущий план&lt;/h3&gt;
+&lt;p&gt;Если участвуют разные специалисты, пациент всё равно получает единую последовательность и одного ответственного координатора.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;article class=&quot;standard&quot;&gt;
+&lt;span&gt;02&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Контроль до необратимого этапа&lt;/h3&gt;
+&lt;p&gt;Форма и функция проверяются на временном решении, когда изменения ещё можно спокойно скорректировать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;article class=&quot;standard&quot;&gt;
+&lt;span&gt;03&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;Документированные решения&lt;/h3&gt;
+&lt;p&gt;Исходное состояние, выбранный сценарий и критерии результата фиксируются, а не остаются устной договорённостью.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;article class=&quot;standard&quot;&gt;
+&lt;span&gt;04&lt;/span&gt;
+&lt;div&gt;
+&lt;h3&gt;План наблюдения&lt;/h3&gt;
+&lt;p&gt;После завершения работы понятно, что контролировать, с какой периодичностью и какие изменения требуют внимания.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;faq&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;header class=&quot;section-head reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;До консультации&lt;/span&gt;
+&lt;div&gt;
+&lt;h2&gt;Вопросы, которые нормально задать заранее.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+&lt;div class=&quot;faq reveal&quot;&gt;
+      &lt;details&gt;
+&lt;summary&gt;
+&lt;span&gt;01&lt;/span&gt;
+&lt;span&gt;Можно ли прийти только за вторым мнением?&lt;/span&gt;
+&lt;/summary&gt;
+&lt;div class=&quot;faq__answer&quot;&gt;Да. Диагностика и разбор плана могут быть самостоятельной задачей. Вы получите объяснение рисков, альтернатив и вопросов, которые стоит обсудить с лечащим врачом.&lt;/div&gt;
+&lt;/details&gt;
+      &lt;details&gt;
+&lt;summary&gt;
+&lt;span&gt;02&lt;/span&gt;
+&lt;span&gt;Почему нельзя сразу сказать, нужны ли виниры?&lt;/span&gt;
+&lt;/summary&gt;
+&lt;div class=&quot;faq__answer&quot;&gt;Потому что одинаковый внешний запрос может быть связан с положением зубов, прикусом, стираемостью или только формой. Решение зависит от причины и объёма тканей, которые важно сохранить.&lt;/div&gt;
+&lt;/details&gt;
+      &lt;details&gt;
+&lt;summary&gt;
+&lt;span&gt;03&lt;/span&gt;
+&lt;span&gt;Можно ли увидеть будущую форму до начала работы?&lt;/span&gt;
+&lt;/summary&gt;
+&lt;div class=&quot;faq__answer&quot;&gt;Да, для комплексных эстетических задач используется цифровое планирование и примерка макета. Это позволяет обсудить пропорции и внести изменения заранее.&lt;/div&gt;
+&lt;/details&gt;
+      &lt;details&gt;
+&lt;summary&gt;
+&lt;span&gt;04&lt;/span&gt;
+&lt;span&gt;Что будет на первой встрече?&lt;/span&gt;
+&lt;/summary&gt;
+&lt;div class=&quot;faq__answer&quot;&gt;Разговор о задаче, осмотр и определение необходимого объёма диагностики. Полный план формируется только после получения достаточных данных.&lt;/div&gt;
+&lt;/details&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class=&quot;contact&quot; id=&quot;contact&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;contact__grid&quot;&gt;
+&lt;div class=&quot;contact__copy reveal&quot;&gt;
+&lt;span class=&quot;eyebrow&quot;&gt;Первый шаг&lt;/span&gt;
+&lt;h2&gt;Начнём не с процедуры, а с вашей задачи.&lt;/h2&gt;
+&lt;p&gt;Опишите, что беспокоит или что хотелось бы изменить. На первом контакте уточним ситуацию и подскажем, какой формат консультации подойдёт.&lt;/p&gt;
+&lt;/div&gt;
+&lt;form class=&quot;form reveal&quot; novalidate&gt;
+&lt;label class=&quot;field&quot;&gt;
+&lt;span&gt;Как к вам обращаться&lt;/span&gt;
+&lt;input name=&quot;name&quot; autocomplete=&quot;name&quot; required placeholder=&quot;Имя&quot;&gt;
+&lt;/label&gt;
+&lt;label class=&quot;field&quot;&gt;
+&lt;span&gt;Контакт для ответа&lt;/span&gt;
+&lt;input name=&quot;contact&quot; required placeholder=&quot;Телефон, Telegram или email&quot;&gt;
+&lt;/label&gt;
+&lt;label class=&quot;field&quot;&gt;
+&lt;span&gt;Основная задача&lt;/span&gt;
+&lt;select name=&quot;topic&quot; required&gt;
+&lt;option value=&quot;&quot;&gt;Выберите вариант&lt;/option&gt;
+&lt;option&gt;Форма или цвет улыбки&lt;/option&gt;
+&lt;option&gt;Стираемость или прикус&lt;/option&gt;
+&lt;option&gt;Комплексный план&lt;/option&gt;
+&lt;option&gt;Нужно второе мнение&lt;/option&gt;
+&lt;/select&gt;
+&lt;/label&gt;
+&lt;label class=&quot;field&quot;&gt;
+&lt;span&gt;Комментарий&lt;/span&gt;
+&lt;textarea name=&quot;message&quot; placeholder=&quot;Коротко опишите ситуацию&quot;&gt;
+&lt;/textarea&gt;
+&lt;/label&gt;
+&lt;label class=&quot;consent&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;consent&quot; required&gt;
+&lt;span&gt;Согласен на обработку данных&lt;/span&gt;
+&lt;/label&gt;
+&lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Отправить запрос&lt;/button&gt;
+&lt;p class=&quot;form-status spv-demo-form-note&quot; role=&quot;status&quot;&gt;Демонстрационная форма: данные не отправляются.&lt;/p&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;footer class=&quot;footer&quot;&gt;
+&lt;div&gt;
+&lt;b&gt;ATELIER DENTAIRE&lt;/b&gt;
+&lt;br&gt;Демонстрационный концепт частной практики&lt;/div&gt;
+&lt;div&gt;Санкт-Петербург&lt;br&gt;Только по предварительной записи&lt;/div&gt;
+&lt;div&gt;Контакты и специалисты в макете вымышлены&lt;br&gt;© 2026&lt;/div&gt;
+&lt;/footer&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+  &lt;/main&gt;
+  &lt;script&gt;
+    const menu=document.querySelector(&#x27;[data-menu]&#x27;),nav=document.querySelector(&#x27;[data-nav]&#x27;);
+    menu.addEventListener(&#x27;click&#x27;,()=&gt;{const open=nav.classList.toggle(&#x27;open&#x27;);menu.setAttribute(&#x27;aria-expanded&#x27;,String(open))});
+    const closeMenu=()=&gt;{nav.classList.remove(&#x27;open&#x27;);menu.setAttribute(&#x27;aria-expanded&#x27;,&#x27;false&#x27;)};
+    nav.addEventListener(&#x27;click&#x27;,e=&gt;{if(e.target.closest(&#x27;a&#x27;))closeMenu()});
+    addEventListener(&#x27;hashchange&#x27;,closeMenu);
+    const tabs=[...document.querySelectorAll(&#x27;[data-tab]&#x27;)],views=[...document.querySelectorAll(&#x27;[data-view]&#x27;)];
+    tabs.forEach(tab=&gt;tab.addEventListener(&#x27;click&#x27;,()=&gt;{tabs.forEach(x=&gt;x.classList.toggle(&#x27;active&#x27;,x===tab));views.forEach(v=&gt;v.classList.toggle(&#x27;active&#x27;,v.dataset.view===tab.dataset.tab))}));
+    document.querySelector(&#x27;.form&#x27;).addEventListener(&#x27;submit&#x27;,e=&gt;{e.preventDefault();const form=e.currentTarget,status=form.querySelector(&#x27;.form-status&#x27;);if(!form.checkValidity()){status.textContent=&#x27;Проверьте обязательные поля.&#x27;;form.reportValidity();return}status.textContent=&#x27;Демонстрация: данные не отправлены.&#x27;;form.reset()});
+    const items=[...document.querySelectorAll(&#x27;.reveal&#x27;)],reduced=matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+    if(reduced||!(&#x27;IntersectionObserver&#x27;in window))items.forEach(x=&gt;x.classList.add(&#x27;visible&#x27;));else{const observer=new IntersectionObserver(entries=&gt;entries.forEach(entry=&gt;{if(entry.isIntersecting){entry.target.classList.add(&#x27;visible&#x27;);observer.unobserve(entry.target)}}),{rootMargin:&#x27;0px 0px -4% 0px&#x27;,threshold:.03});items.forEach(x=&gt;observer.observe(x))}
+  &lt;/script&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;script id=&quot;spv-v40-motion&quot;&gt;
+(()=&gt;{if(window.__spvV40)return;window.__spvV40=true;
+const init=()=&gt;{
+ const reduce=matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+ const onScroll=()=&gt;document.body.classList.toggle(&#x27;v40-scrolled&#x27;,scrollY&gt;18);onScroll();addEventListener(&#x27;scroll&#x27;,onScroll,{passive:true});
+ document.querySelectorAll(&#x27;form&#x27;).forEach(form=&gt;{if(form.dataset.v40Safe)return;form.dataset.v40Safe=&#x27;true&#x27;;form.addEventListener(&#x27;submit&#x27;,event=&gt;{event.preventDefault();let status=form.querySelector(&#x27;[role=&quot;status&quot;],[class*=&quot;form-status&quot;],[class*=&quot;status&quot;]&#x27;);if(!status){status=document.createElement(&#x27;p&#x27;);status.className=&#x27;v40-form-note&#x27;;status.setAttribute(&#x27;role&#x27;,&#x27;status&#x27;);form.append(status)}status.textContent=&#x27;Демонстрационная форма — данные не отправляются.&#x27;},{capture:true})});
+ if(!reduce&amp;&amp;&#x27;IntersectionObserver&#x27;in window){
+  const items=[...document.querySelectorAll(&#x27;.section-head,.need-card,.service,.case,.standard,.diagnostic-info&gt;*&#x27;)].filter(el=&gt;getComputedStyle(el).position!==&#x27;absolute&#x27;);
+  const io=new IntersectionObserver(entries=&gt;entries.forEach(entry=&gt;{if(!entry.isIntersecting)return;const el=entry.target;const i=items.indexOf(el)%4;el.animate([{opacity:.35,translate:&#x27;0 20px&#x27;,filter:&#x27;blur(5px)&#x27;},{opacity:1,translate:&#x27;0 0&#x27;,filter:&#x27;none&#x27;}],{duration:720,delay:i*55,easing:&#x27;cubic-bezier(.16,1,.3,1)&#x27;,fill:&#x27;none&#x27;});io.unobserve(el)}),{rootMargin:&#x27;0px 0px -6% 0px&#x27;,threshold:.05});items.forEach(el=&gt;io.observe(el));
+ }
+ const pointerSelector=&#x27;&#x27;;
+ const field=pointerSelector?document.querySelector(pointerSelector):null;
+ if(field&amp;&amp;!reduce&amp;&amp;matchMedia(&#x27;(hover:hover) and (pointer:fine)&#x27;).matches){let tx=0,ty=0,x=0,y=0,raf=0;const tick=()=&gt;{x+=(tx-x)*.085;y+=(ty-y)*.085;field.style.setProperty(&#x27;--v40-x&#x27;,x.toFixed(3));field.style.setProperty(&#x27;--v40-y&#x27;,y.toFixed(3));field.style.setProperty(&#x27;--v40-a&#x27;,Math.hypot(x,y).toFixed(3));if(Math.abs(tx-x)&gt;.002||Math.abs(ty-y)&gt;.002)raf=requestAnimationFrame(tick);else raf=0};const go=()=&gt;{if(!raf)raf=requestAnimationFrame(tick)};field.addEventListener(&#x27;pointermove&#x27;,e=&gt;{const r=field.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*2;ty=((e.clientY-r.top)/r.height-.5)*2;go()},{passive:true});field.addEventListener(&#x27;pointerleave&#x27;,()=&gt;{tx=0;ty=0;go()},{passive:true})}
+};
+document.readyState===&#x27;loading&#x27;?addEventListener(&#x27;DOMContentLoaded&#x27;,init,{once:true}):init();
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+        </div>
+      </div>
+    </section>
+    <section class="site-case-cta">
+      <div class="site-case-container site-case-cta__inner">
+        <div><h2>Нужен сайт с такой же глубиной проработки?</h2><p>Разберём задачу, структуру, контент и путь пользователя. На старте зафиксируем, что должно привести посетителя к обращению.</p></div>
+        <a class="site-case-btn" href="./contacts.html?type=Нужен сайт">Получить план</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-case-footer">
+    <div class="site-case-container site-case-footer__grid">
+      <div><h3>Шилов Павел Васильевич</h3><p>Продуктовая разработка, AI/ML, автоматизация, web и backend.</p></div>
+      <div class="site-case-footer__links"><a href="./cases.html?category=sites">Сайты</a><a href="./cases.html">Все кейсы</a><a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="site-case-footer__links"><a href="https://t.me/spv_asina" target="_blank" rel="noopener">@spv_asina</a><a href="mailto:spv_asina@mail.ru">spv_asina@mail.ru</a></div>
+    </div>
+    <div class="site-case-container site-case-footer__bottom">© 2026 SPV ASINA · ИП Шилов Павел Васильевич</div>
+  </footer>
+</div>
+<script>
+
+(() => {
+  const root = document.currentScript?.closest('.spv-site-case') || document.querySelector('.spv-site-case');
+  if (!root || root.dataset.ready === 'true') return;
+  root.dataset.ready = 'true';
+  const menu = root.querySelector('[data-site-case-menu]');
+  const nav = root.querySelector('[data-site-case-nav]');
+  menu?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menu?.setAttribute('aria-expanded', 'false');
+  }));
+
+  const frame = root.querySelector('[data-site-demo-frame]');
+  let resizeObserver;
+  const sizeFrame = () => {
+    if (!frame) return;
+    try {
+      const doc = frame.contentDocument;
+      if (!doc) return;
+      const height = Math.max(
+        doc.documentElement?.scrollHeight || 0,
+        doc.body?.scrollHeight || 0,
+        720
+      );
+      frame.style.height = `${Math.min(height, 30000)}px`;
+    } catch (_) {}
+  };
+  const bindFrame = () => {
+    sizeFrame();
+    try {
+      resizeObserver?.disconnect();
+      resizeObserver = new ResizeObserver(sizeFrame);
+      if (frame.contentDocument?.body) resizeObserver.observe(frame.contentDocument.body);
+      frame.contentWindow?.addEventListener('resize', sizeFrame, { passive: true });
+      [180, 500, 1200, 2400].forEach(delay => setTimeout(sizeFrame, delay));
+    } catch (_) {}
+  };
+  frame?.addEventListener('load', bindFrame);
+  if (frame?.contentDocument?.readyState === 'complete') bindFrame();
+  window.addEventListener('resize', sizeFrame, { passive: true });
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = [...root.querySelectorAll('.site-case-reveal')];
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -4% 0px', threshold: .02 });
+    items.forEach(item => observer.observe(item));
+  }
+})();
+
+</script>
+</body>
+</html>
