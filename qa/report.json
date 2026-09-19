@@ -1,0 +1,1125 @@
+{
+  "layoutChecks": [
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 320,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 375,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 390,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 430,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 600,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 600,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 768,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 1024,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 1440,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "index.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "cases.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "contacts.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "services.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "about.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "case-site-lexforma.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "file": "privacy.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "index.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "cases.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "contacts.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "services.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "about.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "case-site-lexforma.html",
+      "scroll": 1920,
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "file": "privacy.html",
+      "scroll": 1920,
+      "overflow": []
+    }
+  ],
+  "checks": [
+    "144 layout combinations, no horizontal overflow",
+    "Theme persists on reload",
+    "Demo tabs work by click and keyboard",
+    "Mascot follows cursor and responds to click",
+    "Catalog filters, load more, and return state work",
+    "Brief validation, summary, local draft restore/deletion and Telegram handoff",
+    "All 58 entry points rendered",
+    "Reduced motion disables mascot animations and tracking",
+    "Touch mascot and mobile navigation",
+    "All case links accessible without JavaScript",
+    "16 axe WCAG A/AA scans, zero violations"
+  ],
+  "errors": [],
+  "accessibility": [
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "index.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "cases.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "contacts.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "index.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "cases.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "contacts.html",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "index.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "cases.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "contacts.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "file": "case-mgd.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "index.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "cases.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "contacts.html",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "file": "case-mgd.html",
+      "violations": []
+    }
+  ],
+  "status": "PASS"
+}

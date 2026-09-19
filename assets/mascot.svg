@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" fill="none">
+<defs>
+ <linearGradient id="hoodie" x1="110" y1="225" x2="265" y2="360" gradientUnits="userSpaceOnUse"><stop stop-color="#b2a2ff"/><stop offset="1" stop-color="#7160d8"/></linearGradient>
+ <linearGradient id="hair" x1="105" y1="55" x2="250" y2="205" gradientUnits="userSpaceOnUse"><stop stop-color="#424051"/><stop offset="1" stop-color="#201f2a"/></linearGradient>
+ <linearGradient id="skin" x1="150" y1="120" x2="205" y2="232" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe7d3"/><stop offset="1" stop-color="#f4bda5"/></linearGradient>
+</defs>
+<ellipse cx="181" cy="393" rx="100" ry="14" fill="#161323" opacity=".12"/>
+<g class="chibi-body">
+ <path d="M128 325L127 372Q129 385 150 384L170 380L180 338L187 380L212 384Q231 383 232 371L228 324Z" fill="#34313f"/>
+ <path d="M125 369Q104 376 108 388Q111 398 159 391L168 379L146 373Z" fill="#f5f1ff" stroke="#34313f" stroke-width="5"/>
+ <path d="M194 379L204 390Q246 399 252 388Q253 376 232 368L211 373Z" fill="#f5f1ff" stroke="#34313f" stroke-width="5"/>
+ <path d="M121 243Q95 250 79 287Q72 305 87 314Q101 324 112 307L123 286L121 329Q173 351 237 329L232 284L252 306Q263 315 276 300Q282 289 268 270L242 244Q190 220 121 243Z" fill="url(#hoodie)" stroke="#4e4183" stroke-width="5" stroke-linejoin="round"/>
+ <path d="M121 248Q138 277 178 280Q218 276 242 248L220 228L141 228Z" fill="#6050a8" stroke="#4e4183" stroke-width="4"/>
+ <path d="M156 243Q175 255 199 243L201 217L154 217Z" fill="url(#skin)"/>
+ <path d="M145 264L143 294M213 264L215 294" stroke="#e8e0ff" stroke-width="5" stroke-linecap="round"/>
+ <path d="M151 310L208 310L218 329L141 329Z" fill="#8070d9" stroke="#6554b6" stroke-width="3"/>
+ <path d="M174 293L165 301L174 307M190 293L199 301L190 307" stroke="#eee9ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M78 291Q61 294 72 312Q86 327 98 313L92 300Z" fill="url(#skin)" stroke="#bf8c7b" stroke-width="3"/>
+ <g class="chibi-hand"><path d="M259 284Q257 273 263 260Q267 254 272 261L274 272Q286 264 291 272Q298 283 284 298Q269 310 260 299Z" fill="url(#skin)" stroke="#bf8c7b" stroke-width="3" stroke-linejoin="round"/></g>
+</g>
+<g class="chibi-head">
+ <path d="M85 159Q65 71 139 56Q165 33 202 55Q269 47 282 105Q292 143 271 183Z" fill="url(#hair)" stroke="#282633" stroke-width="5"/>
+ <ellipse cx="90" cy="180" rx="17" ry="24" fill="url(#skin)" stroke="#c48e7d" stroke-width="3"/>
+ <ellipse cx="268" cy="180" rx="17" ry="24" fill="url(#skin)" stroke="#c48e7d" stroke-width="3"/>
+ <path d="M95 142Q91 101 172 98Q254 95 265 145L264 195Q258 240 181 247Q110 243 97 205Z" fill="url(#skin)" stroke="#c48e7d" stroke-width="3"/>
+ <path d="M89 155L84 112Q94 59 159 66Q235 50 270 105L276 163L251 145L241 119Q227 138 216 145L213 111Q186 138 154 145L167 113Q136 137 108 141L99 171Z" fill="url(#hair)"/>
+ <path d="M114 97Q134 78 160 80M178 73Q214 67 239 90" stroke="#636075" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+ <path d="M117 157Q133 149 149 155M211 155Q226 149 242 157" stroke="#55413d" stroke-width="5" stroke-linecap="round"/>
+ <g class="chibi-eyes">
+  <ellipse cx="133" cy="180" rx="18" ry="23" fill="#fffaf5"/><ellipse cx="226" cy="180" rx="18" ry="23" fill="#fffaf5"/>
+  <g class="chibi-pupils"><ellipse cx="135" cy="181" rx="11" ry="17" fill="#665492"/><ellipse cx="228" cy="181" rx="11" ry="17" fill="#665492"/><ellipse cx="135" cy="183" rx="6" ry="11" fill="#292333"/><ellipse cx="228" cy="183" rx="6" ry="11" fill="#292333"/><circle cx="131" cy="173" r="5" fill="white"/><circle cx="224" cy="173" r="5" fill="white"/><circle cx="140" cy="189" r="2" fill="white"/><circle cx="233" cy="189" r="2" fill="white"/></g>
+  <path d="M115 173Q120 154 138 157M209 165Q221 151 240 166" stroke="#352b36" stroke-width="4" stroke-linecap="round"/>
+ </g>
+ <ellipse cx="112" cy="204" rx="14" ry="7" fill="#ed969b" opacity=".48"/><ellipse cx="247" cy="204" rx="14" ry="7" fill="#ed969b" opacity=".48"/>
+ <path d="M175 198Q180 202 184 198" stroke="#d49c85" stroke-width="3" stroke-linecap="round"/>
+ <path class="chibi-mouth" d="M165 214Q180 226 195 214" stroke="#8d5260" stroke-width="4" stroke-linecap="round"/>
+ <path d="M261 124L277 126L275 155L260 152Z" fill="#ae9cf5"/><path d="M265 133L271 134M265 140L271 141" stroke="#ede7ff" stroke-width="3"/>
+</g>
+</svg>
