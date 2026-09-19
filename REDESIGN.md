@@ -16,7 +16,8 @@ No authentication, backend, payment collection, fabricated testimonials or resul
 4. Design desktop and mobile compositions separately within one maintainable responsive site:
    desktop side-by-side hero and large lab; mobile compact side-by-side mascot/demo block,
    bottom navigation, touch-friendly controls and single-column project cards.
-5. Add a custom SVG chibi with bounded cursor tracking, blinking and a tap greeting. Respect
+5. Add a custom SVG chibi with bounded cursor tracking, 9 gaze sectors (8 directions + neutral),
+   intermediate continuous movement thresholds, blinking and a tap greeting. Respect
    reduced motion. Keep it in the hero, never obstructing content as a floating overlay.
 6. Provide three explicitly labelled prepared-data demos (documents, lectures, orders).
 7. Filter the full project catalog with shareable query parameters, incremental reveal and
@@ -34,7 +35,8 @@ No authentication, backend, payment collection, fabricated testimonials or resul
 - `assets/app.js`: progressive enhancement; no dependency or external API calls.
 - `assets/theme.js`: early theme application to avoid theme flashing.
 - `assets/mascot-personal.svg`: reference-inspired chestnut-haired chibi in a charcoal hoodie,
-  seated with a black cat; separate eyes, pupils, head and greeting groups. SVG interpretation,
+  seated with a black cat; separate eyes, pupils, head and greeting groups. Eye states use a
+  9-sector gaze model based on the supplied 17-position reference sheet. SVG interpretation,
   intentionally simpler than the supplied painterly/pixel reference sheets.
 - `demos/`: original website-case presentations; not restyled, intentionally treated as
   historical project demonstrations rather than portfolio navigation pages.

@@ -85,3 +85,23 @@
     render();
   }
 })();
+
+// Reference-led gaze rig: sectors label the pose, CSS variables preserve the subtle in-between motion.
+(() => {
+  const mascot = document.querySelector('.mascot-button');
+  if (!mascot) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let frame = 0, last = null;
+  const sector = value => value < -.34 ? -1 : value > .34 ? 1 : 0;
+  const name = (x, y) => { const gx = sector(x), gy = sector(y); if (!gx && !gy) return 'center'; const v = gy < 0 ? 'up' : gy > 0 ? 'down' : ''; const h = gx < 0 ? 'left' : gx > 0 ? 'right' : ''; return [v, h].filter(Boolean).join('-'); };
+  const reset = () => { delete mascot.dataset.gaze; mascot.classList.remove('cursor-near'); mascot.style.removeProperty('--gaze-x'); mascot.style.removeProperty('--gaze-y'); };
+  const point = event => {
+    if (reduce.matches || event.pointerType === 'touch' || !matchMedia('(hover: hover)').matches || document.hidden) return;
+    last = {x: event.clientX, y: event.clientY}; if (frame) return;
+    frame = requestAnimationFrame(() => { frame = 0; const rect = mascot.getBoundingClientRect(); if (rect.bottom < 0 || rect.top > innerHeight) return; const x = Math.max(-1, Math.min(1, (last.x - (rect.left + rect.width / 2)) / 300)); const y = Math.max(-1, Math.min(1, (last.y - (rect.top + rect.height * .43)) / 240)); mascot.dataset.gaze = name(x, y); mascot.style.setProperty('--gaze-x', x.toFixed(3)); mascot.style.setProperty('--gaze-y', y.toFixed(3)); mascot.classList.toggle('cursor-near', Math.hypot(last.x - (rect.left + rect.width / 2), last.y - (rect.top + rect.height * .43)) < 110); });
+  };
+  document.addEventListener('pointermove', point, {passive:true});
+  document.documentElement.addEventListener('pointerleave', reset);
+  document.addEventListener('visibilitychange', () => {if (document.hidden) reset();});
+  reduce.addEventListener('change', reset);
+})();

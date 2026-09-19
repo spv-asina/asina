@@ -18,3 +18,8 @@
 .mascot-button.greeting .chibi-cat{animation:cat-nod .65s ease-in-out 2}
 @keyframes cat-nod{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
 @media(max-width:760px){.hero .actions .btn{gap:8px;font-size:11px;padding:13px 9px}.hero .actions .icon{width:17px;height:17px}.demo-tabs button{min-height:35px}.project-card p{max-width:100%}}
+/* Reference-led eye rig: a bounded continuous offset inside nine named gaze sectors. */
+.mascot-button .chibi-pupils{transform:translate(calc(var(--gaze-x,0) * 4.5px),calc(var(--gaze-y,0) * 3.4px))!important}
+.mascot-button .chibi-head{transform:rotate(calc(var(--gaze-x,0) * 2.5deg)) translateY(calc(var(--gaze-y,0) * 1px))!important}
+.mascot-button:not([data-gaze]) .chibi-pupils,.mascot-button:not([data-gaze]) .chibi-head{transform:none!important}
+.mascot-button.greeting .chibi-head{transform:rotate(-6deg)!important}

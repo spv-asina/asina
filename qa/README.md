@@ -6,7 +6,7 @@
 - 1,110 local links/assets checked: no missing targets or anchors.
 - 144 layout combinations: 8 representative pages × 9 widths × 2 themes.
 - Widths: 320, 375, 390, 430, 600, 768, 1024, 1440, 1920 CSS pixels.
-- Theme persistence, mouse tracking and touch greeting, accessible demo tabs.
+- Theme persistence, 9-sector eye tracking and touch greeting, accessible demo tabs.
 - Catalog filters, URL state, incremental display and returning from a case.
 - Brief validation, summary, persistence, deletion and explicit Telegram handoff.
 - All 58 pages opened in Chromium, zero JavaScript exceptions.

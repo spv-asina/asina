@@ -1011,9 +1011,10 @@
   ],
   "checks": [
     "144 layout combinations, no horizontal overflow",
+    "Cardinal eye directions match cursor sectors",
     "Theme persists on reload",
     "Demo tabs work by click and keyboard",
-    "Mascot follows cursor and responds to click",
+    "Mascot follows cursor by 9 gaze sectors and responds to click",
     "Catalog filters, load more, and return state work",
     "Brief validation, summary, local draft restore/deletion and Telegram handoff",
     "All 58 entry points rendered",
