@@ -31,7 +31,13 @@ html { scroll-padding-top: 88px; }
   outline: 3px solid var(--accent-bright);
   outline-offset: 3px;
 }
+/* The original .expertise-grid.six rule has two classes and otherwise wins
+   over the lower-specificity responsive .expertise-grid selector. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .expertise-grid.six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 760px) {
+  .expertise-grid.six { grid-template-columns: minmax(0, 1fr); }
   html { scroll-padding-top: 80px; }
   .sticky-cta { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
   .system-map__node div > strong { font-size: 14px; line-height: 1.4; }
