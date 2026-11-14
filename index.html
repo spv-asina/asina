@@ -39,7 +39,27 @@ html { scroll-padding-top: 88px; }
 @media (max-width: 760px) {
   .expertise-grid.six { grid-template-columns: minmax(0, 1fr); }
   html { scroll-padding-top: 80px; }
-  .sticky-cta { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  /* Keep the conversion action visible without covering so much of the screen. */
+  .sticky-cta {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: 4px;
+    border-radius: 16px;
+  }
+  .sticky-cta a {
+    min-height: 44px;
+    padding: 8px 12px;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.35;
+  }
+  /* Cards are full-width on phones: let content determine their height. */
+  .expertise-grid.six .expertise-card { min-height: 0; }
+  .expertise-grid.six .expertise-card p { font-size: 14px; line-height: 1.6; }
+  .expertise-grid.six .expertise-card .text-link {
+    min-height: 44px;
+    align-items: center;
+    padding-top: 14px;
+  }
   .system-map__node div > strong { font-size: 14px; line-height: 1.4; }
   .system-map__node small { font-size: 12px; line-height: 1.45; }
   .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
