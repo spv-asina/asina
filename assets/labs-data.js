@@ -16,7 +16,7 @@ PIP:{
  }catch(e){s.last='JSON не разобран: '+e.message;L.log(s,s.last);}},
  onAction:function(s,a,id){if(a==='clear'){s.data.runs=[];L.log(s,'История очищена');}},
  buttons:[['Очистить журнал','clear']],
- view:function(s){var d=s.data;return L.result('Сценарий готов к запуску',s.last||'Измените JSON, выберите преобразование и назначение.',L.metrics([['Шагов',3],['Выполнений',d.runs.length]])+'<div class="spv-lab__tiles">'+d.steps.map(function(x,i){return L.tile((i+1)+'. '+x,i===0?'Триггер':i===1?s.values.map:s.values.target);}).join('')+'</div>'+tableOrEmpty(s,['Назначение','Результат'],d.runs.slice(0,3).map(function(r){return[r.target,r.data];})),s.done&&d.runs.length?'ok':s.done?'bad':'');}
+ view:function(s){var d=s.data;return L.result(s.last&&s.last.startsWith('JSON не')?'Ошибка входного JSON':d.runs.length?'Сценарий выполнен':'Сценарий готов к запуску',s.last||'Измените JSON, выберите преобразование и назначение.',L.metrics([['Шагов',3],['Выполнений',d.runs.length]])+'<div class="spv-lab__tiles">'+d.steps.map(function(x,i){return L.tile((i+1)+'. '+x,i===0?'Триггер':i===1?s.values.map:s.values.target);}).join('')+'</div>'+tableOrEmpty(s,['Назначение','Результат'],d.runs.slice(0,3).map(function(r){return[r.target,r.data];})),s.done&&d.runs.length?'ok':s.done?'bad':'');}
 },
 DCM:{
  title:'Очистка набора данных',description:'Введите CSV-строки, выберите правило и посмотрите, какие записи сохранились.',cta:'Проверить и очистить',
