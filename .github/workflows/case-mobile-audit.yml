@@ -5,8 +5,6 @@ on:
       - 'case-*.html'
       - 'scripts/audit_case_interfaces.py'
       - '.github/workflows/case-mobile-audit.yml'
-  push:
-    branches: ['fix/mobile-polish-main-20261114']
 permissions:
   contents: read
 jobs:
