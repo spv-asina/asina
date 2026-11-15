@@ -83,6 +83,12 @@ def analyze(page, path: Path, width: int, report: list[dict]):
             row["errors"].append("navigation buttons narrower than 100px")
         if data["itemHeights"] and max(data["itemHeights"]) > 145:
             row["errors"].append("unusually tall demo navigation: %spx" % max(data["itemHeights"]))
+        # The fixed sales CTA must not cover the interactive demo while reading it.
+        page.locator(".case-demo-section").evaluate("el => el.scrollIntoView({block:'center', behavior:'instant'})")
+        page.wait_for_timeout(180)
+        sticky = page.locator(".sticky-cta")
+        if sticky.count() and sticky.evaluate("el => el.classList.contains('is-shown')"):
+            row["errors"].append("floating CTA overlaps interactive demo")
         if width == 390:
             page.locator(".case-demo-section .demo-shell").screenshot(path=str(OUT / (path.stem + "-390.png")), timeout=15000)
             flow = page.locator('[data-demo-tab="flow"]')
