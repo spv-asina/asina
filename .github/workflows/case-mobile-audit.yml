@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'case-*.html'
+      - 'assets/interactive-demos.js'
+      - 'assets/interactive-demos.css'
       - 'scripts/audit_case_interfaces.py'
       - '.github/workflows/case-mobile-audit.yml'
 permissions:
