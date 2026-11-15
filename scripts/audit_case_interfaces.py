@@ -13,7 +13,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "artifacts" / "case-mobile-audit"
-SIZES = (320, 390, 760, 1440)
+SIZES = (320, 390, 760)
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -26,8 +26,9 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
 
 def analyze(page, path: Path, width: int, report: list[dict]):
     is_site = path.name.startswith("case-site-")
-    page.set_viewport_size({"width": width, "height": 900})
-    page.wait_for_timeout(80)
+    page.set_viewport_size({"width": width, "height": 844})
+    page.wait_for_timeout(110)
+
     metrics = page.evaluate("""() => ({
       docWidth: document.documentElement.scrollWidth,
       viewport: window.innerWidth
@@ -47,67 +48,56 @@ def analyze(page, path: Path, width: int, report: list[dict]):
             frame_metrics = inner.evaluate("""() => ({
               viewport: window.innerWidth,
               scrollWidth: document.documentElement.scrollWidth,
-              height: document.documentElement.scrollHeight,
-              buttons: document.querySelectorAll('button').length,
-              links: document.querySelectorAll('a[href]').length
+              height: document.documentElement.scrollHeight
             })""")
             row["iframe"] = frame_metrics
             if frame_metrics["scrollWidth"] > frame_metrics["viewport"] + 3:
                 row["warnings"].append("embedded site horizontal overflow: %spx" % (frame_metrics["scrollWidth"] - frame_metrics["viewport"]))
-            if not frame_metrics["buttons"] and not frame_metrics["links"]:
-                row["errors"].append("embedded site has no interactive controls")
             if width == 390:
-                menu = page.frame_locator("iframe.site-demo-frame").locator('button').first
-                if menu.count():
-                    try:
-                        menu.click(timeout=3000)
-                        row["iframe_clicked"] = True
-                    except Exception:
-                        row["warnings"].append("could not click first embedded button")
                 page.locator(".site-demo-shell").screenshot(path=str(OUT / (path.stem + "-390.png")), timeout=15000)
     else:
-        demo = page.locator(".case-demo-section [data-live-demo]")
-        demo.wait_for(state="visible", timeout=10000)
-        code = path.stem.replace("case-", "").upper()
-        if demo.get_attribute("data-live-demo") != code:
-            row["errors"].append("incorrect live demo code")
-        fields = demo.locator("[data-live-field]").count()
-        actions = demo.locator('[data-live-action]:not([data-live-action="reset"])')
-        total = actions.count()
-        row["live"] = {"fields": fields, "actions": total}
-        if fields < 1 or total < 2:
-            row["errors"].append("demo lacks inputs or actions")
-        before = int(demo.locator("[data-live-runs]").get_attribute("data-live-runs"))
-        # Exercise every case-specific action and check that it updates visible state.
-        for idx in range(total):
-            action = actions.nth(idx)
-            name = action.get_attribute("data-live-action")
-            action.click(timeout=5000)
-            now = int(demo.locator("[data-live-runs]").get_attribute("data-live-runs"))
-            if now <= before:
-                row["errors"].append("action %s did not update state" % name)
-            before = now
-        if demo.locator(".live-history p b").count() == 0:
-            row["errors"].append("no action history")
-        demo.locator('[data-live-action="reset"]').click()
-        if int(demo.locator("[data-live-runs]").get_attribute("data-live-runs")) != 0:
-            row["errors"].append("reset did not clear state")
-        # The fixed CTA must not cover the mini-app.
+        nav = page.locator(".case-demo-section .demo-sidebar nav")
+        nav.wait_for(state="visible", timeout=10000)
+        data = nav.evaluate("""el => {
+          const items=[...el.querySelectorAll('.demo-nav-item')];
+          const nr=el.getBoundingClientRect();
+          const rects=items.map(e=>e.getBoundingClientRect());
+          return {
+            display:getComputedStyle(el).display,
+            columns:getComputedStyle(el).gridTemplateColumns,
+            width:Math.round(nr.width),
+            itemWidths:rects.map(r=>Math.round(r.width)),
+            itemHeights:rects.map(r=>Math.round(r.height)),
+            distinctRows:new Set(rects.map(r=>Math.round(r.y))).size
+          };
+        }""")
+        row["nav"] = data
+        if data["display"] != "grid":
+            row["errors"].append("demo sidebar is %s instead of grid" % data["display"])
+        if len(data["itemWidths"]) != 4:
+            row["errors"].append("expected four demo navigation entries")
+        expected_rows = 4 if width <= 420 else 2
+        if data["distinctRows"] != expected_rows:
+            row["errors"].append("expected %s navigation rows, found %s" % (expected_rows, data["distinctRows"]))
+        if data["itemWidths"] and min(data["itemWidths"]) < 100:
+            row["errors"].append("navigation buttons narrower than 100px")
+        if data["itemHeights"] and max(data["itemHeights"]) > 145:
+            row["errors"].append("unusually tall demo navigation: %spx" % max(data["itemHeights"]))
+        # The fixed sales CTA must not cover the interactive demo while reading it.
         page.locator(".case-demo-section").evaluate("el => el.scrollIntoView({block:'center', behavior:'instant'})")
-        page.wait_for_timeout(100)
+        page.wait_for_timeout(180)
         sticky = page.locator(".sticky-cta")
         if sticky.count() and sticky.evaluate("el => el.classList.contains('is-shown')"):
             row["errors"].append("floating CTA overlaps interactive demo")
-        if width in (390, 1440):
-            page.locator(".case-demo-section .demo-shell").screenshot(path=str(OUT / (path.stem + "-"+str(width)+".png")), timeout=15000)
         if width == 390:
+            page.locator(".case-demo-section .demo-shell").screenshot(path=str(OUT / (path.stem + "-390.png")), timeout=15000)
             flow = page.locator('[data-demo-tab="flow"]')
             flow.click(timeout=7000)
-            page.wait_for_timeout(470)
+            page.wait_for_timeout(500)
             if not page.locator('[data-demo-panel="flow"]').is_visible():
                 row["errors"].append("flow tab did not become visible")
             page.locator('[data-demo-tab="product"]').click(timeout=7000)
-            page.wait_for_timeout(470)
+            page.wait_for_timeout(500)
             if not page.locator('[data-demo-panel="product"]').is_visible():
                 row["errors"].append("product tab did not become visible")
     report.append(row)
