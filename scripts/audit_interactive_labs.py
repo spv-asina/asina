@@ -61,6 +61,20 @@ def main():
                           fields: document.querySelectorAll('input,textarea,select').length
                         })""")
                         row["iframe"] = inner
+                        bar = page.locator(".site-demo-devicebar")
+                        if bar.count() != 1:
+                            row["errors"].append("missing device switcher")
+                        elif width == 1440:
+                            frame_width = iframe.bounding_box()["width"]
+                            bar.locator('[data-site-width="phone"]').click()
+                            phone_width = iframe.bounding_box()["width"]
+                            if phone_width > 400 or phone_width > frame_width:
+                                row["errors"].append("phone mode did not reduce iframe width")
+                            bar.locator('[data-site-width="desktop"]').click()
+                            if iframe.bounding_box()["width"] < 650:
+                                row["errors"].append("desktop mode did not restore iframe width")
+                            bar.locator("[data-site-reset]").click()
+                            row["device_switcher"] = "tested"
                         if inner["text"] < 150: row["errors"].append("site preview has little content")
                         if inner["buttons"] + inner["links"] < 3: row["errors"].append("site lacks enough interactive controls")
                         if inner["scroll"] > inner["width"] + 4:
@@ -101,6 +115,27 @@ def main():
                             run.click(timeout=10000)
                             if "Ошибка локального сценария" in frame.inner_text():
                                 row["errors"].append("scenario exception after reset")
+                            if width == 390:
+                                # Exercise a non-primary action if the case provides one.
+                                secondary = frame.locator('[data-lab-action]:not([data-lab-action="run"]):not([data-lab-action="reset"])')
+                                if secondary.count():
+                                    secondary.first.click(timeout=10000)
+                                    page.wait_for_timeout(50)
+                                    if "Ошибка локального сценария" in frame.inner_text():
+                                        row["errors"].append("secondary action raised a scenario exception")
+                                # Ensure editable data is actually consumed by the mini-app.
+                                selector = frame.locator('select[data-lab-field]').first
+                                if selector.count() and selector.locator("option").count() > 1:
+                                    original = selector.input_value()
+                                    options = selector.locator("option")
+                                    chosen = options.nth(1).get_attribute("value")
+                                    if chosen == original:
+                                        chosen = options.nth(0).get_attribute("value")
+                                    selector.select_option(value=chosen)
+                                    frame.locator('[data-lab-action="run"]').click(timeout=10000)
+                                    if "Ошибка локального сценария" in frame.inner_text():
+                                        row["errors"].append("edited input caused scenario exception")
+                                row["secondary_checked"] = secondary.count() > 0
                     outer = page.evaluate("""() => ({width: innerWidth, scroll: document.documentElement.scrollWidth})""")
                     if outer["scroll"] > outer["width"] + 4:
                         row["warnings"].append("outer page overflow: %dpx" % (outer["scroll"]-outer["width"]))
