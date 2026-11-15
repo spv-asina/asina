@@ -23,8 +23,21 @@ for page in pages:
         'Компонент входит в описанный технический контур',
         'Проверяется вход, ожидаемое преобразование',
         'сценарий зафиксирован',
+        'Реализованный клиентский проект',
+        'Опубликовано с согласия клиента',
+        'Реальный клиентский проект. Опубликован',
+        'Демонстрация показывает логику реального продукта',
+        'Без повторения экранов демонстрации.',
+        'Клиентский продукт · данные обезличены',
     ):
         assert stale not in s, (page, stale)
+    for required in (
+        'Технический кейс',
+        'Тестовые данные в демо',
+        'Интерактивный стенд работает на тестовых данных в браузере.',
+        'data-demo-root',
+    ):
+        assert required in s, (page, required)
     start = s.index('<section class="section case-technical-section"')
     end = s.index('<section class="section compact">', start)
     block = s[start:end]
@@ -33,4 +46,4 @@ for page in pages:
         assert content, (page, kind)
         assert content.group(1).count("<li>") == 2, (page, kind)
     assert s.count('Моя зона работы') == 1, page
-print("PASS: 34 unique case narratives, two technical notes and two checks each; demos preserved")
+print("PASS: 34 unique case narratives; no repeated filler or unverified client claims; demos preserved")

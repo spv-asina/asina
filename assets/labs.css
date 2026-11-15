@@ -91,7 +91,6 @@
 /* Distinct, compact technical explanations — replacing triple-repeat diagrams and generic test rows. */
 .case-technical-section .case-section-grid{align-items:start}
 .case-tech-intro{min-width:0}
-.case-tech-subtitle{font-size:12px;line-height:1.65;opacity:.7;margin-top:14px}
 .case-tech-main{min-width:0;max-width:920px}
 .case-tech-lead{font-size:clamp(14px,1.3vw,17px);line-height:1.8;font-weight:600;color:inherit;max-width:750px;margin:0}
 .case-tech-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}

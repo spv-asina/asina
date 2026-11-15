@@ -36,7 +36,7 @@ def render(slug: str, story: dict) -> str:
         '<div class="container case-section-grid">'
         '<div class="case-tech-intro"><div class="eyebrow">Технические детали</div>'
         '<h2>Что происходит внутри</h2>'
-        '<p class="case-tech-subtitle">Без повторения экранов демонстрации.</p></div>'
+        '</div>'
         '<div class="case-tech-main"><p class="case-tech-lead">' + escape(story["lead"]) + '</p>'
         '<div class="case-tech-columns">'
         '<div class="case-tech-panel"><h3>Механика</h3>' + list_html(story["mechanics"], "mechanics") + '</div>'
