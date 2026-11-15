@@ -490,6 +490,8 @@
     root.setAttribute('data-live-demo',code);
     let st=createState(code,conf);
     rootOriginal.replaceWith(root);
+    const disclaimer=section.querySelector('.demo-disclaimer');
+    if(disclaimer)disclaimer.textContent='Интерактивная песочница · синтетические данные';
     draw(st,conf,root);
     root.addEventListener('input',event=>{
       const node=event.target.closest('[data-live-field]');
