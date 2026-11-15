@@ -24,6 +24,10 @@ jobs:
         run: |
           python -m pip install playwright
           python -m playwright install --with-deps chromium
+      - name: Verify 34 distinct case narratives and generated HTML
+        run: |
+          python scripts/update_case_sections.py --check
+          python scripts/audit_case_narratives.py
       - name: Interact with all 34 labs and inspect 11 embedded sites
         run: python scripts/audit_interactive_labs.py
       - name: Upload screenshots and JSON
