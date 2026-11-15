@@ -113,6 +113,16 @@ def main():
                     else:
                         frame = page.locator(".spv-lab")
                         frame.wait_for(state="visible", timeout=15000)
+                        if width == 390:
+                            skip = page.locator(".spv-tilda-page > .skip")
+                            if skip.count() == 1:
+                                skip.evaluate("el => el.blur()")
+                                if skip.evaluate("el => getComputedStyle(el).opacity") != "0":
+                                    row["errors"].append("unfocused skip link remains visible over demo")
+                                skip.focus()
+                                if skip.evaluate("el => getComputedStyle(el).opacity") != "1":
+                                    row["errors"].append("keyboard-focused skip link is not visible")
+                                skip.evaluate("el => el.blur()")
                         shortcut = page.locator(".case-hero .spv-demo-shortcut")
                         expected_hash = "#demo-title-" + path.stem.replace("case-", "").upper()
                         if shortcut.count() != 1:
