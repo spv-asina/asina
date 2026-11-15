@@ -86,3 +86,23 @@
    element screenshots or scrolled demo areas. Keep keyboard access intact. */
 .spv-tilda-page > .skip:not(:focus){opacity:0;clip-path:inset(100%);pointer-events:none}
 .spv-tilda-page > .skip:focus{opacity:1;clip-path:none;pointer-events:auto}
+
+
+/* Distinct, compact technical explanations — replacing triple-repeat diagrams and generic test rows. */
+.case-technical-section .case-section-grid{align-items:start}
+.case-tech-intro{min-width:0}
+.case-tech-subtitle{font-size:12px;line-height:1.65;opacity:.7;margin-top:14px}
+.case-tech-main{min-width:0;max-width:920px}
+.case-tech-lead{font-size:clamp(14px,1.3vw,17px);line-height:1.8;font-weight:600;color:inherit;max-width:750px;margin:0}
+.case-tech-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.case-tech-panel{min-width:0;border:1px solid rgba(114,78,134,.19);background:rgba(248,244,250,.67);border-radius:17px;padding:19px 20px}
+.case-tech-panel h3,.case-tech-contribution h3{font-size:13px;font-weight:800;line-height:1.5;color:#543366;margin:0 0 11px}
+.case-tech-list{list-style:disc;padding:0 0 0 18px;margin:0}
+.case-tech-list li{font-size:12px;line-height:1.8;margin:0 0 9px;padding:0 0 0 3px;overflow-wrap:anywhere;color:#413b45}
+.case-tech-list li:last-child{margin-bottom:0}
+.case-tech-list li::marker{color:#83539b}
+.case-tech-contribution{margin-top:20px;padding-top:17px;border-top:1px solid rgba(114,78,134,.21)}
+.case-tech-contribution p{font-size:13px;line-height:1.8;max-width:760px;color:inherit;margin:0}
+@media(max-width:900px){.case-tech-columns{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.case-tech-columns{gap:10px;margin-top:16px}.case-tech-panel{padding:16px;border-radius:13px}.case-tech-lead{line-height:1.72}.case-tech-list li{font-size:12px;line-height:1.7}.case-tech-contribution{margin-top:16px}}
+@media(prefers-color-scheme:dark){.case-tech-panel{background:rgba(118,78,138,.09)}}
