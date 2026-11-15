@@ -70,3 +70,9 @@
 @media(max-width:820px){.spv-lab__layout{grid-template-columns:minmax(0,1fr)}.spv-lab__controls,.spv-lab__result{padding:15px}}
 @media(max-width:520px){.spv-lab{border-radius:15px;padding:10px}.spv-lab__top{padding:6px 4px 0}.spv-lab__top h3{font-size:19px}.spv-lab__top p{font-size:12px}.spv-lab__layout{gap:9px}.spv-lab__controls,.spv-lab__result{border-radius:12px;padding:12px}.spv-lab__metric strong{font-size:16px}.spv-lab__buttons{gap:7px}.spv-lab__button{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.spv-lab__button:hover,.spv-lab__reset:hover{transform:none}}
+
+/* Keep sample JSON and other long values readable inside mobile result tables. */
+@media(max-width:560px){
+ .spv-lab__table{min-width:0;width:100%;table-layout:fixed}
+ .spv-lab__table th,.spv-lab__table td{overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+}
