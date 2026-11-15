@@ -56,6 +56,21 @@ def analyze(page, path: Path, width: int, report: list[dict]):
             if width == 390:
                 page.locator(".site-demo-shell").screenshot(path=str(OUT / (path.stem + "-390.png")), timeout=15000)
     else:
+        # New interactive workbenches replace the legacy static sidebar.
+        # Their full action coverage is exercised in audit_interactive_labs.py.
+        live = page.locator(".case-demo-section .spv-lab")
+        if live.count():
+            live.wait_for(state="visible", timeout=10000)
+            expected = path.stem.replace("case-", "").upper()
+            if live.get_attribute("data-lab") != expected:
+                row["errors"].append("incorrect interactive workbench code")
+            fields = live.locator("[data-lab-field]").count()
+            run_action = live.locator('[data-lab-action="run"]')
+            row["interactive_lab"] = {"fields": fields, "run_actions": run_action.count()}
+            if fields < 1 or run_action.count() != 1:
+                row["errors"].append("missing functional controls")
+            report.append(row)
+            return
         nav = page.locator(".case-demo-section .demo-sidebar nav")
         nav.wait_for(state="visible", timeout=10000)
         data = nav.evaluate("""el => {
