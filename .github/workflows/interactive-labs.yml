@@ -1,5 +1,7 @@
 name: Interactive case labs browser audit
 on:
+  push:
+    branches: ['feat/interactive-case-demos-20261115']
   pull_request:
     paths:
       - 'case-*.html'
