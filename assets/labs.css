@@ -76,3 +76,8 @@
  .spv-lab__table{min-width:0;width:100%;table-layout:fixed}
  .spv-lab__table th,.spv-lab__table td{overflow-wrap:anywhere;word-break:break-word;white-space:normal}
 }
+
+/* Direct route from the case overview to the real interactive workbench. */
+.case-hero .spv-demo-shortcut{max-width:100%;min-height:48px}
+.case-demo-section [id^="demo-title-"]{scroll-margin-top:88px}
+@media(max-width:760px){.case-hero .spv-demo-shortcut{width:100%;justify-content:center}}
