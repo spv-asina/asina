@@ -75,6 +75,37 @@ def main():
                                 row["errors"].append("desktop mode did not restore iframe width")
                             bar.locator("[data-site-reset]").click()
                             row["device_switcher"] = "tested"
+                        if width in (390, 1440):
+                            page.locator(".site-demo-shell").screenshot(path=str(OUT / (path.stem+"-"+str(width)+".png")), timeout=20000)
+                        if width == 390:
+                            # Verify at least one real control in the embedded page, not just the iframe wrapper.
+                            toggles = content.locator("button[aria-expanded]")
+                            verified = False
+                            for j in range(min(4, toggles.count())):
+                                btn = toggles.nth(j)
+                                if not btn.is_visible(): continue
+                                before = btn.get_attribute("aria-expanded")
+                                btn.click(timeout=5000)
+                                page.wait_for_timeout(110)
+                                after = btn.get_attribute("aria-expanded")
+                                if before != after:
+                                    verified = True
+                                    break
+                            if not verified:
+                                tabs = content.locator("button[data-tab],button[role=tab]")
+                                for j in range(min(6, tabs.count())):
+                                    btn = tabs.nth(j)
+                                    if not btn.is_visible(): continue
+                                    before = btn.get_attribute("class")
+                                    btn.click(timeout=5000)
+                                    page.wait_for_timeout(110)
+                                    after = btn.get_attribute("class")
+                                    if before != after:
+                                        verified = True
+                                        break
+                            row["embedded_control_tested"] = verified
+                            if not verified:
+                                row["warnings"].append("no stateful embedded control verified automatically")
                         if inner["text"] < 150: row["errors"].append("site preview has little content")
                         if inner["buttons"] + inner["links"] < 3: row["errors"].append("site lacks enough interactive controls")
                         if inner["scroll"] > inner["width"] + 4:
