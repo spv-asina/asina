@@ -106,3 +106,6 @@
 @media(max-width:900px){.case-tech-columns{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:520px){.case-tech-columns{gap:10px;margin-top:16px}.case-tech-panel{padding:16px;border-radius:13px}.case-tech-lead{line-height:1.72}.case-tech-list li{font-size:12px;line-height:1.7}.case-tech-contribution{margin-top:16px}}
 @media(prefers-color-scheme:dark){.case-tech-panel{background:rgba(118,78,138,.09)}}
+
+/* Fixed bottom CTA obscured content on mobile; existing header/footer CTAs remain. */
+.spv-tilda-page .sticky-cta{display:none!important}

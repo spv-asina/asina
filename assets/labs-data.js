@@ -16,7 +16,7 @@ PIP:{
  }catch(e){s.last='JSON не разобран: '+e.message;L.log(s,s.last);}},
  onAction:function(s,a,id){if(a==='clear'){s.data.runs=[];L.log(s,'История очищена');}},
  buttons:[['Очистить журнал','clear']],
- view:function(s){var d=s.data;return L.result(s.last&&s.last.startsWith('JSON не')?'Ошибка входного JSON':d.runs.length?'Сценарий выполнен':'Сценарий готов к запуску',s.last||'Измените JSON, выберите преобразование и назначение.',L.metrics([['Шагов',3],['Выполнений',d.runs.length]])+'<div class="spv-lab__tiles">'+d.steps.map(function(x,i){return L.tile((i+1)+'. '+x,i===0?'Триггер':i===1?s.values.map:s.values.target);}).join('')+'</div>'+tableOrEmpty(s,['Назначение','Результат'],d.runs.slice(0,3).map(function(r){return[r.target,r.data];})),s.done&&d.runs.length?'ok':s.done?'bad':'');}
+ view:function(s){var d=s.data;return L.result(s.last&&s.last.startsWith('JSON не')?'Ошибка входного JSON':d.runs.length?'Сценарий выполнен':'Сценарий готов к запуску',s.last||'Измените JSON, выберите преобразование и назначение.',L.metrics([['Шагов',3],['Выполнений',d.runs.length]])+'<div class="spv-lab__tiles">'+d.steps.map(function(x,i){return L.tile((i+1)+'. '+x,i===0?'Триггер':i===1?s.values.map:s.values.target);}).join('')+'</div>'+tableOrEmpty(s,['Назначение','Результат'],d.runs.slice(0,3).map(function(r){return[r.target,r.data];})),s.done&&s.last.startsWith('JSON не')?'bad':s.done&&d.runs.length?'ok':s.done?'bad':'');}
 },
 DCM:{
  title:'Очистка набора данных',description:'Введите CSV-строки, выберите правило и посмотрите, какие записи сохранились.',cta:'Проверить и очистить',
@@ -68,125 +68,5 @@ WSC:{
  view:function(s){return L.result('Результаты обхода',s.last||'Сбор тестовый — сайты не запрашиваются.',L.metrics([['Адресов',s.data.total],['Уникальных',s.data.items.length]])+tableOrEmpty(s,['Адрес','Исполнитель','Статус'],s.data.items),s.done?'ok':'');}
 }
 };
-
-/* Dedicated document workflows: local-only illustrative data, no real OCR/LLM/API. */
-Object.assign(defs,{
-  OCS:{
-    title:'OCR накладных: проверка реквизитов',
-    description:'Исправьте имитацию распознанных строк и проверьте, какие реквизиты требуют ручной сверки. Реальная модель OCR здесь не запускается.',
-    cta:'Проверить распознанные поля',
-    fields:[
-      ['number','Номер документа','text','УПД-1042'],
-      ['supplier','Поставщик','text','ООО Пример'],
-      ['items','Распознанные строки: товар;количество;цена','textarea','Бумага А4;12;430\nКартридж;3;1550']
-    ],
-    init:function(s){s.data={rows:[],errors:[],total:0};},
-    run:function(s){
-      var errors=[],total=0;
-      if(!String(s.values.number||'').trim())errors.push('Не указан номер документа');
-      if(!String(s.values.supplier||'').trim())errors.push('Не указан поставщик');
-      var rows=splitLines(s.values.items).map(function(line,i){
-        var parts=line.split(';').map(function(x){return x.trim();});
-        var qty=Number(parts[1]),price=Number(parts[2]);
-        var valid=parts.length===3&&!!parts[0]&&parts[1]!==''&&parts[2]!==''&&Number.isFinite(qty)&&Number.isFinite(price)&&qty>0&&price>=0;
-        if(valid)total+=qty*price;else errors.push('Строка '+(i+1)+': проверьте название, количество и цену');
-        return [parts[0]||'Не указано',valid?String(qty):'—',valid?L.fmt(price)+' ₽':'—',valid?'Проверено':'На сверку'];
-      });
-      s.data={rows:rows,errors:errors,total:total};
-      s.last=errors.length?'Требуется ручная сверка':'Документ прошёл формальные проверки';
-      L.log(s,'Проверка УПД: '+rows.length+' строк, замечаний '+errors.length);
-    },
-    view:function(s){
-      var d=s.data;
-      return L.result('Извлечённые реквизиты',s.last||'Запустите формальную проверку полей.',L.metrics([['Строк',d.rows.length],['Замечаний',d.errors.length],['Сумма',L.fmt(d.total)+' ₽']])+tableOrEmpty(s,['Товар','Кол-во','Цена','Статус'],d.rows)+(d.errors.length?L.note(d.errors.join('; ')):'') ,s.done?(d.errors.length?'bad':'ok'):'');
-    }
-  },
-  SHP:{
-    title:'Приёмка накладной',
-    description:'Введите товарные строки и проверьте комплектность и суммы перед переносом в учётный процесс.',
-    cta:'Сверить накладную',
-    fields:[
-      ['source','Товар;количество;цена','textarea','Бумага А4;12;430\nКартридж;3;1550\nПапки;4;120'],
-      ['mode','Режим приёмки','select','strict',[['strict','Нужна проверка всех строк'],['partial','Принять корректные позиции']]]
-    ],
-    init:function(s){s.data={rows:[],issues:[],total:0,accepted:0};},
-    run:function(s){
-      var rows=[],issues=[],total=0,accepted=0;
-      splitLines(s.values.source).forEach(function(line,i){
-        var p=line.split(';').map(function(v){return v.trim();}),n=Number(p[1]),cost=Number(p[2]);
-        var good=p.length===3&&!!p[0]&&p[1]!==''&&p[2]!==''&&Number.isFinite(n)&&Number.isFinite(cost)&&n>0&&cost>=0;
-        if(!good)issues.push('Позиция '+(i+1)+': некорректные реквизиты');
-        if(good){accepted++;total+=n*cost;}
-        rows.push([p[0]||'Без названия',p[1]||'—',p[2]||'—',good?'Корректна':'На уточнение']);
-      });
-      if(s.values.mode==='strict'&&issues.length)total=0;
-      s.data={rows:rows,issues:issues,total:total,accepted:accepted};
-      s.last=issues.length?(s.values.mode==='strict'?'Приёмка остановлена':'Часть строк принята'):'Накладная сверена';
-      L.log(s,'Позиции: '+rows.length+'; корректных '+accepted+'; ошибок '+issues.length);
-    },
-    view:function(s){
-      var d=s.data;
-      return L.result('Результат приёмки',s.last||'Проверьте строки тестовой накладной.',L.metrics([['Позиции',d.rows.length],['Принято',d.accepted],['Итого',L.fmt(d.total)+' ₽']])+tableOrEmpty(s,['Товар','Кол-во','Цена','Проверка'],d.rows)+(d.issues.length?L.note(d.issues.join('; ')):'') ,s.done?(d.issues.length?'bad':'ok'):'');
-    }
-  },
-  RAG:{
-    title:'Поиск и вопросы по учебным материалам',
-    description:'Поиск совпадений по тестовым фрагментам конспекта и вопрос для самопроверки; без обращения к нейросетевой модели.',
-    cta:'Найти в материалах',
-    fields:[
-      ['query','Тема или термин','text','матрица'],
-      ['mode','Результат','select','quiz',[['quiz','Фрагмент и вопрос'],['fragments','Только найденные фрагменты']]]
-    ],
-    init:function(s){s.data={rows:[],question:''};},
-    run:function(s){
-      var docs=[
-        ['Линейная алгебра','Матрица представляет собой прямоугольную таблицу элементов. Умножение матриц зависит от согласованности размеров.','Когда определено произведение двух матриц?'],
-        ['Теория вероятностей','Вероятность события принимает значения от нуля до единицы. Независимость событий важна при умножении вероятностей.','В чём отличие независимости событий?'],
-        ['Математический анализ','Производная характеризует скорость изменения функции. Интеграл связан с накоплением и площадью.','Как интерпретируется производная?']
-      ];
-      var tokens=String(s.values.query||'').toLowerCase().trim().split(/\s+/).filter(Boolean);
-      var found=docs.map(function(d){
-        var src=(d[0]+' '+d[1]).toLowerCase(),score=tokens.reduce(function(n,t){return n+(src.indexOf(t)>=0?1:0);},0);
-        return {name:d[0],fragment:d[1],question:d[2],score:score};
-      }).filter(function(x){return tokens.length&&x.score===tokens.length;}).sort(function(a,b){return b.score-a.score;});
-      s.data={rows:found.map(function(x){return [x.name,x.fragment];}),question:found.length?found[0].question:''};
-      s.last=found.length?'Найдено фрагментов: '+found.length:'Совпадений в тестовом корпусе нет';
-      L.log(s,'Поиск: '+(s.values.query||'пустой запрос')+'; найдено '+found.length);
-    },
-    view:function(s){
-      var d=s.data;
-      return L.result('Учебный поиск',s.last||'Введите термин из тестовых материалов.',L.metrics([['Источников',d.rows.length]])+tableOrEmpty(s,['Материал','Содержимое'],d.rows)+(d.question&&s.values.mode==='quiz'?L.note('Вопрос для самопроверки: '+d.question):''),s.done?(d.rows.length?'ok':'bad'):'');
-    }
-  },
-  TSP:{
-    title:'Корпоративный поиск по документам',
-    description:'Найдите фрагмент с указанием источника в локальном демонстрационном наборе документов.',
-    cta:'Найти фрагменты',
-    fields:[
-      ['query','Поисковый запрос','text','договор'],
-      ['scope','Раздел','select','all',[['all','Все документы'],['legal','Договоры'],['operations','Регламенты и инструкции']]]
-    ],
-    init:function(s){s.data={rows:[],scanned:0};},
-    run:function(s){
-      var docs=[
-        ['Договор поставки','legal','Договор поставки определяет срок оплаты, цену и обязательства сторон.'],
-        ['Договор на обслуживание','legal','Договор обслуживания фиксирует услуги, период и акт выполненных работ.'],
-        ['Регламент закупок','operations','Регламент закупок описывает согласование заявки, бюджет и выбор поставщика.'],
-        ['Инструкция по доступам','operations','Инструкция определяет выдачу прав и отзыв доступа для сотрудников.']
-      ];
-      var query=String(s.values.query||'').trim().toLowerCase();
-      var selected=docs.filter(function(d){return s.values.scope==='all'||d[1]===s.values.scope;});
-      var rows=selected.filter(function(d){return query.length>0&&(d[0]+' '+d[2]).toLowerCase().indexOf(query)!==-1;}).map(function(d){return [d[0],d[2]];});
-      s.data={rows:rows,scanned:selected.length};
-      s.last=rows.length?'Найдено документов: '+rows.length:'По запросу ничего не найдено';
-      L.log(s,'Проверено '+selected.length+' документов, совпадений '+rows.length);
-    },
-    view:function(s){
-      var d=s.data;
-      return L.result('Найденные документы',s.last||'Укажите запрос и область поиска.',L.metrics([['Просмотрено',d.scanned],['Совпадений',d.rows.length]])+tableOrEmpty(s,['Источник','Фрагмент'],d.rows),s.done?(d.rows.length?'ok':'bad'):'');
-    }
-  }
-});
-
 L.add(defs);
 }());
