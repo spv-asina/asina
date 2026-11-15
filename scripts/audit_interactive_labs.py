@@ -113,6 +113,16 @@ def main():
                     else:
                         frame = page.locator(".spv-lab")
                         frame.wait_for(state="visible", timeout=15000)
+                        shortcut = page.locator(".case-hero .spv-demo-shortcut")
+                        expected_hash = "#demo-title-" + path.stem.replace("case-", "").upper()
+                        if shortcut.count() != 1:
+                            row["errors"].append("missing one-click access to interactive demo")
+                        elif shortcut.get_attribute("href") != expected_hash:
+                            row["errors"].append("shortcut does not target this case")
+                        elif width == 390:
+                            shortcut.click(timeout=10000)
+                            if page.evaluate("window.location.hash") != expected_hash:
+                                row["errors"].append("try-demo anchor did not navigate")
                         if frame.get_attribute("data-lab") != path.stem.replace("case-", "").upper():
                             row["errors"].append("wrong or missing case-specific lab")
                         first = frame.locator(".spv-lab__result").inner_text()
