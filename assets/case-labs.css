@@ -1,0 +1,83 @@
+/* SPV ASINA case lab · scoped, responsive, non-destructive enhancement. */
+.case-demo-section .lab-app{--lab-line:#d9c9e0;--lab-ink:#302038;--lab-muted:#706578;--lab-accent:var(--demo-accent,#6f3d8f);--lab-soft:var(--demo-soft,#f0e8f4);border:1px solid #d0bdd8;border-radius:21px;background:#fbf8fc;box-shadow:0 16px 42px #311a3b15;display:grid;grid-template-columns:188px minmax(0,1fr);min-height:625px;overflow:hidden;color:var(--lab-ink);font-family:'Comfortaa',system-ui,sans-serif}
+.case-demo-section .lab-app *, .case-demo-section .lab-app *:before,.case-demo-section .lab-app *:after{box-sizing:border-box}
+.case-demo-section .lab-sidebar{background:linear-gradient(155deg,#2b1934,#40244e);color:#fff6ff;display:flex;flex-direction:column;gap:23px;padding:22px 13px;min-width:0}
+.case-demo-section .lab-identity{display:flex;gap:10px;align-items:center;padding:0 5px;min-width:0}
+.case-demo-section .lab-monogram{width:44px;min-width:44px;height:44px;border-radius:13px;border:1px solid #d6b6e260;background:#fff9ff19;display:grid;place-items:center;font-size:12px;letter-spacing:.03em;font-weight:800}
+.case-demo-section .lab-identity strong{display:block;color:#fff9ff;font-size:13px;line-height:1.4}
+.case-demo-section .lab-identity small{display:block;margin-top:4px;font-size:10px;color:#ddc6e6;line-height:1.4}
+.case-demo-section .lab-sidebar nav{display:grid;gap:7px;min-width:0}
+.case-demo-section .lab-nav{display:flex;align-items:center;min-height:44px;width:100%;padding:12px 13px;border:1px solid transparent;border-radius:11px;background:transparent;color:#e4d8e8;font:700 12px/1.35 Comfortaa,system-ui,sans-serif;text-align:left;cursor:pointer;white-space:normal}
+.case-demo-section .lab-nav:hover,.case-demo-section .lab-nav:focus-visible{border-color:#d5b5e066;background:#fff9ff14;color:#fff}
+.case-demo-section .lab-nav.is-active{background:linear-gradient(110deg,#895ba1,#6e4485);color:#fff;border-color:#caa6d480;box-shadow:0 8px 20px #180a1f30}
+.case-demo-section .lab-sidebar-foot{margin-top:auto;padding:14px 9px 0;border-top:1px solid #fff9ff24;font-size:10px;color:#e2d0e7;line-height:1.75}
+.case-demo-section .lab-signal{display:inline-block;width:7px;height:7px;background:#9dddba;border-radius:50%;margin-right:5px}
+.case-demo-section .lab-main{display:flex;flex-direction:column;min-width:0;background:radial-gradient(circle at 90% 0%,#e9dcef75,transparent 35%),#faf7fb}
+.case-demo-section .lab-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;border-bottom:1px solid var(--lab-line);padding:25px 25px 23px}
+.case-demo-section .lab-kicker{font-size:10px;color:var(--lab-accent);font-weight:800;letter-spacing:.07em;line-height:1.5}
+.case-demo-section .lab-header h3{font:750 clamp(20px,2vw,26px)/1.25 Comfortaa,system-ui,sans-serif;color:var(--lab-ink);margin:10px 0 8px;letter-spacing:-.035em}
+.case-demo-section .lab-header p{max-width:630px;font-size:12px;line-height:1.65;color:var(--lab-muted);margin:0}
+.case-demo-section .lab-live{white-space:nowrap;flex-shrink:0;background:#e5f3e9;color:#285b44;border:1px solid #b7d8c1;border-radius:999px;padding:8px 11px;font-size:10px;font-weight:800}
+.case-demo-section .lab-screen{padding:23px 25px 28px;min-width:0;flex:1}
+.case-demo-section .lab-screen[hidden]{display:none!important}
+.case-demo-section .lab-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start;gap:15px;min-width:0}
+.case-demo-section .lab-form,.case-demo-section .lab-result{background:#fff;border:1px solid var(--lab-line);border-radius:18px;box-shadow:0 6px 18px #30173f09;padding:20px;min-width:0}
+.case-demo-section .lab-panel-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1px solid var(--lab-line);padding-bottom:13px;margin-bottom:17px}
+.case-demo-section .lab-panel-heading b{font-size:14px;line-height:1.4;color:var(--lab-ink)}
+.case-demo-section .lab-panel-heading span{font-size:10px;line-height:1.3;color:var(--lab-muted);text-align:right}
+.case-demo-section .lab-fields{display:grid;gap:13px}
+.case-demo-section .lab-field{min-width:0;display:grid;gap:7px;font-size:12px;color:var(--lab-ink);font-weight:700;line-height:1.45}
+.case-demo-section .lab-field>span{color:#52435b}
+.case-demo-section .lab-field :is(input,select,textarea){min-height:43px;width:100%;max-width:100%;border:1px solid #cdbdd3;border-radius:10px;background:#fdfbfe;color:var(--lab-ink);font:500 13px/1.5 Comfortaa,system-ui,sans-serif;padding:10px 12px;box-shadow:none;transition:border-color .15s}
+.case-demo-section .lab-field textarea{min-height:95px;resize:vertical;white-space:pre-wrap}
+.case-demo-section .lab-field :is(input,select,textarea):focus{outline:2px solid #b598c9;outline-offset:1px;border-color:#80539a}
+.case-demo-section .lab-field select{cursor:pointer}
+.case-demo-section .lab-actions{display:flex;align-items:stretch;flex-wrap:wrap;gap:8px;margin-top:18px}
+.case-demo-section .lab-button{min-height:44px;max-width:100%;border-radius:11px;border:1px solid var(--lab-line);font:800 11px/1.4 Comfortaa,system-ui,sans-serif;padding:11px 13px;background:#fff;color:#503063;text-align:center;cursor:pointer;transition:background .15s,border-color .15s,transform .15s;white-space:normal;overflow-wrap:break-word}
+.case-demo-section .lab-button:hover{border-color:#9774ac;background:#f1e8f6}
+.case-demo-section .lab-button:focus-visible,.case-demo-section .lab-nav:focus-visible{outline:3px solid #9d76b5;outline-offset:2px}
+.case-demo-section .lab-primary{background:linear-gradient(135deg,#69397b,#8a59a0);color:#fff;border-color:#6c3a83;flex:1.2}
+.case-demo-section .lab-primary:hover{background:linear-gradient(135deg,#572868,#75428b);color:#fff}
+.case-demo-section .lab-secondary{flex:1}
+.case-demo-section .lab-subtle{background:transparent;border-color:transparent;color:#776583}
+.case-demo-section .lab-validation{font-size:11px;margin:12px 0 0;color:#a13443;line-height:1.5}
+.case-demo-section .lab-empty{border:1px dashed #d5c4dd;background:#faf5fc;border-radius:12px;padding:26px 18px;font-size:12px;color:var(--lab-muted);text-align:center;line-height:1.65}
+.case-demo-section .lab-result-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px}
+.case-demo-section .lab-result-heading span{font-size:10px;color:var(--lab-muted);font-weight:800;letter-spacing:.07em}
+.case-demo-section .lab-result-heading b{font-size:10px;border-radius:999px;padding:7px 9px;background:#e6f2e8;color:#276440}
+.case-demo-section .lab-result-heading b.lab-status-warn{background:#fff1d9;color:#8a4c17}
+.case-demo-section .lab-result-heading b.lab-status-fail{background:#fbe8ea;color:#8d3046}
+.case-demo-section .lab-result h4{font-size:19px;line-height:1.3;letter-spacing:-.03em;color:var(--lab-ink);margin:0 0 8px}
+.case-demo-section .lab-result>p{font-size:11px;line-height:1.65;color:var(--lab-muted);margin:0 0 15px}
+.case-demo-section .lab-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:17px}
+.case-demo-section .lab-metric{background:#f1eaf5;border:1px solid #e1d2e7;border-radius:10px;padding:10px 11px;min-width:0}
+.case-demo-section .lab-metric span{font-size:9px;color:#6a5972;display:block;line-height:1.45}
+.case-demo-section .lab-metric strong{margin-top:6px;font-size:13px;color:#4c2c60;display:block;line-height:1.4;overflow-wrap:anywhere}
+.case-demo-section .lab-details{display:grid;gap:0;border-top:1px solid #eadfeb}
+.case-demo-section .lab-detail{display:grid;grid-template-columns:minmax(0,33%) minmax(0,1fr);gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid #ede5f0}
+.case-demo-section .lab-detail span{font-size:10px;color:var(--lab-muted);line-height:1.5}
+.case-demo-section .lab-detail strong{font-size:11px;line-height:1.5;font-weight:700;overflow-wrap:anywhere;white-space:pre-wrap;color:var(--lab-ink)}
+.case-demo-section .lab-log{margin-top:13px;font-size:10px;color:var(--lab-ink)}
+.case-demo-section .lab-log summary{cursor:pointer;line-height:1.6;font-weight:700}
+.case-demo-section .lab-log ol{padding-left:21px;line-height:1.8}
+.case-demo-section .lab-help{max-width:800px;font-size:12px;line-height:1.7;color:var(--lab-muted);margin-bottom:19px}
+.case-demo-section .lab-history{display:grid;gap:10px}
+.case-demo-section .lab-history-item{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;background:#fff;border:1px solid var(--lab-line);border-radius:14px;padding:15px}
+.case-demo-section .lab-history-item strong,.case-demo-section .lab-history-item small{display:block;line-height:1.55}
+.case-demo-section .lab-history-item strong{font-size:13px;color:var(--lab-ink);margin:5px 0}
+.case-demo-section .lab-history-item small{font-size:10px;color:var(--lab-muted)}
+.case-demo-section .lab-history-index{font-size:10px;color:#704589}
+.case-demo-section .lab-json{max-height:350px;overflow:auto;white-space:pre-wrap;word-break:break-word;border:1px solid var(--lab-line);border-radius:13px;padding:17px;background:#fff;font:12px/1.7 ui-monospace,monospace;color:#4c3255}
+.case-demo-section .lab-small-status{font-size:11px;line-height:1.5;color:#38664b;margin-top:10px}
+.case-demo-section .lab-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:21px}
+.case-demo-section .lab-steps>div{display:flex;gap:12px;align-items:center;border:1px solid #e0d3e6;background:#fff;border-radius:13px;padding:15px;min-width:0}
+.case-demo-section .lab-steps span{font-size:11px;color:var(--lab-accent);font-weight:800}
+.case-demo-section .lab-steps b{font-size:11px;line-height:1.5;min-width:0;overflow-wrap:break-word}
+.case-demo-section .lab-screen h4{margin:18px 0 12px;font-size:14px}
+.case-demo-section .lab-tags{display:flex;flex-wrap:wrap;gap:7px}
+.case-demo-section .lab-tags span{border:1px solid #d5c2df;background:#fff;border-radius:100px;padding:8px 12px;font-size:10px;color:#59356c;line-height:1.5}
+.case-demo-section .lab-disclosure{margin:22px 0 17px;padding:14px 16px;border-left:3px solid #9d6fb4;background:#f1e8f6;font-size:11px;line-height:1.75;color:#604b69;border-radius:0 10px 10px 0}
+@media(max-width:1020px){.case-demo-section .lab-app{grid-template-columns:155px minmax(0,1fr)}.case-demo-section .lab-layout{grid-template-columns:1fr}.case-demo-section .lab-header{flex-wrap:wrap}.case-demo-section .lab-screen{padding:18px}.case-demo-section .lab-form,.case-demo-section .lab-result{padding:17px}}
+@media(max-width:760px){.case-demo-section .lab-app{display:block;min-height:0;border-radius:17px}.case-demo-section .lab-sidebar{padding:13px;display:grid;gap:12px}.case-demo-section .lab-identity{padding:0 2px}.case-demo-section .lab-sidebar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.case-demo-section .lab-sidebar-foot{display:none}.case-demo-section .lab-nav{min-height:44px;justify-content:center;text-align:center;padding:9px 6px;font-size:10px}.case-demo-section .lab-main{min-width:0}.case-demo-section .lab-header{padding:19px 17px;gap:10px}.case-demo-section .lab-header h3{font-size:21px}.case-demo-section .lab-live{font-size:9px;padding:7px 10px}.case-demo-section .lab-screen{padding:14px}.case-demo-section .lab-form,.case-demo-section .lab-result{padding:16px}.case-demo-section .lab-layout{gap:11px}.case-demo-section .lab-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.case-demo-section .lab-sidebar nav{grid-template-columns:repeat(2,minmax(0,1fr))}.case-demo-section .lab-nav{font-size:11px}.case-demo-section .lab-app{border-radius:14px}.case-demo-section .lab-header{display:block}.case-demo-section .lab-live{display:inline-flex;margin-top:12px}.case-demo-section .lab-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.case-demo-section .lab-detail{grid-template-columns:1fr;gap:3px}.case-demo-section .lab-actions{display:grid;grid-template-columns:1fr;gap:8px}.case-demo-section .lab-history-item{grid-template-columns:1fr}.case-demo-section .lab-history-item button{width:100%}.case-demo-section .lab-steps{grid-template-columns:1fr}.case-demo-section .lab-form,.case-demo-section .lab-result{padding:14px}}
+@media(prefers-reduced-motion:reduce){.case-demo-section .lab-app *, .case-demo-section .lab-app *:before,.case-demo-section .lab-app *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
