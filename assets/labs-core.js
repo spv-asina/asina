@@ -47,7 +47,18 @@
     if(config.init)config.init(s,lab);
     return s;
   }
+  function shortcut(section) {
+    var intro=document.querySelector('.case-hero .case-hero__grid > div:first-child');
+    if(!intro || intro.querySelector('.spv-demo-shortcut'))return;
+    var anchor=document.createElement('a');
+    anchor.className='btn bronze spv-demo-shortcut';
+    anchor.href='#demo-title-'+section.dataset.demoCode;
+    anchor.textContent='Попробовать интерактивное демо';
+    anchor.style.marginTop='22px';
+    intro.appendChild(anchor);
+  }
   function mount(section, cfg) {
+    shortcut(section);
     var product=section.querySelector('[data-demo-panel="product"]');
     if(!product||product.dataset.labMounted)return;
     product.dataset.labMounted='true';
