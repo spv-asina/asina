@@ -81,3 +81,8 @@
 .case-hero .spv-demo-shortcut{max-width:100%;min-height:48px}
 .case-demo-section [id^="demo-title-"]{scroll-margin-top:88px}
 @media(max-width:760px){.case-hero .spv-demo-shortcut{width:100%;justify-content:center}}
+
+/* A transformed page wrapper may bring the off-screen skip link into
+   element screenshots or scrolled demo areas. Keep keyboard access intact. */
+.spv-tilda-page > .skip:not(:focus){opacity:0;clip-path:inset(100%);pointer-events:none}
+.spv-tilda-page > .skip:focus{opacity:1;clip-path:none;pointer-events:auto}
