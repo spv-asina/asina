@@ -94,7 +94,7 @@ def verify(width, browser, base):
         overflow = page.evaluate("document.documentElement.scrollWidth - innerWidth")
         assert overflow <= 4, "Horizontal page overflow: %s" % overflow
         result["outer_overflow"] = overflow
-        link = page.locator('.case-section-body a[href$="contacts.html"]:visible').last
+        link = page.locator('.spv-demo-contact a[href$="contacts.html"]:visible').first
         link.click()
         page.wait_for_url("**/contacts.html", timeout=15000)
         result["steps"].append("case → contact")
