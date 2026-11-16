@@ -1,0 +1,31 @@
+name: Case demo mobile audit
+on:
+  pull_request:
+    paths:
+      - 'case-*.html'
+      - 'scripts/audit_case_interfaces.py'
+      - '.github/workflows/case-mobile-audit.yml'
+permissions:
+  contents: read
+jobs:
+  mobile-demo-browser-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit all 45 case demo interfaces
+        run: python scripts/audit_case_interfaces.py
+      - name: Preserve screenshots and audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: case-mobile-browser-audit
+          path: artifacts/case-mobile-audit/
+          if-no-files-found: warn
