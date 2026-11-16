@@ -1,0 +1,27 @@
+/* The catalogue now distinguishes reading a case from using its actual website. */
+.spv-tilda-page[data-spv-page=cases] .portfolio-card--site{display:flex;flex-direction:column}
+.spv-tilda-page[data-spv-page=cases] .portfolio-card--site > a:first-child{
+  display:flex;flex-direction:column;flex:1 1 auto;height:auto;min-height:0
+}
+.spv-tilda-page[data-spv-page=cases] .portfolio-card--site > .site-card-direct{
+  display:inline-flex!important;flex:none!important;flex-direction:row!important;
+  width:calc(100% - 36px);height:auto!important;min-height:44px;
+  margin:0 18px 18px;padding:11px 15px!important;align-items:center;justify-content:center;
+  border:1px solid #5b386d;background:#56316c;color:#fff;border-radius:12px;
+  font:700 12px/1.4 'Comfortaa',system-ui,sans-serif;text-align:center;letter-spacing:0;
+  box-shadow:none;transition:background .2s ease
+}
+.spv-tilda-page[data-spv-page=cases] .portfolio-card--site > .site-card-direct:hover{
+  background:#75458e
+}
+.spv-tilda-page[data-spv-page=cases] .portfolio-card--site > .site-card-direct:focus-visible{
+  outline:3px solid #a887c4;outline-offset:3px
+}
+@media(max-width:760px){
+  .spv-tilda-page[data-spv-page=cases] .portfolio-card--site > .site-card-direct{
+    width:calc(100% - 28px);min-height:44px;margin:0 14px 14px;font-size:12px
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .spv-tilda-page[data-spv-page=cases] .portfolio-card--site > .site-card-direct{transition:none}
+}
