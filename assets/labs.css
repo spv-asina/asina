@@ -203,3 +203,12 @@
 .spv-lab__chatroom details{margin-top:9px;border-top:1px solid #e5d9eb;padding-top:7px}
 .spv-lab__chatroom details summary{font-size:12px;font-weight:700;cursor:pointer;color:#684975}
 @media(max-width:520px){.spv-lab__board{grid-template-columns:minmax(0,1fr)}.spv-lab__board-col{padding:8px}.spv-lab__board-col>h5{margin-bottom:4px}.spv-lab__board-item{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:6px;align-items:center}.spv-lab__board-item strong{font-size:12px}.spv-lab__board-item small{grid-column:1}.spv-lab__board-item .spv-lab__button{grid-column:2;grid-row:1/3;width:auto;max-width:110px}}
+
+
+/* Contextual, non-sticky handoff from the case explanation to contact. */
+.spv-demo-contact{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:23px;padding:17px 19px;border-radius:16px;border:1px solid #d9c7e2;background:linear-gradient(120deg,#f6eff9,#f9f6fa)}
+.spv-demo-contact>div{min-width:0}
+.spv-demo-contact strong{display:block;color:#382446;font-size:15px;line-height:1.4}
+.spv-demo-contact p{margin:5px 0 0;font-size:13px;color:#65576e;line-height:1.5}
+.spv-demo-contact .spv-demo-contact__action{min-height:44px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:10px 17px;white-space:nowrap}
+@media(max-width:650px){.spv-demo-contact{align-items:stretch;flex-direction:column;padding:16px;gap:12px}.spv-demo-contact .spv-demo-contact__action{width:100%}}
