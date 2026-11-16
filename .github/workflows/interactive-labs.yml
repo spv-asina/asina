@@ -8,6 +8,8 @@ on:
       - 'assets/labs*.js'
       - 'assets/labs.css'
       - 'scripts/audit_interactive_labs.py'
+      - 'scripts/audit_mobile_journey.py'
+      - 'assets/site-demo-controls.*'
       - '.github/workflows/interactive-labs.yml'
 permissions:
   contents: read
@@ -30,10 +32,14 @@ jobs:
           python scripts/audit_case_narratives.py
       - name: Interact with all 34 labs and inspect 11 embedded sites
         run: python scripts/audit_interactive_labs.py
+      - name: Test complete mobile customer journey
+        run: python scripts/audit_mobile_journey.py
       - name: Upload screenshots and JSON
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: interactive-case-labs-audit
-          path: artifacts/interactive-labs/
+          path: |
+            artifacts/interactive-labs/
+            artifacts/mobile-journey/
           if-no-files-found: warn
