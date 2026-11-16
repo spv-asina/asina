@@ -212,3 +212,32 @@
   .spv-tilda-page .footer-grid{grid-template-columns:minmax(0,1fr)}
   .spv-tilda-page .footer-grid>:first-child{grid-column:1}
 }
+
+
+/* Review pass: route picker contrast + remove unnecessary first-screen metadata. */
+@media screen and (max-width:760px){
+ .spv-tilda-page[data-spv-page=index] .hero-panel .system-map{
+   background:transparent!important;border:0!important;box-shadow:none!important;
+   padding:0!important;margin:0!important;gap:7px!important;
+ }
+ .spv-tilda-page[data-spv-page=index] .system-map__node{
+   color:#3d2a46!important;max-width:100%;
+ }
+ .spv-tilda-page[data-spv-page=index] .system-map__node.active{
+   background:linear-gradient(130deg,#613674,#7f4d98)!important;
+   border-color:#663780!important;color:#fff!important;
+ }
+ .spv-tilda-page[data-spv-page=index] .system-map__node.active :is(strong,small,b,div){
+   color:#fff!important;opacity:1!important;
+ }
+ .spv-tilda-page[data-spv-page=index] .system-map__node.active > strong{color:#f8e6ff!important}
+ .spv-tilda-page .case-fact:nth-child(n+3){display:none}
+ .spv-tilda-page .case-facts{margin-top:13px}
+ .spv-tilda-page .case-fact{padding:10px 12px}
+ .spv-tilda-page .portfolio-card__foot>span:first-child{display:none}
+ .spv-tilda-page .portfolio-card__foot{display:flex;justify-content:flex-end}
+ .spv-tilda-page .case-demo-section .section-head h2{font-size:23px;line-height:1.22}
+ .spv-tilda-page .form-card .eyebrow{margin-bottom:6px}
+ .spv-tilda-page .form-card h2{max-width:440px}
+ body .spv-site-case .site-case-status strong{font-size:21px;line-height:1.23}
+}
