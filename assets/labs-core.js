@@ -56,6 +56,14 @@
     anchor.textContent='Попробовать интерактивное демо';
     anchor.style.marginTop='22px';
     intro.appendChild(anchor);
+    var tech=document.querySelector('.case-technical-section .case-tech-main');
+    if(tech&&!tech.querySelector('.spv-demo-contact')){
+      var contact=document.createElement('div');
+      contact.className='spv-demo-contact';
+      contact.innerHTML='<div><strong>Нужен похожий продукт?</strong><p>Обсудим задачу и подход к реализации.</p></div>'+
+        '<a class="btn bronze spv-demo-contact__action" href="./contacts.html">Обсудить проект</a>';
+      tech.appendChild(contact);
+    }
   }
   function mount(section, cfg) {
     shortcut(section);
