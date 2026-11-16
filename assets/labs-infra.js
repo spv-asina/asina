@@ -18,7 +18,20 @@ CDP:{
  run:function(s){s.data.canary=s.values.version;s.data.stage=s.values.health==='ok'?'canary':'failed';s.data.events.unshift(s.values.version+' · '+s.data.stage+' · '+s.values.traffic+'%');s.last=s.values.health==='ok'?'Canary запущен':'Health-check не прошёл';L.log(s,s.last);},
  onAction:function(s,a){if(a==='promote'&&s.data.stage==='canary'){s.data.stable=s.data.canary;s.data.stage='production';s.last='Продвижение в production';}else if(a==='rollback'){s.data.canary=null;s.data.stage='production';s.last='Откат к '+s.data.stable;}else return;s.data.events.unshift(s.last);L.log(s,s.last);},
  buttons:[['Promote','promote'],['Rollback','rollback']],
- view:function(s){return L.result('Панель доставки',s.last||'Стабильная версия работает.',L.metrics([['Production',s.data.stable],['Этап',s.data.stage]])+'<div class="spv-lab__tiles">'+s.data.events.slice(0,5).map(function(x,i){return L.tile('Событие '+(i+1),x);}).join('')+'</div>',s.done?(s.data.stage==='failed'?'bad':'ok'):'');}
+ view:function(s){
+  var stage=s.data.stage,active=s.data.canary,stable=s.data.stable;
+  var labels={production:'Production стабильна',canary:'Канареечная версия',failed:'Ошибка проверки'};
+  var roll='<div class="spv-lab__release"><div class="spv-lab__release-grid">'+
+   '<div class="spv-lab__release-stage"><span>Основная версия</span><strong>'+L.esc(stable)+'</strong><small>Production</small></div>'+
+   '<div class="spv-lab__release-arrow">→</div>'+
+   '<div class="spv-lab__release-stage '+(stage==='failed'?'spv-lab__release-stage--bad':'')+'"><span>Новая версия</span><strong>'+
+   L.esc(active||'Не запущена')+'</strong><small>'+L.esc(labels[stage])+'</small></div></div>'+
+   (active?'<div class="spv-lab__release-bar"><div style="width:'+Math.max(0,Math.min(100,Number(s.values.traffic)||0))+'%"></div></div>'+
+   '<div class="spv-lab__output-label">Трафик canary: '+L.esc(s.values.traffic)+'%</div>':'')+
+   '</div><details class="spv-lab__release-history"><summary>Журнал релизов · '+s.data.events.length+'</summary>'+
+   '<ol>'+s.data.events.map(function(x){return '<li>'+L.esc(x)+'</li>';}).join('')+'</ol></details>';
+  return L.result('Управление релизом',s.last||'Выберите версию и запустите canary.',roll,s.done?(stage==='failed'?'bad':'ok'):'');
+ }
 },
 K8S:{
  title:'Планировщик GPU-заданий',description:'Добавьте задачу, укажите GPU и приоритет, затем распределите по доступным узлам.',cta:'Поставить задачу',
