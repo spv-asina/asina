@@ -7,17 +7,36 @@ function splitLines(s){return String(s||'').split(/\r?\n/).map(function(x){retur
 function csv(s){return splitLines(s).map(function(x){return x.split(/[;,]/).map(function(t){return t.trim();});});}
 var defs={
 PIP:{
- title:'Конструктор интеграций',description:'Соберите цепочку триггер → преобразование → действие и запустите её на тестовом событии.',cta:'Выполнить сценарий',
- fields:[['event','Входящий webhook','textarea','{"order_id": 42, "amount": 12500}'],['map','Преобразование','select','add_tag',[['add_tag','Добавить тег'],['discount','Рассчитать скидку 10%'],['normal','Без изменений']]],['target','Получатель','select','crm',[['crm','CRM'],['telegram','Telegram'],['archive','Журнал событий']]]],
- init:function(s){s.data={steps:['Webhook','Преобразование','Получатель'],runs:[],active:true};},
- run:function(s){try{var obj=JSON.parse(s.values.event);if(!obj||typeof obj!=='object'||Array.isArray(obj))throw Error('Ожидался JSON-объект');
- if(s.values.map==='discount')obj.discount=Math.round(L.n(obj.amount)*.1);if(s.values.map==='add_tag')obj.tag='new';
- s.data.runs.unshift({target:s.values.target,data:JSON.stringify(obj),status:'OK'});s.last='Доставлено в '+s.values.target;L.log(s,'Webhook принят → '+s.values.map+' → '+s.values.target);
- }catch(e){s.last='JSON не разобран: '+e.message;L.log(s,s.last);}},
- onAction:function(s,a,id){if(a==='clear'){s.data.runs=[];L.log(s,'История очищена');}},
- buttons:[['Очистить журнал','clear']],
- view:function(s){var d=s.data;return L.result(s.last&&s.last.startsWith('JSON не')?'Ошибка входного JSON':d.runs.length?'Сценарий выполнен':'Сценарий готов к запуску',s.last||'Измените JSON, выберите преобразование и назначение.',L.metrics([['Шагов',3],['Выполнений',d.runs.length]])+'<div class="spv-lab__tiles">'+d.steps.map(function(x,i){return L.tile((i+1)+'. '+x,i===0?'Триггер':i===1?s.values.map:s.values.target);}).join('')+'</div>'+tableOrEmpty(s,['Назначение','Результат'],d.runs.slice(0,3).map(function(r){return[r.target,r.data];})),s.done&&s.last.startsWith('JSON не')?'bad':s.done&&d.runs.length?'ok':s.done?'bad':'');}
+ title:'Конструктор интеграций',description:'Соберите сценарий из события, преобразования и получателя. Нажмите запуск, чтобы увидеть готовые данные.',cta:'Выполнить сценарий',
+ fields:[['event','Входящий webhook','textarea','{"order_id": 42, "amount": 12500}'],['map','Преобразование','select','add_tag',[['add_tag','Добавить тег'],['discount','Скидка 10%'],['normal','Без изменений']]],['target','Получатель','select','crm',[['crm','CRM'],['telegram','Telegram'],['archive','Архив']]]],
+ init:function(s){s.data={runs:[]};},
+ run:function(s){
+  try {
+   var obj=JSON.parse(s.values.event);
+   if(!obj||typeof obj!=='object'||Array.isArray(obj))throw Error('Ожидался JSON-объект');
+   if(s.values.map==='discount'){
+    if(typeof obj.amount!=='number'||!Number.isFinite(obj.amount))throw Error('Для скидки поле amount должно быть числом');
+    obj.discount=Math.round(obj.amount*.1*100)/100;
+   }
+   if(s.values.map==='add_tag')obj.tag='new';
+   s.data.runs.unshift({target:s.values.target,payload:obj,status:'OK'});
+   s.data.runs=s.data.runs.slice(0,20);
+   s.last='Данные подготовлены для '+s.values.target;
+   L.log(s,'Webhook → '+s.values.map+' → '+s.values.target);
+  } catch(e){s.last='Ошибка входных данных: '+e.message;L.log(s,s.last);}
+ },
+ onAction:function(s,a){if(a==='clear'){s.data.runs=[];s.last='История запусков очищена';s.done=false;L.log(s,s.last);}},
+ buttons:[['Очистить историю','clear']],
+ view:function(s){
+  var runs=s.data.runs,latest=runs[0],bad=s.done&&s.last.startsWith('Ошибка входных данных');
+  var mapNames={add_tag:'Добавить тег',discount:'Скидка 10%',normal:'Без изменений'},targets={crm:'CRM',telegram:'Telegram',archive:'Архив'};
+  var route='<div class="spv-lab__route" aria-label="Маршрут события"><span>Webhook</span><i>→</i><span>'+L.esc(mapNames[s.values.map]||s.values.map)+'</span><i>→</i><span>'+L.esc(targets[s.values.target]||s.values.target)+'</span></div>';
+  var output=bad?L.note(s.last):latest?'<div class="spv-lab__output"><div class="spv-lab__output-label">Подготовленный JSON · '+L.esc(targets[latest.target]||latest.target)+'</div><pre>'+L.esc(JSON.stringify(latest.payload,null,2))+'</pre></div>':L.note('Задайте событие и нажмите «Выполнить сценарий».');
+  var count=runs.length?'<div class="spv-lab__output-label">Успешных запусков: '+runs.length+'</div>':'';
+  return L.result(bad?'Некорректные данные':latest?'Сценарий выполнен':'Готов к запуску',bad?'Проверьте JSON и повторите запуск.':s.last||'Результат появится здесь после запуска.',route+output+count,bad?'bad':s.done&&latest?'ok':'');
+ }
 },
+
 DCM:{
  title:'Очистка набора данных',description:'Введите CSV-строки, выберите правило и посмотрите, какие записи сохранились.',cta:'Проверить и очистить',
  fields:[['raw','Данные: id;имя;сумма','textarea','1;Анна;120\n2;Иван;250\n2;Иван;250\n3;;500\n4;Олег;90'],['mode','Правило','select','both',[['both','Удалить дубликаты и неполные'],['dedupe','Только дубликаты'],['empty','Только неполные']]]],
