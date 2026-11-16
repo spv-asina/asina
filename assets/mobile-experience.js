@@ -4,7 +4,22 @@
   const media=window.matchMedia('(max-width:760px)');
   let rail=null;
   let parent=null;
+  function titles(){
+    const wanted=[
+      ['.spv-tilda-page[data-spv-page="contacts"] .form-card h2','Коротко о вашей задаче'],
+      ['.spv-tilda-page .case-demo-section .section-head h2[id^="demo-title-"]','Попробовать в работе']
+    ];
+    wanted.forEach(function(item){
+      document.querySelectorAll(item[0]).forEach(function(heading){
+        if(!heading.hasAttribute('data-spv-full-title')){
+          heading.setAttribute('data-spv-full-title',heading.textContent);
+        }
+        heading.textContent=media.matches?item[1]:heading.getAttribute('data-spv-full-title');
+      });
+    });
+  }
   function update(){
+    titles();
     const toolbar=document.querySelector('.spv-tilda-page[data-spv-page="cases"] .filter-toolbar');
     if(!toolbar)return;
     if(media.matches&&!rail){
