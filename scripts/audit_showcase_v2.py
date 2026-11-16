@@ -125,6 +125,17 @@ def test_wrappers(browser, base):
                 issues.append(f"{name}: reset lost source")
         finally:
             page.close()
+    page = browser.new_page(viewport={"width": 390, "height": 860})
+    try:
+        page.goto(base + "/cases.html", wait_until="domcontentloaded")
+        for name in SITES:
+            link = page.locator(f'.portfolio-card--site > a.site-card-direct[href="./showcase/{name}.html"]')
+            if link.count() != 1:
+                issues.append(f"{name}: catalogue direct link is missing")
+        if page.locator(".site-card-direct").count() != len(SITES):
+            issues.append("the catalogue does not have exactly 11 standalone links")
+    finally:
+        page.close()
     return issues
 
 
