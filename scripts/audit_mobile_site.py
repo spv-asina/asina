@@ -71,11 +71,15 @@ def sample(page, base, path: str, width: int, result: list):
     page.evaluate("document.fonts && document.fonts.ready")
     page.wait_for_timeout(90)
     m = capture_metrics(page, path)
-    row = {"page": path, "width": width, **m, "errors": []}
+    row = {"page": path, "width": width, **m, "errors": [], "warnings": []}
     if not m["mobileCss"] or not m["mobileJs"]:
         row["errors"].append("mobile design resources missing")
     if m["scroll"] > width + 4:
-        row["errors"].append("horizontal overflow %dpx" % (m["scroll"] - width))
+        msg = "horizontal overflow %dpx" % (m["scroll"] - width)
+        if width <= 760:
+            row["errors"].append(msg)
+        else:
+            row["warnings"].append("desktop overflow to compare against original: " + msg)
     if width >= 761 and m["mobileFilters"] != 0:
         row["errors"].append("mobile-only catalog wrapper retained on desktop")
     if width <= 760 and m["stickyCtaVisible"]:
@@ -102,7 +106,7 @@ def check_interaction(browser, base):
         page.goto(base + "/index.html", wait_until="domcontentloaded")
         primary = page.locator('.hero .actions a[href$="contacts.html"]')
         assert primary.count() == 1 and primary.is_visible(), "Homepage contact CTA missing"
-        assert page.locator('.hero-panel .system-map__node').count() == 3, "Homepage route picker missing"
+        assert page.locator('.hero-panel .system-map__node').count() == 4, "Homepage route picker missing"
         assert page.locator("#entry-points").is_hidden(), "Repeated homepage routes visible"
         menu = page.locator(".header .menu")
         assert menu.is_visible(), "Mobile menu missing"
@@ -156,6 +160,8 @@ def compare_desktop(browser, base, baseline):
             a.wait_for_timeout(70); b.wait_for_timeout(70)
             ca = capture_metrics(a, path)
             cb = capture_metrics(b, path)
+            if ca["scroll"] != cb["scroll"]:
+                raise AssertionError("Desktop document width changed in %s (%d vs %d)" % (path, ca["scroll"], cb["scroll"]))
             if ca["hero"] and cb["hero"]:
                 for key in ("font", "padding"):
                     if ca["hero"][key] != cb["hero"][key]:
