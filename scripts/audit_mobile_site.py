@@ -123,6 +123,20 @@ def check_interaction(browser, base):
         page.wait_for_timeout(250)
         visible = page.locator("[data-case-card]:visible").count()
         records.append("catalog filters and search (visible: %d)" % visible)
+        control = page.evaluate("""() => ({
+          searchFont: parseFloat(getComputedStyle(document.querySelector('.case-search')).fontSize),
+          filterHeight: Math.min(...Array.from(document.querySelectorAll('.filter-btn'),
+            button => button.getBoundingClientRect().height))
+        })""")
+        assert control["searchFont"] >= 16, "Mobile search focus would zoom in Safari"
+        assert control["filterHeight"] >= 44, "Mobile filter touch target too small"
+        page.locator(".case-search").fill("spv-never-matches-987654")
+        assert page.locator("[data-case-empty]").is_visible(), "Empty state is missing"
+        page.locator(".spv-reset-filters").click()
+        assert page.locator(".case-search").input_value() == "", "Reset did not clear search"
+        assert page.locator("[data-case-card]:visible").count() == 45, "Reset did not restore all projects"
+        assert "45" in page.locator("[data-case-count]").inner_text(), "Visible count is incorrect"
+        records.append("zero-result recovery, touch targets, and live result count")
         page.goto(base + "/case-pip.html", wait_until="domcontentloaded")
         lab = page.locator(".case-demo-section .spv-lab")
         lab.wait_for(state="visible", timeout=15000)
@@ -142,6 +156,72 @@ def check_interaction(browser, base):
         assert page.locator('form[data-mail-form] input').count() >= 2
         assert page.locator('form[data-mail-form] textarea').count() >= 1
         records.append("contact form ready (no external submission)")
+    finally:
+        page.close()
+    return records
+
+
+def check_webkit_mobile(browser, base):
+    """Touch-oriented WebKit smoke test; not a substitute for native iOS Safari."""
+    page = browser.new_page(
+        viewport={"width": 390, "height": 844},
+        device_scale_factor=3, has_touch=True, reduced_motion="reduce",
+    )
+    paths = ("index.html", "cases.html", "contacts.html", "case-pip.html", "case-site-atelier.html")
+    records = []
+    try:
+        for width in (320, 390):
+            page.set_viewport_size({"width": width, "height": 844})
+            for path in paths:
+                page.goto(base + "/" + path, wait_until="domcontentloaded", timeout=30000)
+                page.locator("main").wait_for(state="visible", timeout=15000)
+                page.wait_for_timeout(80)
+                m = capture_metrics(page, path)
+                assert m["scroll"] <= width + 4, (
+                    "WebKit horizontal overflow in %s at %d: %d"
+                    % (path, width, m["scroll"])
+                )
+                if path == "cases.html":
+                    assert m["mobileFilters"] == 1, "WebKit catalog filter rail missing"
+                    font = page.locator(".case-search").evaluate(
+                        "(el) => parseFloat(getComputedStyle(el).fontSize)"
+                    )
+                    assert font >= 16, "WebKit catalog search font smaller than 16px"
+                if path == "contacts.html":
+                    font = page.locator("#name").evaluate(
+                        "(el) => parseFloat(getComputedStyle(el).fontSize)"
+                    )
+                    assert font >= 16, "WebKit form control font smaller than 16px"
+                if width == 390 and path in paths:
+                    page.screenshot(
+                        path=str(ART / (Path(path).stem + "-webkit-390-top.png")),
+                        animations="disabled", timeout=20000,
+                    )
+                records.append("%s@%d" % (path, width))
+
+        page.set_viewport_size({"width": 390, "height": 844})
+        page.goto(base + "/cases.html", wait_until="domcontentloaded")
+        page.locator('[data-filter="ai"]').click()
+        page.locator(".case-search").fill("spv-never-matches-987654")
+        assert page.locator("[data-case-empty]").is_visible(), "WebKit empty state is missing"
+        page.locator(".spv-reset-filters").click()
+        assert page.locator("[data-case-card]:visible").count() == 45, "WebKit reset failed"
+        records.append("WebKit search, filtering, and recovery")
+
+        page.goto(base + "/case-pip.html", wait_until="domcontentloaded")
+        lab = page.locator(".case-demo-section .spv-lab")
+        lab.wait_for(state="visible", timeout=15000)
+        lab.locator('[data-lab-action="run"]').click()
+        assert lab.locator(".spv-lab__output pre").is_visible(), "WebKit mini app failed"
+        records.append("WebKit live PIP demo")
+
+        page.goto(base + "/case-site-atelier.html", wait_until="domcontentloaded")
+        frame = page.locator("iframe.site-demo-frame")
+        frame.wait_for(state="attached")
+        assert frame.get_attribute("data-device") == "phone"
+        page.locator('[data-site-width="desktop"]').click()
+        assert frame.get_attribute("data-device") == "desktop"
+        records.append("WebKit device switch")
     finally:
         page.close()
     return records
@@ -206,9 +286,13 @@ def main():
             interactions = check_interaction(browser, base)
             desktop = compare_desktop(browser, base, oldbase)
             browser.close()
+            safari_engine = p.webkit.launch(headless=True)
+            webkit_steps = check_webkit_mobile(safari_engine, base)
+            safari_engine.close()
         failures = [r for r in rows if r["errors"]]
         report = {"pages": len(pages), "views": len(rows), "errors": len(failures),
-                  "interaction_steps": interactions, "desktop_parity_pages": desktop,
+                  "interaction_steps": interactions, "webkit_steps": webkit_steps,
+                  "desktop_parity_pages": desktop,
                   "failures": failures, "rows": rows}
         (ART/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
         print(json.dumps({k:v for k,v in report.items() if k!="rows"},ensure_ascii=False), flush=True)
