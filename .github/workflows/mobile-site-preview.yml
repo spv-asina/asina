@@ -28,8 +28,8 @@ jobs:
       - name: Install browser dependencies
         run: |
           python -m pip install playwright
-          python -m playwright install --with-deps chromium
-      - name: Run 58-page responsive and interaction audit
+          python -m playwright install --with-deps chromium webkit
+      - name: Run Chromium, WebKit and desktop-parity audits
         run: python scripts/audit_mobile_site.py --baseline /tmp/spv-mobile-baseline
       - name: Package exact working tree for visual inspection
         if: always()
