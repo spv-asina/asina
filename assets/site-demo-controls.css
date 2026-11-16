@@ -10,3 +10,18 @@
 .site-demo-shell .site-demo-frame[data-device=phone]{width:390px;box-shadow:-6px 0 0 #eadfeb,6px 0 0 #eadfeb}
 @media(max-width:760px){.site-demo-devicebar{padding:10px 12px}.site-demo-devicebar__label{width:100%}.site-demo-devicebar__actions{width:100%}.site-demo-devicebar button{flex:1;padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){.site-demo-shell .site-demo-frame{transition:none}}
+
+
+/* One-line device controls on mobile: maximize visible preview, preserve 44px touch targets. */
+.site-demo-devicebar{padding:10px 14px;background:#f7f2f9}
+.site-demo-devicebar__label{font-size:12px;letter-spacing:.015em}
+.site-demo-devicebar__actions{gap:6px}
+.site-demo-devicebar button{min-height:44px;font-size:12px;padding:9px 13px}
+.site-demo-shell .site-demo-frame{display:block}
+@media(max-width:760px){
+ .site-demo-devicebar{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:7px;background:#f8f3fa}
+ .site-demo-devicebar__label{display:none}
+ .site-demo-devicebar__actions{display:grid;width:100%;grid-template-columns:1fr 1fr .82fr;gap:6px}
+ .site-demo-devicebar button{width:100%;min-width:0;min-height:44px;padding:9px 6px;font-size:12px;border-radius:9px}
+ .site-demo-shell .site-demo-frame[data-device=phone]{box-shadow:none}
+}
