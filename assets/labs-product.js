@@ -10,7 +10,21 @@ FPL:{
  init:function(s){s.data={seq:103,orders:[{id:101,client:'ООО Север',route:'СПб → Выборг',driver:'Мария',status:1},{id:102,client:'Магазин 24',route:'Москва → Тверь',driver:'Иван',status:0}]};},
  run:function(s){s.data.orders.unshift({id:s.data.seq++,client:String(s.values.client).trim()||'Новый клиент',route:s.values.route,driver:s.values.driver,status:0});L.log(s,'Заявка добавлена в CRM');s.last='Заказ создан';},
  onAction:function(s,a,id){var item=s.data.orders.find(function(x){return String(x.id)===id;});if(a==='next'&&item){item.status=Math.min(3,item.status+1);L.log(s,'Заказ #'+item.id+': '+['Новый','В пути','Доставлен','Закрыт'][item.status]);}},
- view:function(s){var names=['Новый','В пути','Доставлен','Закрыт'];return L.result('Диспетчерская',s.last||'Все заявки демонстрационные.',L.metrics([['Заказов',s.data.orders.length],['В пути',s.data.orders.filter(function(x){return x.status===1;}).length]])+rowsMarkup(s.data.orders,function(x){return L.tile('#'+x.id+' · '+x.client,x.route+' · '+x.driver+' · '+names[x.status],x.status<3?'next':'',x.id,'Следующий статус');}),s.done?'ok':'');}
+ view:function(s){
+  var statuses=['Новый','В пути','Доставлен','Закрыт'],groups=[[],[],[]];
+  s.data.orders.forEach(function(x){groups[Math.min(x.status,2)].push(x);});
+  var columns=groups.map(function(items,i){
+   if(!items.length)return '';
+   var label=['Новые','В пути','Доставлены'][i];
+   return '<section class="spv-lab__board-col" aria-label="'+label+'"><h5>'+label+' · '+items.length+'</h5>'+
+    items.map(function(x){return '<div class="spv-lab__board-item"><strong>#'+x.id+' · '+L.esc(x.client)+'</strong>'+
+    '<small>'+L.esc(x.route)+' · '+L.esc(x.driver)+' · '+statuses[x.status]+'</small>'+
+    (x.status<3?L.button('Далее','next',x.id):'')+'</div>';}).join('')+'</section>';
+  }).join('');
+  return L.result('Диспетчерская',s.last||'Создайте заказ или измените статус существующего.',
+   '<div class="spv-lab__board">'+columns+'</div>'+
+   '<div class="spv-lab__output-label">Всего заказов: '+s.data.orders.length+'</div>',s.done?'ok':'');
+ }
 },
 IDM:{
  title:'Управление ролями',description:'Изменяйте доступ пользователя и проверяйте матрицу разрешений.',cta:'Применить право',
@@ -58,7 +72,14 @@ BTA:{
  fields:[['message','Ваше сообщение','text','Бюджет 500 тыс. рублей, хотим запустить за месяц']],
  init:function(s){s.data={chat:[['bot','Здравствуйте! Какой у вас бюджет и когда нужен запуск?']],fields:{budget:'—',need:'—',deadline:'—'},stage:0};},
  run:function(s){var v=String(s.values.message).trim();if(!v){s.last='Введите ответ';return;}s.data.chat.push(['me',v]);var lower=v.toLowerCase();if(/\d/.test(lower)&&(/бюдж|тыс|млн|руб/.test(lower)))s.data.fields.budget=v.match(/[\d., ]+(?:тыс|млн)?/i)?.[0]?.trim()||'Уточнён';if(/сайт|бот|crm|сервис|продукт|автоматиз/.test(lower))s.data.fields.need=v.slice(0,60);if(/месяц|недел|срок|завтра|день/.test(lower))s.data.fields.deadline=v.slice(0,55);var prompts=['Что именно нужно автоматизировать?','Кто утверждает решение?','Спасибо. Я сохраню ответы в тестовой CRM.'];var reply=prompts[Math.min(s.data.stage++,2)];s.data.chat.push(['bot',reply]);s.last='Диалог обновлён';L.log(s,'Ответ сохранён');},
- view:function(s){return L.result('Диалог с лидом',s.last||'Никаких сообщений в реальную CRM не отправляется.',L.metrics([['Полей заполнено',Object.values(s.data.fields).filter(function(x){return x!=='—';}).length+'/3'],['Сообщений',s.data.chat.length]])+'<div class="spv-lab__chat">'+s.data.chat.map(function(x){return'<div class="spv-lab__bubble'+(x[0]==='me'?' spv-lab__bubble--self':'')+'">'+readOnly(x[1])+'</div>';}).join('')+'</div>'+L.table(['Поле','Значение'],Object.entries(s.data.fields)),s.done?'ok':'');}
+ view:function(s){
+  var filled=Object.values(s.data.fields).filter(function(x){return x!=='—';}).length;
+  var chat='<div class="spv-lab__chatroom"><div class="spv-lab__chat">'+s.data.chat.map(function(x){
+   return '<div class="spv-lab__bubble'+(x[0]==='me'?' spv-lab__bubble--self':'')+'">'+readOnly(x[1])+'</div>';
+  }).join('')+'</div><details><summary>Карточка лида · '+filled+'/3 заполнено</summary>'+
+  L.table(['Поле','Значение'],Object.entries(s.data.fields))+'</details></div>';
+  return L.result('Диалог с лидом',s.last||'Начните с ответа на вопрос ассистента.',chat,s.done?'ok':'');
+ }
 },
 CCH:{
  title:'Единый центр сообщений',description:'Выберите канал, отправьте ответ и посмотрите, как меняется общий диалог.',cta:'Ответить клиенту',
@@ -67,7 +88,15 @@ CCH:{
  run:function(s){var text=String(s.values.message).trim();if(!text){s.last='Введите ответ';return;}s.data.messages.unshift({channel:s.values.channel,sender:'Менеджер',text:text});s.last='Ответ добавлен в общую ленту';L.log(s,'Канал: '+s.values.channel);},
  onAction:function(s,a){if(a==='read'){s.data.unread=0;L.log(s,'Все обращения прочитаны');}},
  buttons:[['Отметить прочитанными','read']],
- view:function(s){return L.result('Омниканальная лента',s.last||'Все сообщения существуют только в песочнице.',L.metrics([['Сообщений',s.data.messages.length],['Непрочитано',s.data.unread]])+rowsMarkup(s.data.messages,function(x){return L.tile(x.sender+' · '+x.channel,x.text);}),s.done?'ok':'');}
+ view:function(s){
+  var channels={tg:'Telegram',wa:'WhatsApp',email:'Email',vk:'ВКонтакте'};
+  var list='<div class="spv-lab__chatroom"><div class="spv-lab__chat">'+s.data.messages.slice(0,6).reverse().map(function(x){
+    return '<div class="spv-lab__bubble'+(x.sender==='Менеджер'?' spv-lab__bubble--self':'')+'">'+
+    '<small>'+L.esc(x.sender)+' · '+L.esc(channels[x.channel]||x.channel)+'</small>'+L.esc(x.text)+'</div>';
+  }).join('')+'</div></div>';
+  return L.result('Единая лента',s.last||'Отправьте ответ в выбранном канале.',
+    list+'<div class="spv-lab__output-label">Сообщений: '+s.data.messages.length+' · Непрочитано: '+s.data.unread+'</div>',s.done?'ok':'');
+ }
 },
 ME:{
  title:'Конструктор сметы',description:'Введите площадь, тариф и дополнительную работу. Сумма пересчитывается локально.',cta:'Рассчитать смету',
