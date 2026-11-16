@@ -1,0 +1,45 @@
+name: Mobile-only full site preview audit
+on:
+  push:
+    branches: ['feat/mobile-wide-polish-20261116']
+  pull_request:
+    paths:
+      - '*.html'
+      - 'assets/mobile-experience.*'
+      - 'scripts/audit_mobile_site.py'
+      - '.github/workflows/mobile-site-preview.yml'
+permissions:
+  contents: read
+jobs:
+  mobile-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare baseline snapshot for desktop parity
+        run: |
+          mkdir -p /tmp/spv-mobile-baseline
+          git archive 76700bfcc8bac6712ab88ed53d86f9ab93b7e08d | tar -x -C /tmp/spv-mobile-baseline
+      - name: Install browser dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium webkit
+      - name: Run Chromium, WebKit and desktop-parity audits
+        run: python scripts/audit_mobile_site.py --baseline /tmp/spv-mobile-baseline
+      - name: Package exact working tree for visual inspection
+        if: always()
+        run: |
+          mkdir -p artifacts/mobile-wide
+          git archive --format=tar HEAD | gzip -9 > artifacts/mobile-wide/source.tar.gz
+      - name: Upload mobile previews, report and exact source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spv-mobile-full-site-preview
+          path: artifacts/mobile-wide/
+          if-no-files-found: warn
