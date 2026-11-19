@@ -78,6 +78,12 @@ def main():
                         if width in (390, 1440):
                             page.locator(".site-demo-shell").screenshot(path=str(OUT / (path.stem+"-"+str(width)+".png")), timeout=20000)
                         if width == 390:
+                            # A photography-first cover must reveal the original functional UI on demand.
+                            photo_switch = content.locator(".spv-photo-story__action")
+                            if photo_switch.count() == 1:
+                                photo_switch.click(timeout=7500)
+                                if content.locator(".spv-photo-host").get_attribute("data-spv-hero-mode") != "model":
+                                    row["errors"].append("photo cover did not reveal original model")
                             # Verify at least one real control in the embedded page, not just the iframe wrapper.
                             toggles = content.locator("button[aria-expanded]")
                             verified = False
