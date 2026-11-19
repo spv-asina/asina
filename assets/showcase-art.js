@@ -50,7 +50,14 @@
   };
   var brand = document.documentElement.getAttribute('data-spv-showcase');
   var preset = presets[brand];
-  if (!preset) return;
+
+  function moveDemoNotice() {
+    var notice = document.querySelector('.spv-concept-notice');
+    if (!notice || notice.classList.contains('spv-concept-notice--footer')) return;
+    // Keep demo disclosure visible at the end, without a generic black bar above every brand.
+    notice.classList.add('spv-concept-notice--footer');
+    document.body.appendChild(notice);
+  }
 
   function make(tag, className, text) {
     var node = document.createElement(tag);
@@ -60,6 +67,8 @@
   }
 
   function init() {
+    moveDemoNotice();
+    if (!preset) return;
     var host = document.querySelector(preset.target);
     if (!host || host.querySelector('.spv-photo-story')) return;
     host.classList.add('spv-photo-host');
