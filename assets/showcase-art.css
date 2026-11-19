@@ -122,7 +122,7 @@ html[data-spv-showcase=lumen] .l-hero-stage::before{
 html[data-spv-showcase=verdict] .verdict-hero::before{
   opacity:.75!important;inset:0 0 0 52%!important;filter:grayscale(.7)!important;
   background:linear-gradient(90deg,#f1eee6 0%,#f1eee640 58%,#f1eee62a 100%),
-    url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1100&q=84') center/cover!important
+    url('https://images.unsplash.com/photo-1773544015678-58d09366ad6e?auto=format&fit=crop&w=1100&q=84') center/cover!important
 }
 html[data-spv-showcase=verdict] .verdict-hero-copy{
   position:relative;background:#f1eee6e8;border:1px solid #17191830;
