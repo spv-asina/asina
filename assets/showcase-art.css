@@ -195,3 +195,15 @@ html[data-spv-showcase] .spv-concept-notice--footer span:last-child{
  html[data-spv-showcase=aeris] .aer-hero-grid{row-gap:18px!important}
  html[data-spv-showcase] .spv-photo-story__body{width:100%}
 }
+
+
+/* Branded nonblank loading state while remote editorial photos decode. */
+html[data-spv-showcase=lexforma] .spv-photo-story{background:linear-gradient(135deg,#271b25,#101416)}
+html[data-spv-showcase=aeris] .spv-photo-story{background:linear-gradient(135deg,#354f68,#132238)}
+html[data-spv-showcase=meridian] .spv-photo-story{background:linear-gradient(135deg,#163e35,#101d23)}
+html[data-spv-showcase=axis] .spv-photo-story{background:linear-gradient(135deg,#294052,#111a24)}
+html[data-spv-showcase=atelier] .spv-photo-story{background:linear-gradient(135deg,#725644,#252025)}
+html[data-spv-showcase=monolith] .spv-photo-story{background:linear-gradient(135deg,#53534c,#22241f)}
+html[data-spv-showcase=kinetic] .spv-photo-story{background:linear-gradient(135deg,#6946b5,#1c113c)}
+html[data-spv-showcase=bloom] .spv-photo-story{background:linear-gradient(135deg,#28746a,#d48b6e)}
+html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg,#89713c,#2d262a)}
