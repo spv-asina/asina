@@ -45,6 +45,15 @@ def run_engine(browser, base: str, engine: str):
                     timeout=15000,
                 )
                 page.wait_for_timeout(140)
+                if name in PHOTO_SITES and width in (390, 1440) and engine == "chromium":
+                    # A CSS fallback remains readable when Unsplash is slow; wait briefly
+                    # for editorial photography before capturing visual-review images.
+                    page.locator(".spv-photo-story__image").evaluate("""img => new Promise(done => {
+                      if (img.complete) return done();
+                      img.addEventListener('load', done, {once:true});
+                      img.addEventListener('error', done, {once:true});
+                      setTimeout(done, 2400);
+                    })""")
                 metrics = page.evaluate("""() => ({
                   width: innerWidth,
                   documentWidth: document.documentElement.scrollWidth,
