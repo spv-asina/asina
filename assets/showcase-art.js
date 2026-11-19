@@ -25,7 +25,7 @@
     atelier: {
       target: '.scan', title: 'Эстетика без компромиссов.', kicker: 'ATELIER DENTAIRE',
       note: 'Индивидуальный подход от диагностики до результата.', action: 'Показать цифровую модель',
-      photo: 'photo-1609840114035-3c981b782dfe'
+      photo: 'photo-1675526607070-f5cbd71dde92'
     },
     monolith: {
       target: '.m-hero-model', title: 'Жить в своём пространстве.', kicker: 'MONOLITH / ARCHITECTS',
