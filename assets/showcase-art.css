@@ -175,3 +175,23 @@ html[data-spv-showcase] .spv-concept-notice--footer span:last-child{
   }
   html[data-spv-showcase] .spv-concept-notice--footer span:last-child{font-size:9px}
 }
+
+
+/* Mobile art direction: show the brand visual sooner, without duplicated
+   hero footnotes competing with the primary CTA. Detailed sections remain. */
+@media(max-width:760px){
+ html[data-spv-showcase=lexforma] .lex-demo-note,
+ html[data-spv-showcase=meridian] .mer-hero-principles,
+ html[data-spv-showcase=axis] .axis-hero-facts,
+ html[data-spv-showcase=atelier] .hero__note,
+ html[data-spv-showcase=bloom] .bl-demo-note,
+ html[data-spv-showcase=lapka] .lap-demo-note{display:none!important}
+ html[data-spv-showcase=lexforma] .lex-hero-grid,
+ html[data-spv-showcase=meridian] .mer-hero-grid,
+ html[data-spv-showcase=axis] .axis-hero-grid,
+ html[data-spv-showcase=monolith] .m-hero-grid,
+ html[data-spv-showcase=bloom] .bl-hero-grid,
+ html[data-spv-showcase=lapka] .lap-hero-grid{row-gap:16px!important}
+ html[data-spv-showcase=aeris] .aer-hero-grid{row-gap:18px!important}
+ html[data-spv-showcase] .spv-photo-story__body{width:100%}
+}
