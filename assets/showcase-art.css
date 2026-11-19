@@ -155,3 +155,23 @@ html[data-spv-showcase=verdict] .verdict-hero-copy{
   html[data-spv-showcase] .spv-photo-story__action,
   html[data-spv-showcase] .spv-photo-story__back{transition:none!important}
 }
+
+
+/* Clear first screen: disclose sample status at the footer, never as a site-wide top banner. */
+html[data-spv-showcase] .spv-concept-notice.spv-concept-notice--footer{
+  position:relative;inset:auto;z-index:1;display:flex;align-items:center;gap:12px;
+  flex-wrap:wrap;justify-content:space-between;
+  width:100%;min-height:42px;padding:12px clamp(18px,4vw,64px);
+  border-top:1px solid rgba(255,255,255,.16);
+  background:#211c24;color:#f4ecf7;
+  font:600 10px/1.5 Arial,Helvetica,sans-serif;letter-spacing:0;
+}
+html[data-spv-showcase] .spv-concept-notice--footer span:last-child{
+  opacity:.78;color:inherit;max-width:none;text-align:left;
+}
+@media(max-width:760px){
+  html[data-spv-showcase] .spv-concept-notice.spv-concept-notice--footer{
+    padding:13px 17px;min-height:40px;gap:5px;font-size:9px
+  }
+  html[data-spv-showcase] .spv-concept-notice--footer span:last-child{font-size:9px}
+}
