@@ -1,0 +1,157 @@
+/* SPV ASINA showcase / photo-first editorial cover + original interactive model. */
+html[data-spv-showcase] .spv-photo-host{
+  position:relative!important;isolation:isolate;overflow:hidden;
+  min-height:560px;border-radius:clamp(17px,2.2vw,27px);
+}
+html[data-spv-showcase] .spv-photo-host .spv-photo-story{
+  position:absolute;z-index:15;inset:0;display:flex;flex-direction:column;
+  justify-content:space-between;overflow:hidden;color:#fff;
+  padding:clamp(24px,3.4vw,48px);border-radius:inherit;
+  background:#26212a;
+  font-family:Arial,Helvetica,sans-serif;
+}
+html[data-spv-showcase] .spv-photo-story[hidden],
+html[data-spv-showcase] .spv-photo-story__back[hidden]{display:none!important}
+html[data-spv-showcase] .spv-photo-story__image{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:var(--spv-photo-position,center);z-index:-2;
+  filter:brightness(var(--spv-photo-brightness,.8)) saturate(var(--spv-photo-saturation,.84));
+  transform:scale(1.01);transition:transform .9s cubic-bezier(.2,.75,.25,1);
+}
+html[data-spv-showcase] .spv-photo-story::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,13,15,.46) 0%,rgba(10,13,15,.06) 31%,rgba(10,13,15,.38) 54%,rgba(10,13,15,.83) 100%);
+}
+html[data-spv-showcase] .spv-photo-story:hover .spv-photo-story__image{transform:scale(1.05)}
+html[data-spv-showcase] .spv-photo-story__eyebrow{
+  display:inline-block;width:max-content;max-width:100%;
+  padding:8px 11px;border:1px solid #ffffff9c;
+  border-radius:2px;background:#00000023;
+  font:700 10px/1.4 Arial,Helvetica,sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+html[data-spv-showcase] .spv-photo-story__body{
+  position:relative;max-width:560px;display:flex;flex-direction:column;
+  gap:0;align-items:flex-start
+}
+html[data-spv-showcase] .spv-photo-story__title{
+  margin:0!important;max-width:540px;color:#fff!important;
+  font:400 clamp(40px,4.5vw,78px)/.97 Georgia,'Times New Roman',serif!important;
+  letter-spacing:-.04em!important;text-shadow:0 2px 30px #0007;
+  text-wrap:balance;
+}
+html[data-spv-showcase] .spv-photo-story__note{
+  color:#fff!important;max-width:400px;margin:20px 0 22px!important;
+  font:400 clamp(13px,1.1vw,16px)/1.55 Arial,Helvetica,sans-serif!important;
+  letter-spacing:0;text-shadow:0 2px 12px #0009;
+}
+html[data-spv-showcase] .spv-photo-story__action,
+html[data-spv-showcase] .spv-photo-story__back{
+  appearance:none;border:1px solid #ffffffce;color:#fff;background:#ffffff1f;
+  border-radius:100px;min-height:48px;padding:13px 20px;
+  display:inline-flex;justify-content:center;align-items:center;
+  font:700 12px/1.3 Arial,Helvetica,sans-serif;
+  letter-spacing:.025em;cursor:pointer;backdrop-filter:blur(12px);
+  transition:background .18s ease,transform .18s ease;
+}
+html[data-spv-showcase] .spv-photo-story__action:hover{
+  background:#fff;color:#201920;transform:translateY(-2px)
+}
+html[data-spv-showcase] .spv-photo-story__back{
+  position:absolute;z-index:18;top:15px;right:15px;
+  background:rgba(17,16,20,.9);border-color:#ffffff8a;max-width:calc(100% - 30px);
+  box-shadow:0 5px 20px #0003;
+}
+html[data-spv-showcase] .spv-photo-story__back:hover{
+  background:#402e4c
+}
+html[data-spv-showcase] .spv-photo-story__action:focus-visible,
+html[data-spv-showcase] .spv-photo-story__back:focus-visible{
+  outline:3px solid #f7d66a;outline-offset:3px
+}
+html[data-spv-showcase] .spv-photo-story--fallback{
+  background:radial-gradient(ellipse at 80% 20%,#81604c 0,transparent 60%),linear-gradient(145deg,#382c35,#11141b)
+}
+html[data-spv-showcase] .spv-photo-story--fallback .spv-photo-story__image{display:none}
+
+/* Independent art direction per business, not one repeated template. */
+html[data-spv-showcase=lexforma] .spv-photo-host{border:1px solid #bbb4a0}
+html[data-spv-showcase=lexforma] .spv-photo-story__title{font-style:italic!important}
+html[data-spv-showcase=lexforma] .spv-photo-story__image{--spv-photo-brightness:.57;--spv-photo-position:50% 50%}
+html[data-spv-showcase=lexforma] .spv-photo-story__action{background:#8c1837;border-color:#8c1837}
+html[data-spv-showcase=aeris] .spv-photo-host{border-radius:22px}
+html[data-spv-showcase=aeris] .spv-photo-story__image{--spv-photo-brightness:.86;--spv-photo-position:40% 50%}
+html[data-spv-showcase=aeris] .spv-photo-story__action{background:#3157d1;border-color:#3157d1}
+html[data-spv-showcase=meridian] .spv-photo-host{border-radius:29px}
+html[data-spv-showcase=meridian] .spv-photo-story__image{--spv-photo-brightness:.63;--spv-photo-position:50% 42%}
+html[data-spv-showcase=meridian] .spv-photo-story__action{background:#f06f55;border-color:#f06f55;color:#21180d}
+html[data-spv-showcase=axis] .spv-photo-host{border-radius:2px}
+html[data-spv-showcase=axis] .spv-photo-story__image{--spv-photo-brightness:.65;--spv-photo-position:55% 50%}
+html[data-spv-showcase=axis] .spv-photo-story__title{font-family:Arial,Helvetica,sans-serif!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.055em!important}
+html[data-spv-showcase=axis] .spv-photo-story__action{background:#ef6329;border-color:#ef6329}
+html[data-spv-showcase=atelier] .spv-photo-host{border-radius:24px}
+html[data-spv-showcase=atelier] .spv-photo-story__image{--spv-photo-brightness:.74;--spv-photo-position:60% 50%}
+html[data-spv-showcase=atelier] .spv-photo-story__action{background:#a37b5d;border-color:#a37b5d}
+html[data-spv-showcase=monolith] .spv-photo-host{border-radius:2px}
+html[data-spv-showcase=monolith] .spv-photo-story__image{--spv-photo-brightness:.7;--spv-photo-saturation:.5;--spv-photo-position:40% 55%}
+html[data-spv-showcase=monolith] .spv-photo-story__action{background:#f4efea;border-color:#f4efea;color:#222}
+html[data-spv-showcase=kinetic] .spv-photo-host{border-radius:0}
+html[data-spv-showcase=kinetic] .spv-photo-story__title{font-family:Arial,Helvetica,sans-serif!important;font-weight:900!important;text-transform:uppercase;letter-spacing:-.065em!important}
+html[data-spv-showcase=kinetic] .spv-photo-story__image{--spv-photo-brightness:.68;--spv-photo-saturation:1.15}
+html[data-spv-showcase=kinetic] .spv-photo-story__action{background:#b6f01a;border-color:#b6f01a;color:#191618}
+html[data-spv-showcase=bloom] .spv-photo-host{border-radius:35px}
+html[data-spv-showcase=bloom] .spv-photo-story__image{--spv-photo-brightness:.76;--spv-photo-saturation:.95;--spv-photo-position:50% 35%}
+html[data-spv-showcase=bloom] .spv-photo-story__title{font-family:Arial,Helvetica,sans-serif!important;font-weight:800!important;letter-spacing:-.06em!important}
+html[data-spv-showcase=bloom] .spv-photo-story__action{background:#f27765;border-color:#f27765}
+html[data-spv-showcase=lapka] .spv-photo-host{border-radius:25px}
+html[data-spv-showcase=lapka] .spv-photo-story__image{--spv-photo-brightness:.82;--spv-photo-position:50% 46%}
+html[data-spv-showcase=lapka] .spv-photo-story__title{font-family:Arial,Helvetica,sans-serif!important;font-weight:800!important;letter-spacing:-.055em!important}
+html[data-spv-showcase=lapka] .spv-photo-story__action{background:#eb816d;border-color:#eb816d}
+
+/* LUMEN and VERDICT are already typographic cover compositions, so do not
+   cover their headlines with a second panel. Make their photography tangible. */
+html[data-spv-showcase=lumen] .l-hero-stage{
+  background-image:linear-gradient(90deg,rgba(10,8,12,.82),rgba(10,8,12,.18) 45%,rgba(10,8,12,.82)),
+    url('https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1800&q=84');
+  background-size:cover;background-position:center
+}
+html[data-spv-showcase=lumen] .l-hero-stage::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,#100d13cc,transparent 60%);
+}
+html[data-spv-showcase=verdict] .verdict-hero::before{
+  opacity:.75!important;inset:0 0 0 52%!important;filter:grayscale(.7)!important;
+  background:linear-gradient(90deg,#f1eee6 0%,#f1eee640 58%,#f1eee62a 100%),
+    url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1100&q=84') center/cover!important
+}
+html[data-spv-showcase=verdict] .verdict-hero-copy{
+  position:relative;background:#f1eee6e8;border:1px solid #17191830;
+  padding:clamp(20px,2.5vw,35px);box-shadow:0 20px 60px #17191812
+}
+@media(max-width:760px){
+  html[data-spv-showcase] .spv-photo-host{min-height:390px;border-radius:20px}
+  html[data-spv-showcase] .spv-photo-story{padding:23px}
+  html[data-spv-showcase] .spv-photo-story__title{
+    font-size:clamp(32px,8vw,46px)!important;line-height:1.02!important
+  }
+  html[data-spv-showcase] .spv-photo-story__note{font-size:13px!important;margin:15px 0 18px!important}
+  html[data-spv-showcase] .spv-photo-story__action{width:100%;font-size:12px;min-height:44px}
+  html[data-spv-showcase] .spv-photo-story__back{min-height:44px}
+  html[data-spv-showcase] .spv-photo-story__eyebrow{font-size:9px;letter-spacing:.14em}
+  html[data-spv-showcase=lexforma] .lex-case-board{min-height:455px}
+  html[data-spv-showcase=aeris] .aer-twin{min-height:470px}
+  html[data-spv-showcase=meridian] .mer-capital-map{min-height:465px}
+  html[data-spv-showcase=axis] .axis-drawing{min-height:460px}
+  html[data-spv-showcase=atelier] .scan{min-height:480px}
+  html[data-spv-showcase=monolith] .m-hero-model{min-height:465px}
+  html[data-spv-showcase=kinetic] .k-signal-field{min-height:470px}
+  html[data-spv-showcase=bloom] .bl-atlas{min-height:475px;border-radius:25px}
+  html[data-spv-showcase=lapka] .lap-record{min-height:460px}
+  html[data-spv-showcase=verdict] .verdict-hero::before{opacity:.17!important;inset:0!important}
+  html[data-spv-showcase=verdict] .verdict-hero-copy{background:#f1eee6d9}
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-spv-showcase] .spv-photo-story__image,
+  html[data-spv-showcase] .spv-photo-story__action,
+  html[data-spv-showcase] .spv-photo-story__back{transition:none!important}
+}
