@@ -16,6 +16,7 @@ SITES = (
     "monolith", "lumen", "kinetic", "bloom", "lapka",
 )
 SIZES = (320, 390, 1440)
+PHOTO_SITES = set(SITES) - {"lumen", "verdict"}
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -52,6 +53,12 @@ def run_engine(browser, base: str, engine: str):
                   brand: document.documentElement.dataset.spvShowcase,
                   cssLoaded: Array.from(document.styleSheets).some(sheet =>
                     sheet.href && sheet.href.includes('showcase-editorial.css')),
+                  artCssLoaded: Array.from(document.styleSheets).some(sheet =>
+                    sheet.href && sheet.href.includes('showcase-art.css')),
+                  photoPoster: document.querySelectorAll('.spv-photo-story').length,
+                  heroMode: document.querySelector('.spv-photo-host')?.dataset.spvHeroMode || '',
+                  photoImage: document.querySelector('.spv-photo-story__image')?.getAttribute('src') || '',
+                  photoPixels: document.querySelector('.spv-photo-story__image')?.naturalWidth || 0,
                   links: document.querySelectorAll('a[href]').length,
                   buttons: document.querySelectorAll('button').length,
                   fields: document.querySelectorAll('input,select,textarea').length,
@@ -61,8 +68,12 @@ def run_engine(browser, base: str, engine: str):
                     issues.append("standalone page is not HTTP 200")
                 if metrics["brand"] != name:
                     issues.append("site-specific design token missing")
-                if not metrics["cssLoaded"]:
-                    issues.append("editorial stylesheet did not load")
+                if not metrics["cssLoaded"] or not metrics["artCssLoaded"]:
+                    issues.append("art-direction stylesheets did not load")
+                if name in PHOTO_SITES and (metrics["photoPoster"] != 1 or metrics["heroMode"] != "photo"):
+                    issues.append("photographic cover did not mount")
+                if name in PHOTO_SITES and not metrics["photoImage"].startswith("https://images.unsplash.com/"):
+                    issues.append("photographic asset is not assigned")
                 if not metrics["heading"]:
                     issues.append("the landing page has no visible headline")
                 if metrics["links"] + metrics["buttons"] < 4:
@@ -76,6 +87,20 @@ def run_engine(browser, base: str, engine: str):
                         path=str(ART / f"{name}-{width}-viewport.png"),
                         animations="disabled", timeout=22000,
                     )
+                if width == 390 and name in PHOTO_SITES and not issues:
+                    try:
+                        page.locator(".spv-photo-story__action").click(timeout=7000)
+                        if page.locator(".spv-photo-host").get_attribute("data-spv-hero-mode") != "model":
+                            issues.append("photo-to-model switch failed")
+                        if page.locator(".spv-photo-story__back").is_hidden():
+                            issues.append("back-to-photo control invisible in model mode")
+                        page.locator(".spv-photo-story__back").click(timeout=7000)
+                        if page.locator(".spv-photo-host").get_attribute("data-spv-hero-mode") != "photo":
+                            issues.append("model-to-photo switch failed")
+                        if page.locator(".spv-photo-story").is_hidden():
+                            issues.append("photo was not restored")
+                    except Exception as error:
+                        issues.append("art-direction switch exception: " + str(error)[:160])
                 results.append({
                     "site": name, "engine": engine, "width": width,
                     "metrics": metrics, "errors": issues,
