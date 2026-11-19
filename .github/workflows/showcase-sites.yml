@@ -1,0 +1,37 @@
+name: 11 standalone showcase websites — responsive QA
+on:
+  push:
+    branches: ['feat/showcase-sites-rework-20261116']
+  pull_request:
+    paths:
+      - 'case-site-*.html'
+      - 'showcase/**'
+      - 'assets/showcase-*.css'
+      - 'assets/showcase-art.js'
+      - 'assets/site-demo-controls.js'
+      - 'scripts/audit_showcase_v2.py'
+      - '.github/workflows/showcase-sites.yml'
+permissions:
+  contents: read
+jobs:
+  visual-and-interaction-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium webkit
+      - name: Test eleven working websites and embedded previews
+        run: python scripts/audit_showcase_v2.py
+      - name: Upload design review screenshots and test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: showcase-11-websites-review
+          path: artifacts/showcase-v2/
+          if-no-files-found: warn
