@@ -7,6 +7,7 @@ on:
       - 'case-site-*.html'
       - 'showcase/**'
       - 'assets/showcase-*.css'
+      - 'assets/showcase-art.js'
       - 'assets/site-demo-controls.js'
       - 'scripts/audit_showcase_v2.py'
       - '.github/workflows/showcase-sites.yml'
