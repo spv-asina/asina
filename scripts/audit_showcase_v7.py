@@ -18,6 +18,14 @@ SITES = (
 )
 MODELS = set(SITES) - {"lumen", "verdict"}
 WIDTHS = (320, 390, 760, 1440)
+BRAND_BACKGROUNDS = {
+    "lexforma": "rgb(21, 18, 17)", "aeris": "rgb(243, 246, 248)",
+    "meridian": "rgb(16, 42, 42)", "axis": "rgb(16, 29, 41)",
+    "verdict": "rgb(240, 237, 230)", "atelier": "rgb(247, 240, 231)",
+    "monolith": "rgb(24, 25, 23)", "lumen": "rgb(16, 14, 18)",
+    "kinetic": "rgb(202, 223, 74)", "bloom": "rgb(255, 222, 209)",
+    "lapka": "rgb(240, 239, 223)",
+}
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -59,6 +67,7 @@ def audit_standalone(browser, base, engine):
                     headline:h?.innerText?.replace(/\\s+/g,' ').trim()||'',
                     headlineOverflow:h?Math.max(0,h.scrollWidth-h.clientWidth):null,
                     heroHeight:Math.round(hero?.getBoundingClientRect().height||0),
+                    brandBackground:hero?getComputedStyle(hero).backgroundColor:'',
                     photoHeight:Math.round(img?.getBoundingClientRect().height||0),
                     photoSrcset:img?.srcset||'',photoLoading:img?.loading,
                     originalHidden:!!old?.hidden,
@@ -77,6 +86,8 @@ def audit_standalone(browser, base, engine):
                     errors.append("standalone HTML does not load")
                 if m["brand"] != name or not m["css"]:
                     errors.append("wrong brand or missing design system")
+                if m["brandBackground"] != BRAND_BACKGROUNDS[name]:
+                    errors.append(f"brand palette overridden: {m['brandBackground']}")
                 if not m["headline"] or m["originalCount"] != 1:
                     errors.append("missing custom headline or original module")
                 if m["headlineOverflow"] is None or m["headlineOverflow"] > 16:
