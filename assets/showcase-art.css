@@ -359,3 +359,16 @@ html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg
     min-height:44px!important
   }
 }
+
+
+/* A mobile photo cover has a fixed cinematic height. Switching to the actual
+   interactive model releases this constraint so no controls are clipped. */
+@media(max-width:760px){
+  html[data-spv-showcase] .spv-photo-host[data-spv-hero-mode=photo]{
+    height:390px!important;min-height:390px!important;max-height:390px!important
+  }
+  html[data-spv-showcase] .spv-photo-host[data-spv-hero-mode=model]{
+    height:auto!important;max-height:none!important;
+    min-height:365px!important
+  }
+}
