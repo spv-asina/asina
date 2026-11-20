@@ -391,7 +391,7 @@ html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg
    breaking into individual letters. The measured baseline is 320/390/1440px. */
 @media(min-width:761px){
  html[data-spv-showcase=aeris] .aer-hero h1{
-   font-size:clamp(50px,4.9vw,74px)!important;line-height:.99!important
+   font-size:clamp(48px,4.6vw,70px)!important;line-height:1.01!important
  }
  html[data-spv-showcase=monolith] .m-hero-copy h1{
    font-size:clamp(56px,5.9vw,90px)!important;line-height:1!important
