@@ -81,7 +81,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-hero .v7-scroll{font:700 10px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--v7-muted)!important;white-space:nowrap}
 
 /* 01 LEXFORMA: severe dark editorial, tall restricted-photo folio */
-.v7-lexforma{--v7-bg:#151211;--v7-ink:#f2ede7;--v7-muted:#beb7b1;--v7-accent:#c9ab9e;--v7-line:#ffffff30}
+html.v7-experience .v7-lexforma{--v7-bg:#151211;--v7-ink:#f2ede7;--v7-muted:#beb7b1;--v7-accent:#c9ab9e;--v7-line:#ffffff30}
 .v7-lexforma .v7-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:8vw}
 .v7-lexforma .v7-title{font-size:clamp(77px,8.2vw,138px);letter-spacing:-.07em}
 .v7-lexforma .v7-title em{color:#efefdf}
@@ -92,7 +92,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-lexforma .v7-hero::before{content:none}
 
 /* 02 AERIS: clinical editorial with blue quiet space and wide panoramic image */
-.v7-aeris{--v7-bg:#f3f6f8;--v7-ink:#1c2e3b;--v7-muted:#547083;--v7-accent:#2c61b6;--v7-line:#557c912e}
+html.v7-experience .v7-aeris{--v7-bg:#f3f6f8;--v7-ink:#1c2e3b;--v7-muted:#547083;--v7-accent:#2c61b6;--v7-line:#557c912e}
 .v7-aeris .v7-grid{grid-template-columns:minmax(0,.80fr) minmax(0,1.2fr);gap:4vw;min-height:760px}
 .v7-aeris .v7-title{font-family:Georgia,serif;font-size:clamp(52px,5.1vw,84px)}
 .v7-aeris .v7-media{min-height:660px;border-radius:0 0 190px 0;filter:saturate(.65)}
@@ -103,7 +103,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-aeris .v7-seal{border-radius:30px}
 
 /* 03 MERIDIAN: private-banking green, framed inset photo */
-.v7-meridian{--v7-bg:#102a2a;--v7-ink:#e9f1e9;--v7-muted:#b4c3bd;--v7-accent:#d6b887;--v7-line:#b7ccb038}
+html.v7-experience .v7-meridian{--v7-bg:#102a2a;--v7-ink:#e9f1e9;--v7-muted:#b4c3bd;--v7-accent:#d6b887;--v7-line:#b7ccb038}
 .v7-meridian .v7-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:5vw}
 .v7-meridian .v7-copy{padding:60px 0}
 .v7-meridian .v7-title{font-size:clamp(68px,6.7vw,116px)}
@@ -112,7 +112,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-meridian .v7-caption-text{font-style:italic}
 
 /* 04 ОСЬ: immersive architecture cover, typography directly on photo */
-.v7-axis{--v7-bg:#101d29;--v7-ink:#fffaf4;--v7-muted:#d5dce0;--v7-accent:#f47b3c;--v7-line:#ffffff47}
+html.v7-experience .v7-axis{--v7-bg:#101d29;--v7-ink:#fffaf4;--v7-muted:#d5dce0;--v7-accent:#f47b3c;--v7-line:#ffffff47}
 .v7-axis .v7-grid{width:100%;min-height:840px;padding:0;display:block;position:relative}
 .v7-axis .v7-media{position:absolute;inset:0;min-height:0;border-radius:0;z-index:0}
 .v7-axis .v7-media::before{background:linear-gradient(90deg,#061523df 0%,#0615239e 43%,#0615231a 100%),linear-gradient(0deg,#071723a6,transparent 40%)}
@@ -125,7 +125,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-axis .v7-noise{display:none}
 
 /* 05 VERDICT: ink on paper, giant editorial typography */
-.v7-verdict{--v7-bg:#f0ede6;--v7-ink:#192622;--v7-muted:#485952;--v7-accent:#315047;--v7-line:#29392f40}
+html.v7-experience .v7-verdict{--v7-bg:#f0ede6;--v7-ink:#192622;--v7-muted:#485952;--v7-accent:#315047;--v7-line:#29392f40}
 .v7-verdict .v7-grid{grid-template-columns:minmax(0,1.26fr) minmax(0,.74fr);gap:3vw}
 .v7-verdict .v7-title{font:400 clamp(82px,8.4vw,145px)/.94 Georgia,serif;letter-spacing:-.065em}
 .v7-verdict .v7-title em{font-style:normal;color:#385849;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:11px}
@@ -137,7 +137,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-verdict .v7-noise{background:repeating-linear-gradient(0deg,transparent,transparent 55px,#22423413 56px)}
 
 /* 06 ATELIER: portrait on left, intentionally spacious cream editorial */
-.v7-atelier{--v7-bg:#f7f0e7;--v7-ink:#392b27;--v7-muted:#80695c;--v7-accent:#9b634d;--v7-line:#7d625c37}
+html.v7-experience .v7-atelier{--v7-bg:#f7f0e7;--v7-ink:#392b27;--v7-muted:#80695c;--v7-accent:#9b634d;--v7-line:#7d625c37}
 .v7-atelier .v7-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:6vw;min-height:810px}
 .v7-atelier .v7-media{grid-column:1;grid-row:1;min-height:700px;border-radius:260px 260px 4px 4px;object-position:top}
 .v7-atelier .v7-image{object-position:50% 25%}
@@ -149,7 +149,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-atelier .v7-caption-text{max-width:none}
 
 /* 07 MONOLITH: full-bleed architectural film frame with condensed headline */
-.v7-monolith{--v7-bg:#181917;--v7-ink:#fffdf7;--v7-muted:#ece5dc;--v7-accent:#f3dcc0;--v7-line:#ffffff52}
+html.v7-experience .v7-monolith{--v7-bg:#181917;--v7-ink:#fffdf7;--v7-muted:#ece5dc;--v7-accent:#f3dcc0;--v7-line:#ffffff52}
 .v7-monolith .v7-grid{width:100%;min-height:850px;display:block;position:relative;padding:0}
 .v7-monolith .v7-media{position:absolute;inset:0;border-radius:0;min-height:0}
 .v7-monolith .v7-media::before{background:linear-gradient(90deg,#161916c9,#1619166e 50%,#16191624),linear-gradient(0deg,#161916ad,transparent 60%)}
@@ -161,7 +161,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-monolith .v7-seal{top:50px}
 
 /* 08 LUMEN: art-film theatrical poster, centered typography */
-.v7-lumen{--v7-bg:#100e12;--v7-ink:#fff8e9;--v7-muted:#f0e1ca;--v7-accent:#e5bb75;--v7-line:#ffdfac52}
+html.v7-experience .v7-lumen{--v7-bg:#100e12;--v7-ink:#fff8e9;--v7-muted:#f0e1ca;--v7-accent:#e5bb75;--v7-line:#ffdfac52}
 .v7-lumen .v7-grid{width:100%;min-height:790px;padding:0;position:relative;display:flex;justify-content:center;align-items:center}
 .v7-lumen .v7-media{position:absolute;inset:0;border-radius:0;min-height:0;z-index:0}
 .v7-lumen .v7-image{filter:brightness(.54) saturate(.7)}
@@ -177,7 +177,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-lumen .v7-noise{display:none}
 
 /* 09 KINETIC: electric experimental exhibition poster */
-.v7-kinetic{--v7-bg:#cadf4a;--v7-ink:#171418;--v7-muted:#29242a;--v7-accent:#6025ad;--v7-line:#19171977}
+html.v7-experience .v7-kinetic{--v7-bg:#cadf4a;--v7-ink:#171418;--v7-muted:#29242a;--v7-accent:#6025ad;--v7-line:#19171977}
 .v7-kinetic .v7-rail{border-bottom:2px solid #191719}
 .v7-kinetic .v7-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:0;min-height:750px;padding:38px 0}
 .v7-kinetic .v7-copy{padding:20px 38px 20px 0;z-index:3}
@@ -191,7 +191,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-kinetic .v7-seal{background:#5420aa;color:#fff;border-color:#5420aa}
 
 /* 10 BLOOM: bright kids collage, organic photo framing */
-.v7-bloom{--v7-bg:#ffded1;--v7-ink:#384334;--v7-muted:#5d6657;--v7-accent:#e96e55;--v7-line:#b6756e54}
+html.v7-experience .v7-bloom{--v7-bg:#ffded1;--v7-ink:#384334;--v7-muted:#5d6657;--v7-accent:#e96e55;--v7-line:#b6756e54}
 .v7-bloom .v7-grid{grid-template-columns:minmax(0,.87fr) minmax(0,1.13fr);gap:5vw}
 .v7-bloom .v7-title{font:900 clamp(67px,7.4vw,125px)/.94 Arial,Helvetica,sans-serif;letter-spacing:-.078em}
 .v7-bloom .v7-title em{font-style:normal;color:#e76d54}
@@ -203,7 +203,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 .v7-bloom .v7-seal{display:none}
 
 /* 11 ЛАПКА: pet-first sage, warm serif note, humane CTA */
-.v7-lapka{--v7-bg:#f0efdf;--v7-ink:#304c36;--v7-muted:#607765;--v7-accent:#da806f;--v7-line:#728b734c}
+html.v7-experience .v7-lapka{--v7-bg:#f0efdf;--v7-ink:#304c36;--v7-muted:#607765;--v7-accent:#da806f;--v7-line:#728b734c}
 .v7-lapka .v7-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:5vw}
 .v7-lapka .v7-title{font:800 clamp(67px,7.3vw,119px)/.95 Arial,sans-serif;letter-spacing:-.065em}
 .v7-lapka .v7-title em{font-style:normal;color:#db7f70}
