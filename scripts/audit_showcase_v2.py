@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import http.server
+import re
 import json
 import threading
 from pathlib import Path
@@ -161,6 +162,20 @@ def test_wrappers(browser, base):
                 issues.append(f"{name}: full screen link missing or wrong")
             content = page.frame_locator("iframe.site-demo-frame")
             content.locator("body").wait_for(state="visible")
+            # Mobile navigation must open and close inside the embedded website.
+            menu = content.get_by_role("button", name=re.compile("меню", re.IGNORECASE))
+            nav = content.locator("header nav")
+            if menu.count() != 1 or not menu.first.is_visible() or nav.count() < 1:
+                issues.append(f"{name}: mobile navigation control is missing")
+            else:
+                menu.first.click(timeout=7500)
+                page.wait_for_timeout(90)
+                if "open" not in (nav.first.get_attribute("class") or "").split():
+                    issues.append(f"{name}: mobile menu does not open")
+                menu.first.click(timeout=7500)
+                page.wait_for_timeout(90)
+                if "open" in (nav.first.get_attribute("class") or "").split():
+                    issues.append(f"{name}: mobile menu does not close")
             page.wait_for_function(
                 """() => {
                   const frame=document.querySelector('iframe.site-demo-frame');
