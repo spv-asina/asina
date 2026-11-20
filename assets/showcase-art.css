@@ -372,3 +372,16 @@ html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg
     min-height:365px!important
   }
 }
+
+
+/* Visual QA: KINETIC is image-led but its long display headline must fit. */
+@media(min-width:1101px){
+ html[data-spv-showcase=kinetic] .k-hero-grid>.k-hero-copy{
+   min-width:0;padding:48px 0 48px clamp(20px,2.7vw,44px)!important
+ }
+ html[data-spv-showcase=kinetic] .k-hero-grid>.k-hero-copy h1{
+   max-width:100%;font-size:clamp(43px,4.5vw,66px)!important;
+   line-height:1.01!important;letter-spacing:-.052em!important;
+   overflow-wrap:break-word!important;word-break:normal!important
+ }
+}
