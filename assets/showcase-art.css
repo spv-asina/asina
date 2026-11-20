@@ -207,3 +207,155 @@ html[data-spv-showcase=monolith] .spv-photo-story{background:linear-gradient(135
 html[data-spv-showcase=kinetic] .spv-photo-story{background:linear-gradient(135deg,#6946b5,#1c113c)}
 html[data-spv-showcase=bloom] .spv-photo-story{background:linear-gradient(135deg,#28746a,#d48b6e)}
 html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg,#89713c,#2d262a)}
+
+
+/*
+ * v4 / Distinct editorial layouts.
+ * BLOOM and ATELIER are image-led from the left; KINETIC is a wide visual
+ * exhibition poster. At mobile widths the reading order stays natural.
+ */
+@media(min-width:1101px){
+  html[data-spv-showcase=bloom] .bl-hero-grid{
+    grid-template-columns:minmax(0,1.09fr) minmax(0,.91fr)!important;
+    gap:clamp(50px,5vw,92px)!important;
+  }
+  html[data-spv-showcase=bloom] .bl-hero-grid>.bl-atlas{
+    grid-column:1;grid-row:1
+  }
+  html[data-spv-showcase=bloom] .bl-hero-grid>.bl-hero-copy{
+    grid-column:2;grid-row:1
+  }
+  html[data-spv-showcase=atelier] .hero__grid{
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
+    gap:clamp(38px,4vw,74px)!important;
+  }
+  html[data-spv-showcase=atelier] .hero__grid>.scan{
+    grid-column:1;grid-row:1
+  }
+  html[data-spv-showcase=atelier] .hero__grid>.reveal:not(.scan){
+    grid-column:2;grid-row:1;align-self:center
+  }
+  html[data-spv-showcase=kinetic] .k-hero-grid{
+    grid-template-columns:minmax(0,1.23fr) minmax(0,.77fr)!important;
+  }
+  html[data-spv-showcase=kinetic] .k-hero-grid>.k-signal-field{
+    grid-column:1;grid-row:1;min-height:700px
+  }
+  html[data-spv-showcase=kinetic] .k-hero-grid>.k-hero-copy{
+    grid-column:2;grid-row:1;padding:64px 0 64px clamp(28px,4vw,74px)
+  }
+  html[data-spv-showcase=kinetic] .spv-photo-host{
+    border-radius:0
+  }
+  html[data-spv-showcase=lapka] .lap-hero-grid{
+    grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr)!important;
+    gap:clamp(35px,4vw,75px)!important
+  }
+  html[data-spv-showcase=aeris] .aer-hero-grid{
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important
+  }
+}
+
+/*
+ * Mobile first-screen treatment: reduce oversized 0.85-line-height headlines,
+ * keep both real CTAs, bring the photographic story further into view.
+ */
+@media(max-width:760px){
+  html[data-spv-showcase=lexforma] .lex-hero-grid{
+    min-height:auto!important;padding:25px 0 28px!important;gap:16px!important
+  }
+  html[data-spv-showcase=lexforma] .lex-hero-copy h1{
+    font-size:clamp(36px,10.5vw,45px)!important;line-height:1.01!important
+  }
+  html[data-spv-showcase=lexforma] .lex-hero-bottom{
+    margin-top:18px!important;gap:13px!important
+  }
+  html[data-spv-showcase=aeris] .aer-hero-grid{
+    padding:25px 0 26px!important;gap:16px!important
+  }
+  html[data-spv-showcase=aeris] .aer-hero h1{
+    font-size:clamp(36px,10.4vw,44px)!important;line-height:1.02!important;
+    margin:12px 0 16px!important
+  }
+  html[data-spv-showcase=meridian] .mer-hero-grid{
+    padding:25px 0 27px!important;gap:17px!important
+  }
+  html[data-spv-showcase=meridian] .mer-hero h1{
+    font-size:clamp(37px,10.6vw,45px)!important;line-height:1.03!important;
+    margin:13px 0 17px!important
+  }
+  html[data-spv-showcase=axis] .axis-hero-grid{
+    padding:25px 0 26px!important;gap:16px!important
+  }
+  html[data-spv-showcase=axis] .axis-hero-copy h1{
+    font-size:clamp(42px,12vw,54px)!important;line-height:.98!important
+  }
+  html[data-spv-showcase=atelier] .hero{
+    padding:25px 0 25px!important
+  }
+  html[data-spv-showcase=atelier] .hero__grid{
+    gap:17px!important
+  }
+  html[data-spv-showcase=atelier] .hero h1{
+    font-size:clamp(36px,10.4vw,45px)!important;line-height:1.03!important;
+    margin-top:14px!important
+  }
+  html[data-spv-showcase=monolith] .m-hero-grid{
+    padding:26px 0 27px!important;gap:16px!important
+  }
+  html[data-spv-showcase=monolith] .m-hero-copy h1{
+    font-size:clamp(38px,10.7vw,47px)!important;line-height:1.04!important
+  }
+  html[data-spv-showcase=kinetic] .k-hero-copy{
+    padding:26px 0 25px!important
+  }
+  html[data-spv-showcase=kinetic] .k-hero-copy h1{
+    font-size:clamp(43px,12vw,52px)!important;line-height:.96!important
+  }
+  html[data-spv-showcase=bloom] .bl-hero-grid{
+    padding:25px 0 27px!important;gap:16px!important
+  }
+  html[data-spv-showcase=bloom] .bl-hero h1{
+    font-size:clamp(42px,11.7vw,52px)!important;line-height:1!important
+  }
+  html[data-spv-showcase=lapka] .lap-hero-grid{
+    padding:25px 0 27px!important;gap:17px!important
+  }
+  html[data-spv-showcase=lapka] .lap-hero h1{
+    font-size:clamp(40px,11.4vw,51px)!important;line-height:1.01!important
+  }
+  html[data-spv-showcase=verdict] .verdict-hero-grid{
+    padding:29px 0 26px!important;gap:18px!important
+  }
+  html[data-spv-showcase=verdict] .verdict-hero h1{
+    font-size:clamp(36px,10.3vw,48px)!important;line-height:1.02!important
+  }
+  html[data-spv-showcase] .spv-photo-host{
+    min-height:365px!important
+  }
+  html[data-spv-showcase=lexforma] .lex-case-board,
+  html[data-spv-showcase=aeris] .aer-twin,
+  html[data-spv-showcase=meridian] .mer-capital-map,
+  html[data-spv-showcase=axis] .axis-drawing,
+  html[data-spv-showcase=atelier] .scan,
+  html[data-spv-showcase=monolith] .m-hero-model,
+  html[data-spv-showcase=kinetic] .k-signal-field,
+  html[data-spv-showcase=bloom] .bl-atlas,
+  html[data-spv-showcase=lapka] .lap-record{
+    min-height:365px!important
+  }
+  html[data-spv-showcase] .spv-photo-story{
+    padding:clamp(19px,5vw,25px)!important
+  }
+  html[data-spv-showcase] .spv-photo-story__title{
+    font-size:clamp(31px,8.5vw,41px)!important;
+    line-height:1.02!important
+  }
+  html[data-spv-showcase] .spv-photo-story__note{
+    margin:12px 0 14px!important;
+    font-size:13px!important
+  }
+  html[data-spv-showcase] .spv-photo-story__action{
+    min-height:44px!important
+  }
+}
