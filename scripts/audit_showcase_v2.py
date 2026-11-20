@@ -60,6 +60,10 @@ def run_engine(browser, base: str, engine: str):
                   documentWidth: document.documentElement.scrollWidth,
                   bodyText: document.body.innerText.length,
                   heading: (document.querySelector('h1')?.innerText || '').slice(0, 150),
+                  headlineOverflow: (() => {
+                    const h = document.querySelector('h1');
+                    return h ? Math.max(0, Math.round(h.scrollWidth-h.clientWidth)) : 0;
+                  })(),
                   brand: document.documentElement.dataset.spvShowcase,
                   cssLoaded: Array.from(document.styleSheets).some(sheet =>
                     sheet.href && sheet.href.includes('showcase-editorial.css')),
@@ -103,6 +107,8 @@ def run_engine(browser, base: str, engine: str):
                         issues.append("mobile photo height outside compact cover bounds")
                 if not metrics["heading"]:
                     issues.append("the landing page has no visible headline")
+                if metrics["headlineOverflow"] > 6:
+                    issues.append("headline text is clipped by %dpx" % metrics["headlineOverflow"])
                 if metrics["links"] + metrics["buttons"] < 4:
                     issues.append("not enough working interface entry points")
                 if metrics["documentWidth"] > width + 4:
