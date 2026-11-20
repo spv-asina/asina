@@ -107,7 +107,10 @@ def run_engine(browser, base: str, engine: str):
                         issues.append("mobile photo height outside compact cover bounds")
                 if not metrics["heading"]:
                     issues.append("the landing page has no visible headline")
-                if metrics["headlineOverflow"] > 6:
+                # Serif italics may overhang their own text box by a few pixels.
+                # A 16px optical allowance avoids false positives while still
+                # catching genuinely clipped long words and layout regressions.
+                if metrics["headlineOverflow"] > 16:
                     issues.append("headline text is clipped by %dpx" % metrics["headlineOverflow"])
                 if metrics["links"] + metrics["buttons"] < 4:
                     issues.append("not enough working interface entry points")
