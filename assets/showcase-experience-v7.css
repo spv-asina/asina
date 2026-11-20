@@ -94,7 +94,7 @@ html.v7-experience .v7-hero :is(h1,p,figure){margin:0}
 /* 02 AERIS: clinical editorial with blue quiet space and wide panoramic image */
 .v7-aeris{--v7-bg:#f3f6f8;--v7-ink:#1c2e3b;--v7-muted:#547083;--v7-accent:#2c61b6;--v7-line:#557c912e}
 .v7-aeris .v7-grid{grid-template-columns:minmax(0,.80fr) minmax(0,1.2fr);gap:4vw;min-height:760px}
-.v7-aeris .v7-title{font-family:Georgia,serif;font-size:clamp(61px,6.3vw,110px)}
+.v7-aeris .v7-title{font-family:Georgia,serif;font-size:clamp(52px,5.1vw,84px)}
 .v7-aeris .v7-media{min-height:660px;border-radius:0 0 190px 0;filter:saturate(.65)}
 .v7-aeris .v7-btn-secondary{border-color:#7899b6}
 .v7-aeris .v7-btn-primary{color:white!important}
@@ -367,4 +367,11 @@ html.v7-experience .v7-original-hero.v7-show-demo .v7-model-node .spv-photo-stor
 }
 @media(prefers-reduced-motion:reduce){
  html.v7-experience .v7-hero *,html.v7-experience .v7-hero *::before{transition:none!important;animation:none!important}
+}
+/* V7 visual regression: keep model controls above full-bleed original canvases. */
+html.v7-experience .v7-original-hero.v7-show-demo .v7-demo-bar{
+  position:relative!important;z-index:2147483000!important;isolation:isolate;
+}
+html.v7-experience .v7-original-hero.v7-show-demo .v7-demo-close{
+  position:relative;z-index:2147483001;pointer-events:auto
 }
