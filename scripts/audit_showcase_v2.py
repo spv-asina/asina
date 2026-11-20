@@ -68,6 +68,16 @@ def run_engine(browser, base: str, engine: str):
                   heroMode: document.querySelector('.spv-photo-host')?.dataset.spvHeroMode || '',
                   photoImage: document.querySelector('.spv-photo-story__image')?.getAttribute('src') || '',
                   photoPixels: document.querySelector('.spv-photo-story__image')?.naturalWidth || 0,
+                  photoSrcset: document.querySelector('.spv-photo-story__image')?.getAttribute('srcset') || '',
+                  photoLoading: document.querySelector('.spv-photo-story__image')?.loading || '',
+                  photoHeight: Math.round(document.querySelector('.spv-photo-host')?.getBoundingClientRect().height || 0),
+                  ambientPhoto: (() => {
+                    const map={lexforma:'.lex-hero',aeris:'.aer-hero',meridian:'.mer-hero',
+                      axis:'.axis-hero',atelier:'.hero',monolith:'.m-hero',kinetic:'.k-hero',
+                      bloom:'.bl-hero',lapka:'.lap-hero'};
+                    const el=document.querySelector(map[document.documentElement.dataset.spvShowcase]||'__none__');
+                    return el ? getComputedStyle(el,'::before').backgroundImage.includes('images.unsplash.com') : false;
+                  })(),
                   links: document.querySelectorAll('a[href]').length,
                   buttons: document.querySelectorAll('button').length,
                   fields: document.querySelectorAll('input,select,textarea').length,
@@ -83,6 +93,13 @@ def run_engine(browser, base: str, engine: str):
                     issues.append("photographic cover did not mount")
                 if name in PHOTO_SITES and not metrics["photoImage"].startswith("https://images.unsplash.com/"):
                     issues.append("photographic asset is not assigned")
+                if name in PHOTO_SITES:
+                    if metrics["ambientPhoto"]:
+                        issues.append("secondary full-sized photographic hero is still downloaded")
+                    if metrics["photoLoading"] != "lazy" or metrics["photoSrcset"].count("w,") < 3:
+                        issues.append("responsive lazy image delivery is not configured")
+                    if width in (320, 390) and not (360 <= metrics["photoHeight"] <= 410):
+                        issues.append("mobile photo height outside compact cover bounds")
                 if not metrics["heading"]:
                     issues.append("the landing page has no visible headline")
                 if metrics["links"] + metrics["buttons"] < 4:
@@ -103,6 +120,10 @@ def run_engine(browser, base: str, engine: str):
                             issues.append("photo-to-model switch failed")
                         if page.locator(".spv-photo-story__back").is_hidden():
                             issues.append("back-to-photo control invisible in model mode")
+                        if page.locator(".spv-photo-host").evaluate(
+                            "el => getComputedStyle(el).maxHeight"
+                        ) == "390px":
+                            issues.append("model mode is still clipped to cover height")
                         page.locator(".spv-photo-story__back").click(timeout=7000)
                         if page.locator(".spv-photo-host").get_attribute("data-spv-hero-mode") != "photo":
                             issues.append("model-to-photo switch failed")
@@ -162,10 +183,22 @@ def test_wrappers(browser, base):
     page = browser.new_page(viewport={"width": 390, "height": 860})
     try:
         page.goto(base + "/cases.html", wait_until="domcontentloaded")
+        photo_urls = []
         for name in SITES:
             link = page.locator(f'.portfolio-card--site > a.site-card-direct[href="./showcase/{name}.html"]')
             if link.count() != 1:
                 issues.append(f"{name}: catalogue direct link is missing")
+            image = page.locator(
+                f'.portfolio-card--site a[href="./case-site-{name}.html"] img.portfolio-card__preview'
+            )
+            if image.count() != 1 or image.get_attribute("loading") != "lazy":
+                issues.append(f"{name}: native lazy-loaded preview missing")
+            else:
+                photo_urls.append(image.get_attribute("src"))
+                if image.get_attribute("srcset") is None:
+                    issues.append(f"{name}: responsive preview srcset missing")
+        if len(set(photo_urls)) != len(SITES):
+            issues.append("the catalogue repeats photographic assets across brands")
         if page.locator(".site-card-direct").count() != len(SITES):
             issues.append("the catalogue does not have exactly 11 standalone links")
     finally:
