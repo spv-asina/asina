@@ -168,13 +168,19 @@ def test_wrappers(browser, base):
             if menu.count() != 1 or not menu.first.is_visible() or nav.count() < 1:
                 issues.append(f"{name}: mobile navigation control is missing")
             else:
+                # Preact templates use both 'open' and 'is-open'; check the
+                # actual expanded ARIA state and the corresponding nav state.
+                def menu_is_open():
+                    classes = (nav.first.get_attribute("class") or "").split()
+                    expanded = menu.first.get_attribute("aria-expanded")
+                    return expanded == "true" or "open" in classes or "is-open" in classes
                 menu.first.click(timeout=7500)
                 page.wait_for_timeout(90)
-                if "open" not in (nav.first.get_attribute("class") or "").split():
+                if not menu_is_open():
                     issues.append(f"{name}: mobile menu does not open")
                 menu.first.click(timeout=7500)
                 page.wait_for_timeout(90)
-                if "open" in (nav.first.get_attribute("class") or "").split():
+                if menu_is_open():
                     issues.append(f"{name}: mobile menu does not close")
             page.wait_for_function(
                 """() => {
