@@ -68,6 +68,9 @@
 
   function init() {
     moveDemoNotice();
+    // The bespoke v7 page handles the main visual itself. Do not attach a
+    // redundant second photo on top of its original interactive model.
+    if (document.querySelector('script[src*="showcase-experience-v7.js"]')) return;
     if (!preset) return;
     var host = document.querySelector(preset.target);
     if (!host || host.querySelector('.spv-photo-story')) return;
