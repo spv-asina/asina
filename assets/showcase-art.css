@@ -385,3 +385,29 @@ html[data-spv-showcase=lapka] .spv-photo-story{background:linear-gradient(135deg
    overflow-wrap:break-word!important;word-break:normal!important
  }
 }
+
+
+/* Visual QA: long Russian display words must fit without clipping or
+   breaking into individual letters. The measured baseline is 320/390/1440px. */
+@media(min-width:761px){
+ html[data-spv-showcase=aeris] .aer-hero h1{
+   font-size:clamp(50px,4.9vw,74px)!important;line-height:.99!important
+ }
+ html[data-spv-showcase=monolith] .m-hero-copy h1{
+   font-size:clamp(56px,5.9vw,90px)!important;line-height:1!important
+ }
+ html[data-spv-showcase=verdict] .verdict-hero h1{
+   font-size:clamp(54px,7.3vw,108px)!important;line-height:1!important
+ }
+}
+@media(max-width:760px){
+ html[data-spv-showcase=aeris] .aer-hero h1{
+   font-size:clamp(27px,8vw,33px)!important;line-height:1.06!important
+ }
+ html[data-spv-showcase=monolith] .m-hero-copy h1{
+   font-size:clamp(33px,9.4vw,39px)!important;line-height:1.04!important
+ }
+ html[data-spv-showcase=verdict] .verdict-hero h1{
+   font-size:clamp(33px,9.5vw,42px)!important;line-height:1.04!important
+ }
+}
