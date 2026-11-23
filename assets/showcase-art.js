@@ -10,7 +10,7 @@
     aeris: {
       target: '.aer-twin', title: 'Точность в деталях.', kicker: 'AERIS / DENTAL',
       note: 'Здоровье, эстетика и уверенность в результате.', action: 'Показать цифровую модель',
-      photo: 'photo-1606811971618-4486d14f3f99'
+      photo: 'photo-1704455306251-b4634215d98f'
     },
     meridian: {
       target: '.mer-capital-map', title: 'Думать на годы вперёд.', kicker: 'MERIDIAN / PRIVATE CAPITAL',
@@ -25,7 +25,7 @@
     atelier: {
       target: '.scan', title: 'Эстетика без компромиссов.', kicker: 'ATELIER DENTAIRE',
       note: 'Индивидуальный подход от диагностики до результата.', action: 'Показать цифровую модель',
-      photo: 'photo-1675526607070-f5cbd71dde92'
+      photo: 'photo-1745434159123-5b99b94206ca'
     },
     monolith: {
       target: '.m-hero-model', title: 'Жить в своём пространстве.', kicker: 'MONOLITH / ARCHITECTS',
@@ -45,7 +45,7 @@
     lapka: {
       target: '.lap-record', title: 'Забота — в каждом прикосновении.', kicker: 'ЛАПКА / VET CLINIC',
       note: 'Помогаем питомцам чувствовать себя лучше.', action: 'Посмотреть карту визита',
-      photo: 'photo-1517849845537-4d257902454a'
+      photo: 'photo-1556647034-7aa9a4ea7437'
     }
   };
   var brand = document.documentElement.getAttribute('data-spv-showcase');
@@ -68,6 +68,9 @@
 
   function init() {
     moveDemoNotice();
+    // The bespoke v7 page handles the main visual itself. Do not attach a
+    // redundant second photo on top of its original interactive model.
+    if (document.querySelector('script[src*="showcase-experience-v7.js"]')) return;
     if (!preset) return;
     var host = document.querySelector(preset.target);
     if (!host || host.querySelector('.spv-photo-story')) return;
@@ -77,9 +80,16 @@
     var poster = make('div', 'spv-photo-story');
     var image = make('img', 'spv-photo-story__image');
     image.alt = '';
-    image.loading = 'eager';
+    // Responsive, lazy delivery: a 390 px phone should not download a 1400 px hero.
+    // The semantic content and working model are available even if CDN imagery fails.
+    image.loading = 'lazy';
     image.decoding = 'async';
-    image.src = 'https://images.unsplash.com/' + preset.photo + '?auto=format&fit=crop&w=1400&q=84';
+    var photoBase = 'https://images.unsplash.com/' + preset.photo + '?auto=format&fit=crop';
+    image.sizes = '(max-width: 760px) calc(100vw - 28px), (max-width: 1200px) 48vw, 680px';
+    image.srcset = [480, 760, 1100, 1500].map(function(width) {
+      return photoBase + '&w=' + width + '&q=76 ' + width + 'w';
+    }).join(', ');
+    image.src = photoBase + '&w=1100&q=78';
     image.addEventListener('error', function () {
       poster.classList.add('spv-photo-story--fallback');
     }, {once: true});

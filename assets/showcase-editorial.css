@@ -176,3 +176,38 @@ html[data-spv-showcase=lapka] .lap-record{box-shadow:0 22px 65px rgba(89,55,47,.
     scroll-behavior:auto!important
   }
 }
+
+
+/*
+ * v4 / Reduce duplicated above-the-fold photographic downloads.
+ * Nine brands render one responsive image inside .spv-photo-story.
+ * Hero ambient layers use brand-coloured CSS gradients, not another full-sized
+ * Unsplash photograph. LUMEN and VERDICT keep their single image-backed stage.
+ */
+html[data-spv-showcase=lexforma] .lex-hero::before{
+  background:radial-gradient(ellipse at 85% 36%,rgba(96,82,90,.28),transparent 67%)!important;
+}
+html[data-spv-showcase=aeris] .aer-hero::before{
+  background:radial-gradient(ellipse at 88% 29%,rgba(160,198,212,.42),transparent 66%)!important;
+}
+html[data-spv-showcase=meridian] .mer-hero::before{
+  background:radial-gradient(ellipse at 90% 30%,rgba(173,172,132,.29),transparent 64%)!important;
+}
+html[data-spv-showcase=axis] .axis-hero::before{
+  background:radial-gradient(ellipse at 80% 35%,rgba(71,109,139,.42),transparent 68%)!important;
+}
+html[data-spv-showcase=atelier] .hero::before{
+  background:radial-gradient(ellipse at 82% 25%,rgba(181,151,126,.26),transparent 66%)!important;
+}
+html[data-spv-showcase=monolith] .m-hero::before{
+  background:radial-gradient(ellipse at 88% 28%,rgba(140,135,115,.24),transparent 66%)!important;
+}
+html[data-spv-showcase=kinetic] .k-hero::before{
+  background:radial-gradient(ellipse at 90% 30%,rgba(131,105,186,.24),transparent 62%)!important;
+}
+html[data-spv-showcase=bloom] .bl-hero::before{
+  background:radial-gradient(ellipse at 90% 28%,rgba(240,163,110,.24),transparent 63%)!important;
+}
+html[data-spv-showcase=lapka] .lap-hero::before{
+  background:radial-gradient(ellipse at 86% 30%,rgba(196,172,104,.24),transparent 63%)!important;
+}
