@@ -1,4 +1,4 @@
-name: 11 standalone showcase websites — responsive QA
+name: 11 bespoke showcase websites — visual and interaction QA
 on:
   push:
     branches: ['feat/showcase-sites-rework-20261116']
@@ -8,8 +8,9 @@ on:
       - 'showcase/**'
       - 'assets/showcase-*.css'
       - 'assets/showcase-art.js'
+      - 'assets/showcase-experience-v7.js'
       - 'assets/site-demo-controls.js'
-      - 'scripts/audit_showcase_v2.py'
+      - 'scripts/audit_showcase_v7.py'
       - '.github/workflows/showcase-sites.yml'
 permissions:
   contents: read
@@ -26,12 +27,12 @@ jobs:
         run: |
           python -m pip install playwright
           python -m playwright install --with-deps chromium webkit
-      - name: Test eleven working websites and embedded previews
-        run: python scripts/audit_showcase_v2.py
+      - name: Test eleven distinct creative homepages and preserved interactive widgets
+        run: python scripts/audit_showcase_v7.py
       - name: Upload design review screenshots and test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: showcase-11-websites-review
-          path: artifacts/showcase-v2/
+          name: showcase-11-unique-experiences
+          path: artifacts/showcase-v7/
           if-no-files-found: warn
