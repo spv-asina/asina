@@ -1,0 +1,27 @@
+
+/* Device-size switcher for the eleven existing interactive site iframes. */
+.site-demo-devicebar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#f8f3fa;border-bottom:1px solid #d9c7df;padding:12px 16px;font-family:'Comfortaa',system-ui,sans-serif}
+.site-demo-devicebar__label{color:#634d6b;font-size:11px;font-weight:700}
+.site-demo-devicebar__actions{display:flex;gap:7px;flex-wrap:wrap}
+.site-demo-devicebar button{font:700 11px/1.3 'Comfortaa',system-ui,sans-serif;min-height:40px;border:1px solid #cbb4d5;border-radius:10px;background:#fff;color:#57316d;padding:9px 12px;cursor:pointer}
+.site-demo-devicebar button[aria-pressed=true]{color:#fff;background:linear-gradient(135deg,#512965,#85509f);border-color:#6f3d8f}
+.site-demo-devicebar button:focus-visible{outline:3px solid #a67ac1;outline-offset:3px}
+.site-demo-shell .site-demo-frame{max-width:100%;margin-left:auto;margin-right:auto;transition:width .25s ease}
+.site-demo-shell .site-demo-frame[data-device=phone]{width:390px;box-shadow:-6px 0 0 #eadfeb,6px 0 0 #eadfeb}
+@media(max-width:760px){.site-demo-devicebar{padding:10px 12px}.site-demo-devicebar__label{width:100%}.site-demo-devicebar__actions{width:100%}.site-demo-devicebar button{flex:1;padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){.site-demo-shell .site-demo-frame{transition:none}}
+
+
+/* One-line device controls on mobile: maximize visible preview, preserve 44px touch targets. */
+.site-demo-devicebar{padding:10px 14px;background:#f7f2f9}
+.site-demo-devicebar__label{font-size:12px;letter-spacing:.015em}
+.site-demo-devicebar__actions{gap:6px}
+.site-demo-devicebar button{min-height:44px;font-size:12px;padding:9px 13px}
+.site-demo-shell .site-demo-frame{display:block}
+@media(max-width:760px){
+ .site-demo-devicebar{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:7px;background:#f8f3fa}
+ .site-demo-devicebar__label{display:none}
+ .site-demo-devicebar__actions{display:grid;width:100%;grid-template-columns:1fr 1fr .82fr;gap:6px}
+ .site-demo-devicebar button{width:100%;min-width:0;min-height:44px;padding:9px 6px;font-size:12px;border-radius:9px}
+ .site-demo-shell .site-demo-frame[data-device=phone]{box-shadow:none}
+}
