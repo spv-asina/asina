@@ -234,7 +234,9 @@ def compare_desktop(browser, base, baseline):
     a = browser.new_page(viewport={"width": 1440, "height": 900}, reduced_motion="reduce")
     b = browser.new_page(viewport={"width": 1440, "height": 900}, reduced_motion="reduce")
     try:
-        for path in ("index.html", "cases.html", "services.html", "contacts.html", "case-pip.html", "case-site-atelier.html"):
+        # Showcase layouts intentionally change on desktop in PR #5. Preserve the
+        # strict desktop parity gate for unrelated portfolio and product pages.
+        for path in ("index.html", "cases.html", "services.html", "contacts.html", "case-pip.html"):
             a.goto(base + "/" + path, wait_until="domcontentloaded")
             b.goto(baseline + "/" + path, wait_until="domcontentloaded")
             a.wait_for_timeout(70); b.wait_for_timeout(70)

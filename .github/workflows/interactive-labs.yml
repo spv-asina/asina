@@ -10,6 +10,9 @@ on:
       - 'scripts/audit_interactive_labs.py'
       - 'scripts/audit_mobile_journey.py'
       - 'assets/site-demo-controls.*'
+      - 'showcase/**'
+      - 'assets/showcase-*'
+      - 'scripts/audit_showcase_v2.py'
       - '.github/workflows/interactive-labs.yml'
 permissions:
   contents: read

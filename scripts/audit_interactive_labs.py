@@ -78,8 +78,23 @@ def main():
                         if width in (390, 1440):
                             page.locator(".site-demo-shell").screenshot(path=str(OUT / (path.stem+"-"+str(width)+".png")), timeout=20000)
                         if width == 390:
-                            # Verify at least one real control in the embedded page, not just the iframe wrapper.
-                            toggles = content.locator("button[aria-expanded]")
+                            # New creative homepage retains an explicit way to reveal
+                            # the previously implemented, fully interactive product.
+                            v7 = content.locator("[data-v7-hero]")
+                            if v7.count() == 1:
+                                reveal = v7.locator("[data-v7-open]")
+                                if reveal.count() == 1:
+                                    reveal.click(timeout=7500)
+                                    if content.locator(".v7-original-hero").is_hidden():
+                                        row["errors"].append("v7 did not reveal original model")
+                            else:
+                                photo_switch = content.locator(".spv-photo-story__action")
+                                if photo_switch.count() == 1:
+                                    photo_switch.click(timeout=7500)
+                                    if content.locator(".spv-photo-host").get_attribute("data-spv-hero-mode") != "model":
+                                        row["errors"].append("photo cover did not reveal original model")
+                            # Verify an actual control within the embedded site.
+                            toggles = content.locator("button[aria-expanded]:not([data-v7-open])")
                             verified = False
                             for j in range(min(4, toggles.count())):
                                 btn = toggles.nth(j)
